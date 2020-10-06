@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="css/all.css">
+  <title>Aluno</title>
+
+</head>
+
+<body>
+  <div id="wrapper">
+
+    <!---->
+    <nav id="nav-off">
+
+      <div class="logo">
+        <a href="">
+          <img src="img/log.jpg" alt="logo">
+        </a>
+      </div>
+
+      <ul>
+        <li>
+          <a href="index.html" class="active">
+            <span><i class="fas fa-home"></i></span>
+            <span>Aluno</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="page/aluno/perfil.html">
+            <span><i class="fas fa-user"></i></span>
+            <span>Perfil</span>
+          </a>
+        </li>
+        <li>
+          <a href="page/aluno/consulta.html">
+            <span><i class="fas fa-calendar-alt"></i></span>
+            <span>Consulta de nota</span>
+          </a>
+        </li>
+        <li>
+          <a href="page/aluno/troca.html">
+            <span><i class="fas fa-envelope"></i></span>
+            <span>Troca de curso</span>
+          </a>
+        </li>
+        <li>
+          <a href="page/aluno/reclamacao.html">
+            <span><i class="fas fa-book"></i></span>
+            <span>Reclamação</span>
+          </a>
+        </li>
+
+      </ul>
+    </nav>
+    <!---->
+    <div id="content-wrapper" class="d-flex">
+      <div id="content">
+        <div class="header">
+          <a href="#">
+            <i id="hamburger" class="fas fa-bars header-item"></i>
+          </a>
+          <a href="#" class="header-item">Logout</a>
+        </div>
+
+        <div class="container">
+          <div class="main">
+            <div class="row gb">
+              <div class="col col-2">
+                <div class="noticia">
+                  <i class="fas fa-user"></i>
+                  <h2>Perfil</h2>
+                  <p>
+                    Visualize As Tuas Informações Academicas
+                    Podendo Também Fazer A Alteração Das Tuas Credências...
+                  </p>
+                  <a href="">Aceder</a>
+                </div>
+              </div>
+
+              <div class="col col-2">
+                <div class="noticia">
+                  <i class="fas fa-calendar-alt"></i>
+                  <h2>Consulta de nota</h2>
+                  <p>
+                    De Uma Forma Mais Simples e Eficaz Faz a Consulta Das Tuas Notas Podendo Assim Visualizar Notas Do
+                    Iº, IIº e IIIº Trimestre...
+                  </p>
+                  <a href="">Aceder</a>
+                </div>
+
+              </div>
+
+              <div class="col col-2">
+                <div class="noticia">
+                  <i class="fas fa-envelope"></i>
+                  <h2>Troca de Curso</h2>
+                  <p>
+                    Nem Sempre, Mais a Casos Em Que Alunos Fazem a Incrição Em Um Determinado Curso E o Nome Sai Em Um
+                    Outro Curso, Se É o Teu Caso Temos a solução Pra Ti...
+                  </p>
+                  <a href="">Aceder</a>
+                </div>
+              </div>
+
+              <div class="col col-2">
+                <div class="noticia">
+                  <i class="fas fa-book"></i>
+                  <h2>Reclamação</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales sapien magna, quis congue
+                    augue
+                  </p>
+                  <a href="">Aceder</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container">
+          <div>
+            <a href="#">Copyright &copy; ABDJAM 2020. Todos direitos reservados</a>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+    </div>
+  </div>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navOff = document.getElementById('nav-off');
+    hamburger.addEventListener('click', function () {
+      navOff.classList.toggle('hamburger');
+    })
+  </script>
+</body>
+
+</html>

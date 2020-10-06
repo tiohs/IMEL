@@ -1,0 +1,74 @@
+/*table*/
+table {
+  font-family: sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #ccc;
+  padding: 1px;
+}
+
+td{text-align: center;}
+
+th {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+#open {
+  cursor: pointer;
+}
+
+#open i{
+  color: blue;
+}
+
+/**/
+.card{
+  padding: 20px;
+  text-align: center;
+  background-color: #fff;
+  /* width: 300px; */
+  border-radius: 5px;
+  border-left: 3px solid blue;
+  cursor: pointer;
+  margin: 10px;
+  box-shadow: 0px 0px 20px rgba(104, 71, 71, 0.2);
+}
+.card.df{border-left: 3px solid red;}
+
+.i-t{
+  display: block;
+}
+.i-t.disp{
+  display: none;
+}
+
+.i-t2{
+  display: none;
+}
+.i-t2.disp{
+  display: block;
+}
+
+.i-t3{
+  display: none;
+}
+.i-t3.disp{
+  display: block;
+}
+
+@media (max-width: 1040px){
+  table{
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+  }
+}

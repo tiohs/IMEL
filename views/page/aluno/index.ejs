@@ -4,9 +4,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="fontawesome-free/css/all.min.css">
-  <link rel="stylesheet" href="css/all.css">
+  <link rel="stylesheet" href="../../fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../../css/all.css">
   <title>Aluno</title>
+  <style>
+    
+
+
+    .badge {
+      color: #fff;
+      background-color: #e74a3b;
+      display: inline-block;
+      padding: .25em .4em;
+      font-size: 75%;
+      font-weight: 700;
+      line-height: 1;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: baseline;
+      border-radius: .35rem;
+      transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+      position: absolute;
+      transform: scale(.7);
+      transform-origin: top right;
+      right: 102px;
+      margin-top: -.25rem;
+    }
+
+    .header-item a{
+      margin-left: 20px;
+    }
+
+
+  </style>
 
 </head>
 
@@ -18,7 +48,7 @@
 
       <div class="logo">
         <a href="">
-          <img src="img/log.jpg" alt="logo">
+          <img src="../../img/log.jpg" alt="logo">
         </a>
       </div>
 
@@ -31,25 +61,25 @@
         </li>
 
         <li>
-          <a href="page/aluno/perfil.html">
+          <a href="perfil.html">
             <span><i class="fas fa-user"></i></span>
             <span>Perfil</span>
           </a>
         </li>
         <li>
-          <a href="page/aluno/consulta.html">
+          <a href="consulta.html">
             <span><i class="fas fa-calendar-alt"></i></span>
             <span>Consulta de nota</span>
           </a>
         </li>
         <li>
-          <a href="page/aluno/troca.html">
+          <a href="troca.html">
             <span><i class="fas fa-envelope"></i></span>
             <span>Troca de curso</span>
           </a>
         </li>
         <li>
-          <a href="page/aluno/reclamacao.html">
+          <a href="reclamacao.html">
             <span><i class="fas fa-book"></i></span>
             <span>Reclamação</span>
           </a>
@@ -62,9 +92,18 @@
       <div id="content">
         <div class="header">
           <a href="#">
-            <i id="hamburger" class="fas fa-bars header-item"></i>
+            <i id="hamburger" class="fas fa-bars header-a"></i>
           </a>
-          <a href="#" class="header-item">Logout</a>
+          <!---->
+          <div class="header-item">
+            <a class="" href="#">
+              <i class="fas fa-bell"></i>
+              <span class="badge">3+</span>
+            </a>
+            <!---->
+          <a href="#" >Logout</a>
+          </div>
+          
         </div>
 
         <div class="container">

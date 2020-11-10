@@ -1,32 +1,34 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <title>login</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/logo.css">
+  <link rel="stylesheet" href="fontawesome-free/css/all.min.css">
 </head>
-<link rel="stylesheet" type="text/css" href="Logc.css">
-<LINK REL="STYLESHEET" HREF="css/all.css">
-
 <body>
-
-  <div class="log">
-    <div class="icon">
-      <img src="img/icon.png" alt="icon">
+  <div class="login">
+    <div class="login-form">
+      <div class="login-form-wrapper">
+        <h2>Login</h2>
+        <form action="/sign" method="POST">
+          <div class="inputBox form-group">
+            <input type="text" name="name" required="">
+            <label>Nome</label>
+          </div>
+          <div class="inputBox form-group">
+            <input type="password" name="password" required="">
+            <label>Palavra passe</label>
+          </div>
+          <input type="submit" class="btl" value="Login">
+        </form>
+      </div> 
     </div>
-    <div class="login-box">
-  
-      <h1>login</h1>
-      <form>
-        <p>Nome usuario</p>
-        <input class="tests" type="text" name="username" placeholder="usuario">
-  
-        <p>Palavra passe </p>
-        <input class="tests" type="password" name="Password" placeholder=" palavra passe">
-        <a href="index.html"><input type="submit" name="submit" value="Entrar"></a>
-  
-      </form>
+    <div class="banner-login">
+      <img src="img/log.png" alt="logo">
     </div>
   </div>
 </body>
-
 </html>

@@ -12,6 +12,8 @@
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "mongoose": "^5.10.9",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
     "sucrase": "^3.16.0"
   }
 }

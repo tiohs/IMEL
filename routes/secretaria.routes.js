@@ -7,3 +7,4 @@ const router = express.Router();
 // Ler as reclamações dos alunos  notificações dos alunos 
 
 // router.get("/turma", adminControllers.getAddTurma);
+module.exports = router;

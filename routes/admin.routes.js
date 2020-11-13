@@ -14,7 +14,7 @@ router.get('/add-secretario', adminControllers.getAddsecretario);
 router.get("/add-professor", adminControllers.getAddProfessor);
 
 // Consulta 
-
+router.get('/alunos', adminControllers.getAllAlunos);
 // router.get("/secretarios", adminControllers.getSecretarios)
 // router.get("Alunos", adminControllers.getAlunos);
 

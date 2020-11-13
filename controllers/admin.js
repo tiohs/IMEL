@@ -3,7 +3,12 @@ const Aluno = require('../model/Aluno');
 exports.getIndex = (req, res ) => {
   res.render('page/admin/admin');
 }
-
+exports.getAllAlunos = (req, res) => {
+  Aluno.getAlunos((err, result)=> {
+    res.render('page/admin/tabela', { result });
+  });
+  
+}
 exports.getAddAluno = (req, res) => {
   const aluno = new Aluno('Hamilton Silva', '123ed', 944783619, "hamiltonsilva55@gmail.com", "Luanda Angola", 12);
   aluno.deleteAluno(5,(err, result) => {

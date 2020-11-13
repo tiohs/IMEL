@@ -1,7 +1,6 @@
 const Pessoa = require('./Pessoa');
 const connection = require('../config/db');
 
-
 class Aluno extends Pessoa {
   constructor(nome , bi, telefone, email, endereco, idTurma){
     super(nome , bi, telefone, email, endereco);

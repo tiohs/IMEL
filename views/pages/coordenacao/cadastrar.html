@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>IMEL</title>
+
+  <link href="../../fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="../../css/imel.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-m sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - logo -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="cordenador.html">
+        <div class="sidebar-brand-icon ">
+          <!-- <img class="logo" src="img/log.png" alt=""> -->
+          IMEL
+        </div>
+      </a>
+
+      <!-- Divisão -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="cordenador.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Cordenador</span></a>
+      </li>
+
+      <hr class="sidebar-divider">
+
+      <li class="nav-item active">
+        <a class="nav-link" href="cadastrar.html">
+          <i class="fas fa-fw fa-user-graduate"></i>
+          <span>Cadastrar</span></a>
+      </li>
+
+      <hr class="sidebar-divider my-0">
+
+      <li class="nav-item active">
+        <a class="nav-link" href="lancarNota.html">
+          <i class="fas fa-fw fa-calendar-alt"></i>
+          <span>Lançar nota</span></a>
+      </li>
+
+    </ul>
+    <!-- fim of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-m topbar mb-4 static-top shadow">
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - notificações -->
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bell fa-fw"></i>
+                <span class="badge badge-danger badge-counter">1+</span>
+              </a>
+
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                aria-labelledby="alertsDropdown">
+                <h6 class="dropdown-header">
+                  notificações
+                </h6>
+
+                <a class="dropdown-item d-flex align-items-center" href="detalhes.html">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-warning">
+                      <i class="fas fa-exclamation-triangle text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">Agosto 09, 2020</div>
+                    Fazer troca de curso.
+                  </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Mais notificações</a>
+              </div>
+            </li>
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - Informação do usuario -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-white-600 small">Ariana Grande</span>
+                <img class="img-profile rounded-circle" src="../../img/me.jpg">
+              </a>
+              <!-- Dropdown - Informação do usuario -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="perfil.html">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Perfil
+                </a>
+
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+
+          </ul>
+
+        </nav>
+        <!-- fim do Topbar -->
+
+        <!-- inicio da Pag. de Conteúdo -->
+        <div class="container-fluid">
+
+          <!-- ACTIONS -->
+          <section id="action" class="py-4 mb-4 bg-light">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-3">
+                  <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addUserModalC">
+                    <i class="fa fa-plus"></i> Cadastrar Colaborador
+                  </a>
+                </div>
+
+                <div class="col-md-3">
+                  <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addUserModalA">
+                    <i class="fa fa-plus"></i> Cadastrar Aluno
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- POSTS -->
+          <section id="posts">
+            <div class="container">
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Cadastrados</h6>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                      <div class="row">
+                        <div class="col-sm-12 col-md-6 d-flex">
+                          <div id="dataTable_filter" class="dataTables_filter">
+                            <label>
+                              Pesquisar:<input type="search" class="form-control form-control-sm" placeholder=""
+                                aria-controls="dataTable">
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0"
+                            role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                            <thead>
+                              <tr role="row">
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                  aria-sort="ascending" 
+                                  >#</th>
+                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                  >Nome
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                  >Função</th>
+                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                  >Data de cadastro</th>
+                                  <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                  ></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+    
+                              <tr role="row" class="odd">
+                                <td class="sorting_1">1</td>
+                                <td>Ariana Grande</td>
+                                <td>Aluno</td>
+                                <td>09/08/2020</td>
+                                <td><a href="detalhes.html" class="btn btn-secondary">
+                                  <i class="fa fa-angle-double-right"></i> Detalhes
+                                </a></td>
+                              </tr>
+                              <tr role="row" class="even">
+                                <td class="sorting_1">2</td>
+                                <td>Kylie Jenner</td>
+                                <td>Colaborador</td>
+                                <td>09/08/2020</td>
+                                <td><a href="detalhes.html" class="btn btn-secondary">
+                                  <i class="fa fa-angle-double-right"></i> Detalhes
+                                </a></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- fim do Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; ABDJAM 2020</span>
+          </div>
+        </div>
+      </footer>
+      <!-- fim da Footer -->
+
+    </div>
+    <!-- fim do Content Wrapper -->
+
+  </div>
+  <!-- fim da Pag Wrapper -->
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sair?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Selecionar "Logout" se quiseres terminar a sesão.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+          <a class="btn btn-primary" href="../../logo.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="addUserModalC">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header bg-m text-white">
+          <h5 class="modal-title">Cadastrar Colaborador</h5>
+          <button class="close" data-dismiss="modal"><span>&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="name">Nome</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="sobrenome">Sobrenome</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="curso">Curso</label>
+              <select class="form-control">
+                <option value="">Infogest</option>
+                <option value="">Contabilidade</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label for="colab">Nº de colaborador</label>
+              <input type="number" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label for="file">Escolher imagen</label>
+              <input type="file" class="form-control-file">
+              <small class="form-text text-muted">Nº max 3mb</small>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button class="btn btn-primary" data-dismiss="modal">Cadastrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- USER MODAL -->
+  <div class="modal fade" id="addUserModalA">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header bg-m text-white">
+          <h5 class="modal-title">Cadastrar Aluno</h5>
+          <button class="close" data-dismiss="modal"><span>&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="name">Nome</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="sobrenome">Sobrenome</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              
+            </div>
+            
+            <div class="form-group">
+              <label for="bi">Bi</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="title">Curso</label>
+              <select class="form-control">
+                <option value="">Infogest</option>
+                <option value="">Contabilidade</option>
+                <option value="">Economia</option>
+              </select>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="classe">Classe</label>
+                  <select class="form-control">
+                    <option value="">10</option>
+                    <option value="">11</option>
+                    <option value="">12</option>
+                    <option value="">13</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="sala">Sala</label>
+                  <select class="form-control">
+                    <option value="">10</option>
+                    <option value="">11</option>
+                    <option value="">12</option>
+                    <option value="">13</option>
+                  </select>
+                </div>
+              </div>
+              
+            </div>
+            
+            <div class="form-group">
+              <label for="nrAluno">Nº do aluno</label>
+              <input type="number" class="form-control">
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="turno">Turno</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="turma">Turma</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              
+            </div>
+            
+            <div class="form-group">
+              <label for="processo">Nº processo</label>
+              <input type="number" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="name">Password</label>
+              <input type="password" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="file">Escolher imagen</label>
+              <input type="file" class="form-control-file">
+              <small class="form-text text-muted">Nº max 3mb</small>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button class="btn btn-primary" data-dismiss="modal">Cadastrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/jquery.min.js"></script>
+  <script src="../../js/bootstrap.bundle.min.js"></script>
+                                                                            
+</body>
+
+</html>

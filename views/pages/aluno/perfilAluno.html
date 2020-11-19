@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dash aluno</title>
+  <link rel="stylesheet" href="../../fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../../css/imel.css">
+  <link rel="sortcut icon" href="../../img/log.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar navbar-expand-md navbar-light topbar ">
+      <a href="index.html">
+        <img src="../../img/log.png" width="250" height="60" class="grid-4" alt="logo">
+      </a>
+      <button class="navbar-toggler collapsed" data-toggle="collapse" data-target="#navbarNav" aria-expanded="false"><span class="navbar-toggler-icon"></span></button>
+      <div class="navbar-collapse collapse" id="navbarNav" style="">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">Aluno</a>
+          </li>
+          <li class="nav-item">
+            <a href="consultar.html" class="nav-link">Consultar nota</a>
+          </li>
+          <li class="nav-item">
+            <a href="troca.html" class="nav-link">Trocar curso</a>
+          </li>
+          <li class="nav-item">
+            <a href="reclamacao.html" class="nav-link">Reclamação</a>
+          </li>
+
+          <!--Nav Item - notificações -->
+          <li class="nav-item dropdown no-arrow mx-1">
+            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-bell fa-fw"></i>
+              <span class="badge badge-danger badge-counter">1+</span>
+            </a>
+
+            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+              aria-labelledby="alertsDropdown">
+              <h6 class="dropdown-header">
+                notificações
+              </h6>
+
+              <a class="dropdown-item d-flex align-items-center" href="detalhes.html">
+                <div class="mr-3">
+                  <div class="icon-circle bg-warning">
+                    <i class="fas fa-exclamation-triangle text-white"></i>
+                  </div>
+                </div>
+                <div>
+                  <div class="small text-gray-500">Agosto 09, 2020</div>
+                  Fazer troca de curso.
+                </div>
+              </a>
+              <a class="dropdown-item text-center small text-gray-500" href="#">Mais notificações</a>
+            </div>
+          </li>
+
+          <div class="topbar-divider d-none d-sm-block"></div>
+
+          <!-- Nav Item - Informação do usuario -->
+          <li class="nav-item dropdown no-arrow">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <span class="mr-2 d-none d-lg-inline text-white-600 small">Ariana Grande</span>
+              <img class="img-profile rounded-circle" src="../../img/me.jpg">
+            </a> 
+            <!-- Dropdown - Informação do usuario -->
+            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+              <a class="dropdown-item" href="perfilAluno.html">
+                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                Perfil
+              </a>
+
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                Logout
+              </a>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+  </nav>
+  </header>
+
+  <!--  -->
+  <!-- <section class="intro">
+    <div class="container">
+      <h1>Imel</h1>
+      <blockquote class="quote">
+        <p>"A educação é a nosssa maior arma para mudar o futuro, a arte de saber estar"</p>
+        <cite>SIMON JOSEPH</cite>
+      </blockquote>
+    </div>
+  </section> -->
+
+<!-- inicio da Pag. de Conteúdo -->
+<div class="container-fluid py-5">
+
+  <header id="main-header" class="  text-black">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1><i class="fa fa-user"></i> Perfil</h1>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <section id="action" class="py-4 mb-4 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 mr-auto">
+          <a href="index.html" class="btn btn-light btn-block">
+            <i class="fa fa-arrow-left"></i> Voltar para Dashboard
+          </a>
+        </div>
+        <div class="col-md-3">
+          <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#passwordModal">
+            <i class="fa fa-lock"></i> Mudar Password
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="profile">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <div class="card">
+            <div class="card-header">
+              <h4>Editar Perfil</h4>
+            </div>
+            <div class="card-body">
+              <form>
+                <div class="form-group">
+                  <label for="name">Nome</label>
+                  <input type="text" class="form-control" value="Ariana Grande">
+                </div>
+                <div class="form-group">
+                  <label for="email">Processo</label>
+                  <input type="number" class="form-control" value="1019850">
+                </div>
+                <div class="form-group">
+                  <label for="email">Curso</label>
+                  <input type="text" class="form-control" value="INFOGEST">
+                </div>
+                <div class="form-group">
+                  <label for="email">Classe</label>
+                  <input type="text" class="form-control" value="13">
+                </div>
+                <div class="form-group">
+                  <label for="email">Sala</label>
+                  <input type="text" class="form-control" value="2">
+                </div>
+                <div class="form-group">
+                  <label for="email">Turno</label>
+                  <input type="text" class="form-control" value="Manhã">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <h3>Teu Avatar</h3>
+          <img src="../../img/me.jpg" alt="" class="d-block img-fluid mb-3">
+          <button class="btn btn-primary btn-block">Editar Imagen</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PASSWORD MODAL -->
+  <div class="modal fade" id="passwordModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header bg-m text-white">
+          <h5 class="modal-title">Mudar a Password</h5>
+          <button class="close" data-dismiss="modal"><span>&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="name">Password</label>
+              <input type="password" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="name">Confirma Password</label>
+              <input type="password" class="form-control">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button class="btn btn-primary" data-dismiss="modal">Atualizar Password</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!---->
+
+</div>
+
+  <footer>
+    <div class="copy">
+      <div class="container">
+        <p>
+          <a href="#">ABDJAM 2020 - Todos direitos reservados.</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sair?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Selecionar "Logout" se quiseres terminar a sesão.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+          <a class="btn btn-primary" href="../../logo.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../../js/jquery.min.js"></script>
+  <script src="../../js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+/**/
+.navbar{
+  box-shadow: 2px 2px 5px #4877af;
+  opacity: 0.9;
+  background-color: #fff;
+  height: 100px;
+}
+
+
+/*intro*/
+.intro{
+  width: 100%;
+  height: 380px;
+  background:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/bgg.jpg") no-repeat center;
+  background-size: cover;
+  margin-top: 98px;
+  text-align: center;
+  padding: 120px;
+
+
+    /* background-attachment: fixed; */
+}
+
+.intro h1{
+  font-weight: bold;
+  color: #fff;
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+.quote{
+  max-width: 400px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.quote p{
+  font-style: italic;
+}
+
+.quote p::before, .quote p::after{
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #fff;
+  margin: 14px auto 10px auto;
+}
+
+.quote cite{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: .1em;
+}
+
+/*cards*/
+.cards ul li{
+  background: #4877af;
+  margin-top: 50px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.card-icon{
+  background-color: #6382a8;
+  padding: 20px;
+  font-size: 54px;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.cards ul li h3{
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-top: 20px;
+}
+
+.cards ul li h3::after{
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #fff;
+  margin: 2px auto;
+}
+
+.cards ul li p{
+  padding: 10px 20px 20px 20px;
+}
+
+.copy{
+  margin-top: 20px;
+  width: 100%;
+  background: #4877af;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.copy p a{
+  color: #000;
+}
+/**/

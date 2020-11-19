@@ -1,0 +1,12 @@
+.intro{
+  width: 100%;
+  height: 380px;
+  background:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/bgg.jpg") no-repeat center;
+  background-size: cover;
+  margin-top: 98px;
+  text-align: center;
+  padding: 120px;
+
+
+    /* background-attachment: fixed; */
+}

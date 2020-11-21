@@ -25,7 +25,7 @@
     <ul class="navbar-nav bg-m sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - logo -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="cordenador.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/cordenacao/cordenador">
         <div class="sidebar-brand-icon ">
           <!-- <img class="logo" src="img/log.png" alt=""> -->
           IMEL
@@ -37,7 +37,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="cordenador.html">
+        <a class="nav-link" href="/cordenacao/cordenador">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Cordenador</span></a>
       </li>
@@ -45,7 +45,7 @@
       <hr class="sidebar-divider">
 
       <li class="nav-item active">
-        <a class="nav-link" href="cadastrar.html">
+        <a class="nav-link" href="/cordenacao/cadastrar">
           <i class="fas fa-fw fa-user-graduate"></i>
           <span>Cadastrar</span></a>
       </li>
@@ -53,7 +53,7 @@
       <hr class="sidebar-divider my-0">
 
       <li class="nav-item active">
-        <a class="nav-link" href="lancarNota.html">
+        <a class="nav-link" href="/cordenacao/lancar-nota">
           <i class="fas fa-fw fa-calendar-alt"></i>
           <span>Lançar nota</span></a>
       </li>
@@ -113,7 +113,7 @@
               </a>
               <!-- Dropdown - Informação do usuario -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="perfil.html">
+                <a class="dropdown-item" href="/cordenacao/perfil">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Perfil
                 </a>
@@ -134,10 +134,15 @@
         <!-- inicio da Pag. de Conteúdo -->
         <div class="container-fluid">
 
+          <div class="col-md-3 mb-4">
+            <a href="#" class="btn btn-success btn-block">
+              <i class="fa fa-check"></i> Savar mudanças
+            </a>
+          </div>
 
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Turmas</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Turma EIM31</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -154,81 +159,129 @@
                   </div>
                   <div class="row">
                     <div class="col-sm-12">
-                      <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0"
-                        role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                        <thead>
-                          <tr role="row">
-                            <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                              aria-sort="ascending" 
-                              style="width: 60.2px;">Sala</th>
-                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                              style="width: 79.4px;">Turma
-                            </th>
-                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                              style="width: 55.4px;">Turno</th>
-                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                              style="width: 30.6px;">Classe</th>
-                              <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                              style="width: 10.6px;"></th>
-                          </tr>
-                        </thead>
-                        <tfoot>
-                          <tr>
-                            <th rowspan="1" colspan="1">Sala</th>
-                            <th rowspan="1" colspan="1">Turma</th>
-                            <th rowspan="1" colspan="1">Turno</th>
-                            <th rowspan="1" colspan="1">Classe</th>
-                            <th rowspan="1" colspan="1"></th>
-                          </tr>
-                        </tfoot>
-                        <tbody>
 
-                          <tr role="row" class="odd">
-                            <td class="sorting_1">1</td>
-                            <td>EIM31</td>
-                            <td>Manhã</td>
-                            <td>13</td>
-                            <td><a href="nota.html" class="btn btn-secondary">
-                              <i class="fa fa-angle-double-right"></i> Lançar
-                            </a></td>
-                          </tr>
-                          <tr role="row" class="even">
-                            <td class="sorting_1">2</td>
-                            <td>EIM21</td>
-                            <td>Tarde</td>
-                            <td>12</td>
-                            <td><a href="nota.html" class="btn btn-secondary">
-                              <i class="fa fa-angle-double-right"></i> Lançar
-                            </a></td>
-                          </tr>
-                          
-                          
-                          
-                        </tbody>
+
+                      <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0"
+                      role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                        <tbody><tr>
+                          <td rowspan="2">Nº</td>
+                          <td rowspan="2" align="center">Nome</td>
+                          <td colspan="3" align="center">MAT</td>
+                          <td colspan="3" align="center">TIC</td>
+                          <td colspan="3" align="center">OAE</td>
+                          <td colspan="3" align="center">BDRC</td>
+                          <td colspan="3" align="center">PORT</td>
+                          <td colspan="3" align="center">FAI</td>
+                          <td colspan="3" align="center">TLP</td>
+                          <td colspan="3" align="center">ING</td>
+                          <td colspan="3">ED.F</td>
+    
+                        </tr>
+                        <tr>
+                          <td>P1</td>
+                        <td>P2</td>
+                        <td>P3</td>
+    
+                        <td>P1</td>
+                        <td>P2</td>
+                        <td>P3</td>
+    
+                        <td>P1</td>
+                        <td>P2</td>
+                        <td>P3</td>
+    
+                        <td>P1</td>
+                        <td>P2</td>
+                        <td>P3</td>
+    
+                        <td>P1</td>
+                        <td>P2</td>
+                        <td>P3</td>
+    
+                        <td>P1</td>
+                        <td>P2</td>
+                        <td>P3</td>
+    
+                        <td>P1</td>
+                        <td>P2</td>
+                        <td>P3</td>
+    
+                        <td>P1</td>
+                        <td>P2</td>
+                        <td>P3</td>
+    
+                        <td>P1</td>
+                        <td>P2</td>
+                        <td>P3</td>
+    
+                        </tr>
+    
+                        <tr>
+                          <td>01</td>
+                          <td>Ariana Grande</td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                        </tr>
+    
+                        <tr>
+                          <td>02</td>
+                          <td>Kylie Jenner</td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                            <td><input type="number" class="inp"></td>
+                        </tr>
+    
+                      </tbody>
                       </table>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-12 col-md-5">
-                      <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">
-                        Mostrar mais turmas</div>
-                    </div>
-                    <div class="col-sm-12 col-md-7">
-                      <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-                        <ul class="pagination">
-                          <li class="paginate_button page-item previous disabled" id="dataTable_previous"><a href="#"
-                              aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li>
-                          <li class="paginate_button page-item active"><a href="#" aria-controls="dataTable"
-                              data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
-                          <li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="2"
-                              tabindex="0" class="page-link">2</a></li>
-                          <li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="3"
-                              tabindex="0" class="page-link">3</a></li>
-                          
-                          <li class="paginate_button page-item next" id="dataTable_next"><a href="#"
-                              aria-controls="dataTable" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li>
-                        </ul>
-                      </div>
                     </div>
                   </div>
                 </div>

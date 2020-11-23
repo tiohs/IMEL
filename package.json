@@ -2,7 +2,7 @@
   "name": "sistema",
   "version": "1.0.0",
   "description": "Trabalho de fim de curso ",
-  "main": "index.js",
+  "main": "app.js",
   "author": "Hamilton Massango <hamiltonsilva551@gmail.com>",
   "license": "MIT",
   "dependencies": {
@@ -15,6 +15,7 @@
     "express": "^4.17.1",
     "express-mysql-session": "^2.1.4",
     "express-session": "^1.17.1",
+    "knex": "^0.21.12",
     "mongoose": "^5.10.9",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",

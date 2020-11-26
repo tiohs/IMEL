@@ -1,11 +1,13 @@
-const mysql = require('mysql2');
+const knex = require('knex')({
+    client : 'mysql2',
+    connection : {
+      host: "localhost",
+      port: 3306
+      ,
+      user: "root",
+      database: "test"
+    }
+   }
+  );
 
-const connection = mysql.createConnection({
-    host: "localhost",
-    port: 3306
-    ,
-    user: "root",
-    database: "Upra"
-});
-
-module.exports = connection ;
+module.exports = knex;

@@ -5,7 +5,7 @@ const knex = require('knex')({
       port: 3306
       ,
       user: "root",
-      database: "test"
+      database: "imel"
     }
    }
   );

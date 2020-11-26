@@ -1,7 +1,15 @@
 const pathPC = 'pages/coordenacao';
+
 exports.getCadastrar = (req, res) => {
     res.render( pathPC + '/cadastrar');
 }
+
+exports.postCadastrar = (req, res) => {
+    const dados = req.body;
+    console.log(dados);
+    res.redirect('/cordenacao/cadastrar');
+}
+
 exports.getCordenador = (req, res) => {
     res.render(pathPC + '/cordenador');
 }

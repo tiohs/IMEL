@@ -12,14 +12,14 @@ var options = {
 
 var sessionStore = new MySQLStore(options);
 
-// const bodyParser = require('body-parser');
+const bodyParser = require('body-parse');
 const app = express();
 
 
 app.set("view engine", "ejs");
 app.set("views", "views");
 
-// app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Session 
@@ -30,7 +30,7 @@ app.use(session({
 	store: sessionStore,
 	resave: false,
 	saveUninitialized: true
-}));
+}))
 
 // const routeAluno = require('./routes/alunos.routes');
 // const routeAdmin = require('./routes/admin.routes');

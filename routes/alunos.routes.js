@@ -1,7 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const user = require('../controllers/users');
+const aluno = require('../controllers/aluno');
 
-router.get("/aluno/perfil", user.getPerfil);
-router.get("/aluno/reclamacao/", user.getReclamacao);
+router.get("/consulta-nota", aluno.getConsultaNota);
+router.get("/aluno", aluno.getIndex);
+router.get("/troca", aluno.getTroca);
+router.get("/reclamacao", aluno.getReclamacao);
+router.get('/perfil-aluno', aluno.getPerfil);
+
 module.exports = router;

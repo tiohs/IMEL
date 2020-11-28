@@ -14,5 +14,5 @@ create table aluno (
     turma varchar(10) not null,
     nrProcesso int not null,
     palavraPasse varchar(50),
-    fileName varchar(255)
+    fileName varchar(255),
 );

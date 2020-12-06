@@ -1,12 +1,13 @@
 const pathPC = 'pages/coordenacao';
 
 exports.getCadastrar = (req, res) => {
-    res.render( pathPC + '/cadastrar');
+    res.render( pathPC + '/cadastrar', {dados : [{
+        numero_id: 2,
+        nome: 'Hamilton Silva'
+    }]});
 }
 
 exports.postCadastrar = (req, res) => {
-    const dados = req.body;
-    console.log(dados);
     res.redirect('/cordenacao/cadastrar');
 }
 

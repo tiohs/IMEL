@@ -21,7 +21,113 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <%- include('./includes/sidebar') %>
+    <ul class="navbar-nav bg-m sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - logo -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/cordenacao/cordenador">
+        <div class="sidebar-brand-icon ">
+          <!-- <img class="logo" src="img/log.png" alt=""> -->
+          IMEL
+        </div>
+      </a>
+
+      <!-- Divisão -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="/cordenacao/cordenador">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Cordenador</span></a>
+      </li>
+
+      <hr class="sidebar-divider">
+
+      <li class="nav-item active">
+        <a class="nav-link" href="/cordenacao/cadastrar">
+          <i class="fas fa-fw fa-user-graduate"></i>
+          <span>Cadastrar</span></a>
+      </li>
+
+      <hr class="sidebar-divider my-0">
+
+      <li class="nav-item active">
+        <a class="nav-link" href="/cordenacao/lancar-nota">
+          <i class="fas fa-fw fa-calendar-alt"></i>
+          <span>Lançar nota</span></a>
+      </li>
+
+    </ul>
+    <!-- fim of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-m topbar mb-4 static-top shadow">
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - notificações -->
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bell fa-fw"></i>
+                <span class="badge badge-danger badge-counter">1+</span>
+              </a>
+
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                aria-labelledby="alertsDropdown">
+                <h6 class="dropdown-header">
+                  notificações
+                </h6>
+
+                <a class="dropdown-item d-flex align-items-center" href="/cordenacao/detalhes-aluno">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-warning">
+                      <i class="fas fa-exclamation-triangle text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">Agosto 09, 2020</div>
+                    Fazer troca de curso.
+                  </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Mais notificações</a>
+              </div>
+            </li>
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - Informação do usuario -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-white-600 small">Ariana Grande</span>
+                <img class="img-profile rounded-circle" src="../../img/me.jpg">
+              </a>
+              <!-- Dropdown - Informação do usuario -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="/cordenacao/perfil">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Perfil
+                </a>
+
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+
+          </ul>
+
+        </nav>
         <!-- fim do Topbar -->
 
         <!-- inicio da Pag. de Conteúdo -->
@@ -58,12 +164,7 @@
                     <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
                       <div class="row">
                         <div class="col-sm-12 col-md-6 d-flex">
-                          <div id="dataTable_filter" class="dataTables_filter">
-                            <label>
-                              Pesquisar:<input type="search" class="form-control form-control-sm" placeholder=""
-                                aria-controls="dataTable">
-                            </label>
-                          </div>
+                          
                         </div>
                       </div>
                       <div class="row">
@@ -71,7 +172,7 @@
                           <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0"
                             role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                             <thead>
-                              <tr role="row">
+                              <!-- <tr role="row">
                                 <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
                                   aria-sort="ascending" 
                                   >#</th>
@@ -83,29 +184,28 @@
                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
                                   >Data de cadastro</th>
                                   <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                  ></th>
+                                  ></th> -->
+                                  <tr>
+                                    <th>#</th>
+                                    <th>Nome</th>
+                                    <th>Função</th>
+                                    <th>Data de cadastro</th>
+                                    <th></th>
+                                  </tr>
                               </tr>
                             </thead>
                             <tbody>
-    
+                              <% for(dado of dados){ %>
                               <tr role="row" class="odd">
-                                <td class="sorting_1">1</td>
-                                <td>Ariana Grande</td>
+                                <td class="sorting_1"><%- dado.numero_id %></td>
+                                <td><%- dado.nome %></td>
                                 <td>Aluno</td>
                                 <td>09/08/2020</td>
                                 <td><a href="/cordenacao/detalhes-aluno" class="btn btn-secondary">
                                   <i class="fa fa-angle-double-right"></i> Detalhes
                                 </a></td>
                               </tr>
-                              <tr role="row" class="even">
-                                <td class="sorting_1">2</td>
-                                <td>Kylie Jenner</td>
-                                <td>Colaborador</td>
-                                <td>09/08/2020</td>
-                                <td><a href="/cordenacao/detalhes-aluno" class="btn btn-secondary">
-                                  <i class="fa fa-angle-double-right"></i> Detalhes
-                                </a></td>
-                              </tr>
+                            <% } %>
                             </tbody>
                           </table>
                         </div>
@@ -174,6 +274,10 @@
               <input type="text" class="form-control">
             </div>
             <div class="form-group">
+              <label for="sobrenome">Sobrenome</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
               <label for="curso">Curso</label>
               <select class="form-control">
                 <option value="">Infogest</option>
@@ -231,10 +335,10 @@
             </div>
             <div class="form-group">
               <label for="title">Curso</label>
-              <select class="form-control" name="idCurso">
-                <option value="1">Infogest</option>
-                <option value="2">Contabilidade</option>
-                <option value="3">Economia</option>
+              <select class="form-control">
+                <option value="">Infogest</option>
+                <option value="">Contabilidade</option>
+                <option value="">Economia</option>
               </select>
             </div>
 
@@ -242,11 +346,11 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="classe">Classe</label>
-                  <select class="form-control" name="classe">
-                    <option value="1">10</option>
-                    <option value="2">11</option>
-                    <option value="3">12</option>
-                    <option value="4">13</option>
+                  <select class="form-control">
+                    <option value="">10</option>
+                    <option value="">11</option>
+                    <option value="">12</option>
+                    <option value="">13</option>
                   </select>
                 </div>
               </div>
@@ -254,11 +358,11 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="sala">Sala</label>
-                  <select class="form-control" name="sala">
-                    <option value="1">10</option>
-                    <option value="2">11</option>
-                    <option value="3">12</option>
-                    <option value="4">13</option>
+                  <select class="form-control">
+                    <option value="">10</option>
+                    <option value="">11</option>
+                    <option value="">12</option>
+                    <option value="">13</option>
                   </select>
                 </div>
               </div>
@@ -267,21 +371,21 @@
             
             <div class="form-group">
               <label for="nrAluno">Nº do aluno</label>
-              <input type="number" class="form-control" name="nrAluno">
+              <input type="number" class="form-control">
             </div>
 
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="turno">Turno</label>
-                  <input type="text" name="turno" class="form-control">
+                  <input type="text" class="form-control">
                 </div>
               </div>
               
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="turma">Turma</label>
-                  <input type="text" name="turma" class="form-control">
+                  <input type="text" class="form-control">
                 </div>
               </div>
               
@@ -289,19 +393,20 @@
             
             <div class="form-group">
               <label for="processo">Nº processo</label>
-              <input type="number" name="nrProcesso" class="form-control">
+              <input type="number" class="form-control">
             </div>
             <div class="form-group">
               <label for="name">Password</label>
-              <input type="password" name="palavraPasse" class="form-control">
+              <input type="password" class="form-control">
             </div>
             <div class="form-group">
               <label for="file">Escolher imagen</label>
-              <input type="text" name="fileName" class="form-control-file">
+              <input type="file" class="form-control-file">
+              <small class="form-text text-muted">Nº max 3mb</small>
             </div>
             <div class="modal-footer">
-              <button class="btn btn-secondary" >Fechar</button>
-              <button class="btn btn-primary" type="submit">Cadastrar</button>
+              <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+              <button class="btn btn-primary" type="submit" >Cadastrar</button>
             </div>
           </form>
         </div>
@@ -312,6 +417,34 @@
 
   <script src="../../js/jquery.min.js"></script>
   <script src="../../js/bootstrap.bundle.min.js"></script>
+  <script src="../../js/jquery.dataTables.min.js"></script>
+  <script src="../../js/dataTables.bootstrap4.min.js"></script>
+  <script>
+    $(document).ready(function() {
+  $('#dataTable').DataTable({
+    "language": {
+      "decimal": "",
+      "emptyTable": "Sem dado disponivel na tabela",
+      "info": "Mostrando _START_ de _END_",
+      "infoEmpty": "Mostrando 0 de 0",
+      "infoFiltered": "(filtrado de _MAX_)",
+      "infoPostFix": "",
+      "thousands": ",",
+      "lengthMenu": "Mostrar _MENU_ ",
+      "loadingRecords": "Processando...",
+      "processing": "Processando...",
+      "search": "Pesquisar:",
+      "zeroRecords": "Nenhum resultado encontrado",
+      "paginate": {
+        "first": "Primeiro",
+        "last": "Anterior",
+        "next": "Proximo",
+        "previous": "Voltar"
+    }
+    }
+  });
+});
+  </script>
                                                                             
 </body>
 

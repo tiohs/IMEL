@@ -2,7 +2,19 @@ const pathPC = 'pages/coordenacao';
 
 exports.getCadastrar = (req, res) => {
     res.render( pathPC + '/cadastrar', {dados : [{
+        numero_id: 1,
+        nome: 'Hamilton Silva'
+    },{
         numero_id: 2,
+        nome: 'Hamilton Silva'
+    },{
+        numero_id: 3,
+        nome: 'Hamilton Silva'
+    },{
+        numero_id: 4,
+        nome: 'Hamilton Silva'
+    },{
+        numero_id: 5,
         nome: 'Hamilton Silva'
     }]});
 }

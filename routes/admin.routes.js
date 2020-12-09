@@ -7,17 +7,4 @@ const adminControllers = require('../controllers/admin');
 router.get("/", adminControllers.getIndex);
 
 
-// Add Aluno e Secreatarios do Curso e professor 
-
-router.get('/add-aluno', adminControllers.getAddAluno);
-router.get('/add-secretario', adminControllers.getAddsecretario);
-router.get("/add-professor", adminControllers.getAddProfessor);
-
-// Consulta 
-router.get('/alunos', adminControllers.getAllAlunos);
-// router.get("/secretarios", adminControllers.getSecretarios)
-// router.get("Alunos", adminControllers.getAlunos);
-
-
-
 module.exports = router;

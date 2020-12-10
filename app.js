@@ -37,7 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const routerAluno = require('./routes/alunos.routes');
 const routerCoordenador = require('./routes/coordenador.routes');
-const routerAuth = require('./routes/auth.routes')
+const routerAuth = require('./routes/auth.routes');
 
 app.use(routerAuth);
 app.use('/cordenacao', routerCoordenador );

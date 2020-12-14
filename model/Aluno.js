@@ -1,22 +1,26 @@
-const knex = require('knex');
+const knex = require('../config/db');
 
 class Aluno {
-  constructor( nome, bi, idCurso, classe, sala, nrAluno, turno, turma, nrProcesso, palavraPasse, fileName){
+  constructor( nome, bi, sexo, numero, classe, sala, turno, palavraPasse, filename, idTurma, idCurso){
     this.nome = nome;
     this.bi = bi;
-    this.idCurso = idCurso;
+    this.sexo = sexo;
+    this.numero = numero;
     this.classe = classe;
     this.sala = sala;
-    this.nrAluno = nrAluno;
     this.turno = turno;
-    this.turma = turma;
-    this.nrProcesso = nrProcesso;
     this.palavraPasse = palavraPasse;
-    this.fileName = fileName;
+    this.filename = filename;
+    this.idTurma = idTurma;
+    this.idCurso = idCurso;
   }
   async save () {
-      var dados = await knex.insert(this).into('tbl_funcionarios');
+      let dados = await knex.insert(this).into('aluno');
       return dados;
+  }
+   static async showDate (){
+    let dados = await knex.select().into('aluno');
+    return dados;
   }
 }
 

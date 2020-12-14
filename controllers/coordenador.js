@@ -1,25 +1,19 @@
+const Aluno = require('../model/Aluno');
+const Geral = require('../model/geral');
+
 const pathPC = 'pages/coordenacao';
 
-exports.getCadastrar = (req, res) => {
-    res.render( pathPC + '/cadastrar', {dados : [{
-        numero_id: 1,
-        nome: 'Hamilton Silva'
-    },{
-        numero_id: 2,
-        nome: 'Hamilton Silva'
-    },{
-        numero_id: 3,
-        nome: 'Hamilton Silva'
-    },{
-        numero_id: 4,
-        nome: 'Hamilton Silva'
-    },{
-        numero_id: 5,
-        nome: 'Hamilton Silva'
-    }]});
+exports.getCadastrar = async (req, res) => {
+    const dados = await Aluno.showDate();
+    const [cursos, turmas] = await Geral.Dates();
+    res.render( pathPC + '/cadastrar', { dados, cursos, turmas });
 }
 
 exports.postCadastrar = (req, res) => {
+    const { nome , bi, curso, sala, turma } = req.body;
+    const file = req.file.filename;
+    let aluno = new Aluno(nome, bi, 'M', '10', '10', sala, 'manha', '1234', file, turma, curso);
+    aluno.save();
     res.redirect('/cordenacao/cadastrar');
 }
 

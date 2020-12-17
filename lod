@@ -1,86 +1,83 @@
 create database imel;
 use imel;
 
+
+create table user 
+
 create table aluno (
-numero_id int auto_increment primary key,
-nome varchar(255) not null,
-bi varchar(15) not null,
-dataNascimento date,
-sexo char not null,
-numero varchar(10),
-classe int not null,
-sala varchar(100) not null,
-turno varchar(100) not null,
-palavraPasse varchar(100),
-filename varchar(255),
-idTurma int not null
+    id int auto_increment primary key,
+    nome varchar(255) not null,
+    bi varchar(15) not null,
+    numero varchar(10),
+    classe int not null,
+    sala varchar(100) not null,
+    turno varchar(100) not null,
+    palavraPasse varchar(100),
+    photoBi varchar(255) not null,
+    photoAvatar varchar(255),
+    idCurso int not null,
+    idTurma int not null,
+    nivelSession int not null
 );
-
-drop table aluno ;
-
-insert into aluno values ('', 'Hamilton Silvas', '1234yuyjlhkjsbfgshdgsknvnLA', '02/4/2020', 'M', 1019851, 13, 'Bloco 1', 'Tarde', '123', 'sadf', 2);
-
-
-create table curso (
-id int auto_increment primary key,
-nomeCurso varchar(255) not null,
-descricao text not null,
-idCoordenador int not null
-);
-
-drop table curso ;
-
-create table disciplina (
-id int auto_increment primary key,
-nomeDisciplina varchar(255) not null,
-descricao text not null
-);
-
-insert into turma value ('', 'ingo', 'Bloco 1bmnvcgxcg j', '');
 
 create table nota (
-id int auto_increment primary key,
-nota1 decimal(2, 2),
-nota2 decimal(2, 2),
-media	decimal(2,2) as ((nota1 + nota2)/2) virtual,
-idDisciplina int not null,
-idAluno int not null
+    id int auto_increment primary key,
+    nota1 int,
+    nota2 int,
+    media int,
+    trimestre int,
+    idDisciplina int not null,
+    idAluno int not null
 );
 
-drop table nota ;
 
 create table coordenador (
-id int auto_increment primary key,
-nome varchar(255) not null,
-bi varchar(15) not null,
-idCurso int not null,
-
-filename varchar(255) not null
+    id int auto_increment primary key,
+    nome varchar(255) not null,
+    bi varchar(15) not null,
+    idCurso int not null,
+    photoAvatar varchar(255),
+    photoBi varchar(255) not null,
+    nivelSession int not null
 );
-
-insert into coordenador value ('', 'Hamilton khjgxfzds', 'B12e3r4t5yhjnbgfd', 'asdfd', '');
-
-drop table coordenador; 
 
 
 create table colaborador(
-id int auto_increment primary key,
-nome varchar(255),
-bi varchar(15),
-idCurso int not null,
-idCoordenador int not null,
-filename varchar(255) not null
+    id int auto_increment primary key,
+    nome varchar(255),
+    bi varchar(15),
+    idCurso int not null,
+    idCoordenador int not null,
+    photoAvatar varchar(255),
+    photoBi varchar(255) not null,
+    nivelSession int not null
 );
 
-drop table colaborador;
+create table curso (
+    id int auto_increment primary key,
+    nomeCurso varchar(255) not null,
+    descricao text not null
+);
+
+create table CursoDisciplina (
+    id int auto_increment primary key,
+    idCurso varchar(255) not null,
+    idDisciplina varchar(255) not null
+);
+
+create table disciplina (
+    id int auto_increment primary key,
+    nomeDisciplina varchar(255) not null,
+    descricao text not null
+);
 
 create table turma(
-id int auto_increment primary key,
-idCurso int not null,
-sala	varchar(255)
+    id int auto_increment primary key,
+    idCurso int not null,
+    sala	varchar(20),
 );
 
-insert into turma value ('', 1, 'Bloco 1');
+
 
 
 -- Alter table add foreign
@@ -100,3 +97,10 @@ add constraint fkColaboradorCoordeenador foreign key (idCoordenador) references 
 
 alter table curso 
 add constraint fkCursoCoordenador foreign key (idCoordenador) references coordenador(id);
+
+
+-- Inserir dados 
+
+insert into aluno values ('', 'Hamilton Silvas', '1234yuyjlhkjsbfgshdgsknvnLA', '02/4/2020', 'M', 1019851, 13, 'Bloco 1', 'Tarde', '123', 'sadf', 2);
+insert into coordenador value ('', 'Hamilton khjgxfzds', 'B12e3r4t5yhjnbgfd', 'asdfd', '');
+insert into turma value ('', 1, 'Bloco 1');

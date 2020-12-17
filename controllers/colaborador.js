@@ -1,12 +1,10 @@
 const pathPC = 'pages/colaborador';
 
 exports.getCadastrar = (req, res) => {
-    res.render( pathPC + '/cadastrar');
+    res.render( pathPC + '/cadastrar', {colaborador : true});
 }
 
 exports.postCadastrar = (req, res) => {
-    const dados = req.body;
-    console.log(dados);
     res.redirect('/cordenacao/cadastrar');
 }
 

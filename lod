@@ -47,6 +47,7 @@ idDisciplina int not null,
 idAluno int not null
 );
 
+drop table nota ;
 
 create table coordenador (
 id int auto_increment primary key,
@@ -75,7 +76,6 @@ drop table colaborador;
 
 create table turma(
 id int auto_increment primary key,
-nome varchar(255),
 idCurso int not null,
 sala	varchar(255)
 );

@@ -1,8 +1,6 @@
+DROP DATABASE imel;
 create database imel;
 use imel;
-
-
-create table user 
 
 create table aluno (
     id int auto_increment primary key,
@@ -75,6 +73,7 @@ create table turma(
     id int auto_increment primary key,
     idCurso int not null,
     sala	varchar(20),
+    name varchar(255)
 );
 
 
@@ -86,8 +85,11 @@ create table turma(
 alter table aluno 
 add constraint fkAlunoturma foreign key (idTurma) references turma(id);
 
+alter table aluno 
+add constraint fkAlunoCurso foreign key (idCurso) references curso(id);
+
 alter table nota 
-add constraint fkNotaALuno foreign key (idAluno) references aluno(numero_id);
+add constraint fkNotaALuno foreign key (idAluno) references aluno(id);
 
 alter table nota 
 add constraint fkNotaDisciplina foreign key (idDisciplina) references disciplina(id);
@@ -95,12 +97,9 @@ add constraint fkNotaDisciplina foreign key (idDisciplina) references disciplina
 alter table colaborador
 add constraint fkColaboradorCoordeenador foreign key (idCoordenador) references coordenador(id);
 
-alter table curso 
-add constraint fkCursoCoordenador foreign key (idCoordenador) references coordenador(id);
+alter table coordenador
+add constraint fkCoordenadorCurso foreign key (idCurso) references curso(id);
 
 
 -- Inserir dados 
 
-insert into aluno values ('', 'Hamilton Silvas', '1234yuyjlhkjsbfgshdgsknvnLA', '02/4/2020', 'M', 1019851, 13, 'Bloco 1', 'Tarde', '123', 'sadf', 2);
-insert into coordenador value ('', 'Hamilton khjgxfzds', 'B12e3r4t5yhjnbgfd', 'asdfd', '');
-insert into turma value ('', 1, 'Bloco 1');

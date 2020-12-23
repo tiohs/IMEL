@@ -1,20 +1,19 @@
-// const Aluno = require('../model/Aluno');
-// const Geral = require('../model/geral');
+const Aluno = require('../model/Aluno');
+const Geral = require('../model/geral');
 
 const pathPC = 'pages/coordenacao';
 
 exports.getCadastrar = async (req, res) => {
-    // const dados = await Aluno.showDate();
-    // const [cursos, turmas] = await Geral.Dates();
-    res.render( pathPC + '/cadastrar', { dados : [], cursos : [], turmas : []});
+    const dados = await Aluno.showDate();
+    const [cursos, turmas] = await Geral.Dates();
+    res.render( pathPC + '/cadastrar', { dados , cursos , turmas });
 }
 
-exports.postCadastrar = (req, res) => {
-    const { nome , bi, curso, sala, turma } = req.body;
-    const files = req.files;
-    console.log(files)
-    // let aluno = new Aluno(nome, bi, 'M', '10', '10', sala, 'manha', '1234', file, turma, curso);
-    // aluno.save();
+exports.postCadastrar = async (req, res) => {
+    const {nome, bi, curso, classe, sala, numero, turno, turma} = req.body;
+    const [filePhonto, fileBI] = req.files;
+    const aluno = new Aluno(nome, bi, numero, classe, sala, turno, bi, fileBI.filename, filePhonto.filename, curso, turma);
+    await aluno.save();
     res.redirect('/cordenacao/cadastrar');
 }
 
@@ -34,6 +33,9 @@ exports.getPerfil = (req, res) => {
     res.render(pathPC + "/perfil");
 }
 
-exports.getEditarAluno = (req, res) => {
-    res.render(pathPC + '/detalhes');
+exports.getEditarAluno = async (req, res) => {
+    const parms = req.params.id;
+    var result = await Aluno.showDateSingle(parms);
+
+    res.render(pathPC + '/detalhes', {result});
 }

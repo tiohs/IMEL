@@ -6,6 +6,11 @@ class Geral {
         const turma = await knex.select().into('turma');
         return [curso , turma];
     }
+    static async datesSingle (id){
+        const curso = await knex.select().into('curso').whereRaw(`id = ${id}`);
+        const turma = await knex.select().into('turma').whereRaw(`id = ${id}`);
+        return [curso , turma];
+    }
 }
 
 module.exports = Geral;

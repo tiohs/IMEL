@@ -97,10 +97,10 @@
       <div class="navbar-collapse collapse" id="navbarNav" style="">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a href="" class="nav-link">Aluno</a>
+            <a href="/aluno" class="nav-link">Aluno</a>
           </li>
           <li class="nav-item">
-            <a href="/consultar-nota" class="nav-link">Consultar nota</a>
+            <a href="/consulta-nota" class="nav-link">Consultar nota</a>
           </li>
           <li class="nav-item">
             <a href="/troca" class="nav-link">Trocar curso</a>
@@ -144,8 +144,8 @@
           <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
-              <span class="mr-2 d-none d-lg-inline text-white-600 small">Ariana Grande</span>
-              <img class="img-profile rounded-circle" src="../../img/me.jpg">
+              <span class="mr-2 d-none d-lg-inline text-white-600 small"><%- user.nome %></span>
+              <img class="img-profile rounded-circle" src="<%- user.photoAvatar %>">
             </a> 
             <!-- Dropdown - Informação do usuario -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

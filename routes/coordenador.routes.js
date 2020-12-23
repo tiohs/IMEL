@@ -12,5 +12,5 @@ router.post('/cadastrar',upload.array('photo', 2), controllersCoordenador.postCa
 router.get('/lancar-nota', controllersCoordenador.getLancarNota);
 router.get('/nota', controllersCoordenador.getNota);
 router.get('/perfil', controllersCoordenador.getPerfil);
-router.get('/detalhes-aluno', controllersCoordenador.getEditarAluno);
+router.get('/detalhes-aluno/:id', controllersCoordenador.getEditarAluno);
 module.exports = router;

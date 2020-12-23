@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,8 +13,9 @@
 
   </style>
 </head>
+
 <body>
-  <%- include('./includes/header'); %>
+  <%- include('./includes/header', {user}); %>
 
   <!--  -->
   <!-- <section class="intro">
@@ -26,116 +28,146 @@
     </div>
   </section> -->
 
-<!-- inicio da Pag. de Conteúdo -->
-<div class="container-fluid py-5">
+  <!-- inicio da Pag. de Conteúdo -->
+  <div class="container-fluid py-5">
 
-  <header id="main-header" class="  text-black">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <h1><i class="fa fa-user"></i> Perfil</h1>
-        </div>
-      </div>
-    </div>
-  </header>
-
-
-  <section id="action" class="py-4 mb-4 bg-light">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3 mr-auto">
-          <a href="index.html" class="btn btn-light btn-block">
-            <i class="fa fa-arrow-left"></i> Voltar para Dashboard
-          </a>
-        </div>
-        <div class="col-md-3">
-          <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#passwordModal">
-            <i class="fa fa-lock"></i> Mudar Password
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section id="profile">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-9">
-          <div class="card">
-            <div class="card-header">
-              <h4>Editar Perfil</h4>
-            </div>
-            <div class="card-body">
-              <form>
-                <div class="form-group">
-                  <label for="name">Nome</label>
-                  <input type="text" class="form-control" value="Ariana Grande">
-                </div>
-                <div class="form-group">
-                  <label for="email">Processo</label>
-                  <input type="number" class="form-control" value="1019850">
-                </div>
-                <div class="form-group">
-                  <label for="email">Curso</label>
-                  <input type="text" class="form-control" value="INFOGEST">
-                </div>
-                <div class="form-group">
-                  <label for="email">Classe</label>
-                  <input type="text" class="form-control" value="13">
-                </div>
-                <div class="form-group">
-                  <label for="email">Sala</label>
-                  <input type="text" class="form-control" value="2">
-                </div>
-                <div class="form-group">
-                  <label for="email">Turno</label>
-                  <input type="text" class="form-control" value="Manhã">
-                </div>
-              </form>
-            </div>
+    <header id="main-header" class="  text-black">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h1><i class="fa fa-user"></i> Perfil</h1>
           </div>
         </div>
-        <div class="col-md-3">
-          <h3>Teu Avatar</h3>
-          <img src="../../img/me.jpg" alt="" class="d-block img-fluid mb-3">
-          <button class="btn btn-primary btn-block">Editar Imagen</button>
+      </div>
+    </header>
+
+
+    <section id="action" class="py-4 mb-4 bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 mr-auto">
+            <a href="index.html" class="btn btn-light btn-block">
+              <i class="fa fa-arrow-left"></i> Voltar para Dashboard
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#passwordModal">
+              <i class="fa fa-lock"></i> Mudar Password
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PASSWORD MODAL -->
-  <div class="modal fade" id="passwordModal">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header bg-m text-white">
-          <h5 class="modal-title">Mudar a Password</h5>
-          <button class="close" data-dismiss="modal"><span>&times;</span></button>
+
+    <section id="profile">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9">
+            <div class="card">
+              <div class="card-header">
+                <h4>Editar Perfil</h4>
+              </div>
+              <div class="card-body">
+                <form>
+                  <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input type="text" class="form-control" value="<%- user.nome %>">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Processo</label>
+                    <input type="number" class="form-control" value="<%- user.id %>">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Curso</label>
+                    <input type="text" class="form-control" value="<%- user.nomeCurso %>">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Classe</label>
+                    <input type="text" class="form-control" value="<%- user.classe %>">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Sala</label>
+                    <input type="text" class="form-control" value="<%- user.sala %>">
+                  </div>
+                  <div class="form-group">
+                    <label for="turno">Turno</label>
+                    <input type="text" id="turno" class="form-control" value="<%- user.turno %>">
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <h3>Teu Avatar</h3>
+            <img src="<%- user.photoAvatar %>" alt="" class="d-block img-fluid mb-3">
+            <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#ImgModal">
+              Editar Imagem
+            </a>
+          </div>
         </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="name">Password</label>
-              <input type="password" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="name">Confirma Password</label>
-              <input type="password" class="form-control">
-            </div>
+      </div>
+    </section>
+
+    <!-- IMG MODAL -->
+    <div class="modal fade" id="ImgModal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header bg-m text-white">
+            <h5 class="modal-title">Mudar a Imagem</h5>
+            <button class="close" data-dismiss="modal"><span>&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <form action="/update-photo" method="POST" enctype="multipart/form-data">
+              <div class="form-group">
+                <input type="file" name="photo" id="">
+              </div>
+              <input type="hidden" name="id" value="<%- user.id %>">
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button class="btn btn-primary" type="submit">Atualizar Imagem</button>
+          </div>
           </form>
         </div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button class="btn btn-primary" data-dismiss="modal">Atualizar Password</button>
+      </div>
+    </div>
+
+    <!---->
+
+    <!-- PASSWORD MODAL -->
+    <div class="modal fade" id="passwordModal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header bg-m text-white">
+            <h5 class="modal-title">Mudar a Password</h5>
+            <button class="close" data-dismiss="modal"><span>&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <form action="/update-password" method="POST">
+              <div class="form-group">
+                <label for="name">Password</label>
+                <input type="password" name="password" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="name">Confirma Password</label>
+                <input type="password" class="form-control">
+              </div>
+              <input type="hidden" name="id" value="<%- user.id %>">
+
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button class="btn btn-primary" type="submit">Atualizar Password</button>
+          </div>
+          </form>
         </div>
       </div>
     </div>
+
+    <!---->
+
   </div>
-
-  <!---->
-
-</div>
 
   <footer>
     <div class="copy">
@@ -161,7 +193,9 @@
         <div class="modal-body">Selecionar "Logout" se quiseres terminar a sesão.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a class="btn btn-primary" href="../../logo.html">Logout</a>
+          <form action="/logout" method="post">
+            <button class="btn btn-primary" type="submit">Logout</button>
+          </form>
         </div>
       </div>
     </div>
@@ -169,4 +203,5 @@
   <script src="../../js/jquery.min.js"></script>
   <script src="../../js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

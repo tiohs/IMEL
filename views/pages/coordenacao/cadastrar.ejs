@@ -199,9 +199,10 @@
                               <tr role="row" class="odd">
                                 <td class="sorting_1"><%- dado.numero_id %></td>
                                 <td><%- dado.nome %></td>
-                                <td>Aluno</td>
-                                <td>09/08/2020</td>
-                                <td><a href="/cordenacao/detalhes-aluno" class="btn btn-secondary">
+                                <td><%- (dado.nivelSession == 1) ? 'Aluno' : 'Colaborador'; %></td>
+                             
+                                <td><%- new Date (dado.datatimes).toLocaleDateString() %></td>
+                                <td><a href="/cordenacao/detalhes-aluno/<%- dado.id %>" class="btn btn-secondary">
                                   <i class="fa fa-angle-double-right"></i> Detalhes
                                 </a></td>
                               </tr>
@@ -326,12 +327,13 @@
                   <label for="nome">Nome</label>
                   <input type="text" name="nome" class="form-control">
                 </div>
-              </div>    
-            </div>
-            
-            <div class="form-group">
-              <label for="bi">Bi</label>
-              <input type="text" name="bi" class="form-control">
+              </div>  
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="bi">Bi</label>
+                  <input type="text" name="bi" class="form-control">
+                </div>
+              </div>  
             </div>
 
             <div class="form-group">
@@ -344,32 +346,37 @@
             </div>
 
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <div class="form-group">
                   <label for="classe">Classe</label>
-                  <select class="form-control">
-                    <option value="">10</option>
-                    <option value="">11</option>
-                    <option value="">12</option>
-                    <option value="">13</option>
+                  <select name="classe" class="form-control">
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
                   </select>
                 </div>
               </div>
               
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <div class="form-group">
                   <label for="sala">Sala</label>
-                  <input type="number" name="sala" id="sala">
+                  <input type="number" name="sala" id="sala" class="form-control">
                 </div>
-              </div>             
+              </div>       
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="numero">Numero do Aluno</label>
+                  <input type="number" name="numero" id="numero" class="form-control">
+                </div>
+              </div>        
             </div>
-            
 
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="turno">Turno</label>
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" name="turno">
                 </div>
               </div>
               
@@ -382,12 +389,8 @@
                     <% } %>
                   </select>
                 </div>
-              </div>            
-            </div>
+              </div>    
 
-            <div class="form-group">
-              <label for="name">Password</label>
-              <input type="password" name="palavraPasse" class="form-control">
             </div>
             <div class="form-group">
               <div class="row">

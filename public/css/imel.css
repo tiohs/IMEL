@@ -87,6 +87,14 @@ body {
 .logo{
   width: 200px;
 }
+
+/*avatar*/
+.imgAvatar{
+  border-radius: 50%;
+  width: 150px;
+  height: 150px
+}
+
 @media(max-width:768px){
   .logo{
     width: 100px;

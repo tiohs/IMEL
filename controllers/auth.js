@@ -1,47 +1,32 @@
 const auth = require('../model/auth');
 
 exports.getLogin = (req, res, nex) => {
-	res.render("login");
+  res.render('login');
 };
 
+function postLoginCreate(user, url, req, res) {
+  req.session.isLoggedIn = true;
+  req.session.user = user;
+  return res.redirect(url);
+}
+
 exports.postLogin = async (req, res, next) => {
-    const { bi, password } = req.body;
-    const [aluno] = await auth.date(bi, password);
-    if(!aluno[0]) return res.redirect('/login');
-    req.session.isLoggedIn = true;
-    req.session.user = aluno[0];
-    if(aluno[0].nivelSession === 1){
-        return res.redirect('/perfil-aluno');
-    }
-    
+  const { bi, password } = req.body;
+  const user = await auth.date(bi, password);
+  switch (user.nivelSession) {
+    case 1:
+      postLoginCreate(user, '/perfil-aluno', req, res);
+      break;
+    case 2:
+      postLoginCreate(user, '/cordenacao/cadastrar', req, res);
+    default:
+      res.redirect('/');
+      break;
+  }
 };
 
 exports.postLogout = (req, res, nex) => {
-	req.session.destroy(() => {
-		res.redirect("/login");
-	});
+  req.session.destroy(() => {
+    res.redirect('/');
+  });
 };
-
-
-
-
-// User.findOne({ email: email })
-// 		.then(user => {
-// 			if (!user) {
-// 				return res.redirect("/login");
-// 			}
-// 			bcryptjs.compare(password, user.password).then(doMatch => {
-// 				if (doMatch) {
-// 					req.session.isLoggedIn = true;
-// 					req.session.user = user;
-// 					return req.session.save(err => {
-// 						res.redirect("/");
-// 					});
-// 				}
-// 				return res.redirect("/login");
-// 			});
-// 		})
-// 		.catch(err => {
-// 			console.log(err);
-// 			res.redirect("/login");
-// 		});

@@ -1,7 +1,6 @@
-const knex = require('../config/db');
-
+import knex from '../config/db';
 class Aluno {
-  constructor( nome, bi, photoBi, idCoordenador, photoAvatar, idCurso){
+  constructor(nome, bi, photoBi, idCoordenador, photoAvatar, idCurso) {
     this.nome = nome;
     this.bi = bi;
     this.idCurso = idCurso;
@@ -10,14 +9,14 @@ class Aluno {
     this.photoBi = photoBi;
     this.nivelSession = 2;
   }
-  async save () {
-      let dados = await knex.insert(this).into('aluno');
-      return dados;
+  async save() {
+    let dados = await knex.insert(this).into('aluno');
+    return dados;
   }
-   static async showDate (){
+  static async showDate() {
     let dados = await knex.select().into('aluno');
     return dados;
   }
 }
 
-module.exports = Aluno;
+export default Aluno;

@@ -1,4 +1,4 @@
-const knex = require('../config/db');
+import knex from '../config/db';
 
 class auth {
   static async date(bi, password) {
@@ -20,4 +20,4 @@ class auth {
   }
 }
 
-module.exports = auth;
+export default auth;

@@ -5,6 +5,10 @@
   "main": "app.js",
   "author": "Hamilton Massango <hamiltonsilva551@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev:debug": "nodemon src/server.js",
+    "dev": "nodemon --inspect app.js"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parse": "^0.1.0",

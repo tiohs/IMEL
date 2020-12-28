@@ -1,9 +1,9 @@
-const express = require('express');
-const router = express.Router();
-const adminControllers = require('../controllers/admin');
+import { Router } from 'express';
+import adminControllers from '../controllers/admin';
 
+const router = Router();
 // Pagina Pricipal
 
 router.get('/', adminControllers.getIndex);
 
-module.exports = router;
+export default router;

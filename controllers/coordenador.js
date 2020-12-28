@@ -1,5 +1,5 @@
-const Aluno = require('../model/Aluno');
-const Geral = require('../model/geral');
+import Aluno from '../model/Aluno';
+import Geral from '../model/geral';
 
 const pathPC = 'pages/coordenacao';
 

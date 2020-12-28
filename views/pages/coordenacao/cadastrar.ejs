@@ -164,7 +164,7 @@
                     <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
                       <div class="row">
                         <div class="col-sm-12 col-md-6 d-flex">
-                          
+
                         </div>
                       </div>
                       <div class="row">
@@ -185,13 +185,13 @@
                                   >Data de cadastro</th>
                                   <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
                                   ></th> -->
-                                  <tr>
-                                    <th>#</th>
-                                    <th>Nome</th>
-                                    <th>Função</th>
-                                    <th>Data de cadastro</th>
-                                    <th></th>
-                                  </tr>
+                              <tr>
+                                <th>#</th>
+                                <th>Nome</th>
+                                <th>Função</th>
+                                <th>Data de cadastro</th>
+                                <th></th>
+                              </tr>
                               </tr>
                             </thead>
                             <tbody>
@@ -200,13 +200,13 @@
                                 <td class="sorting_1"><%- dado.numero_id %></td>
                                 <td><%- dado.nome %></td>
                                 <td><%- (dado.nivelSession == 1) ? 'Aluno' : 'Colaborador'; %></td>
-                             
+
                                 <td><%- new Date (dado.datatimes).toLocaleDateString() %></td>
                                 <td><a href="/cordenacao/detalhes-aluno/<%- dado.id %>" class="btn btn-secondary">
-                                  <i class="fa fa-angle-double-right"></i> Detalhes
-                                </a></td>
+                                    <i class="fa fa-angle-double-right"></i> Detalhes
+                                  </a></td>
                               </tr>
-                            <% } %>
+                              <% } %>
                             </tbody>
                           </table>
                         </div>
@@ -269,44 +269,45 @@
           <button class="close" data-dismiss="modal"><span>&times;</span></button>
         </div>
         <div class="modal-body">
-          <form method="POST" action="/ola">
+          <form method="POST" action="/cordenacao/cadastrar-colaborador" enctype="multipart/form-data">
             <div class="form-group">
               <label for="name">Nome</label>
-              <input type="text" class="form-control">
+              <input type="text" name="nome" class="form-control">
             </div>
             <div class="form-group">
-              <label for="sobrenome">Sobrenome</label>
-              <input type="text" class="form-control">
+              <label for="BI">BI</label>
+              <input type="text" class="form-control" name="bi">
             </div>
             <div class="form-group">
-              <label for="curso">Curso</label>
-              <select class="form-control">
-                <option value="">Infogest</option>
-                <option value="">Contabilidade</option>
+              <label for="title">Curso</label>
+              <select name="curso" class="form-control">
+                <% for(curso of cursos){ %>
+                <option value="<%- curso.id %>"><%- curso.nomeCurso %></option>
+                <% } %>
               </select>
             </div>
             <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" class="form-control">
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="file">Escolher foto de Perfil </label>
+                  <input type="file" name="photo" class="form-control-file">
+                  <small class="form-text text-muted">Nº max 3mb</small>
+                </div>
+                <div class="col-md-6">
+                  <label for="file">BI Foto </label>
+                  <input type="file" name="photo" class="form-control-file">
+                  <small class="form-text text-muted">Nº max 3mb</small>
+                </div>
+              </div>
             </div>
-
-            <div class="form-group">
-              <label for="colab">Nº de colaborador</label>
-              <input type="number" class="form-control">
-            </div>
-
-            <div class="form-group">
-              <label for="file">Escolher imagen</label>
-              <input type="file" class="form-control-file">
-              <small class="form-text text-muted">Nº max 3mb</small>
-            </div>
+            <input type="hidden" name="idCordenador" value="1">
             <div class="modal-footer">
               <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-              <button class="btn btn-primary" type="submit" >Cadastrar</button>
+              <button class="btn btn-primary" type="submit">Cadastrar</button>
             </div>
           </form>
         </div>
-        
+
       </div>
     </div>
   </div>
@@ -327,19 +328,19 @@
                   <label for="nome">Nome</label>
                   <input type="text" name="nome" class="form-control">
                 </div>
-              </div>  
+              </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="bi">Bi</label>
                   <input type="text" name="bi" class="form-control">
                 </div>
-              </div>  
+              </div>
             </div>
 
             <div class="form-group">
               <label for="title">Curso</label>
               <select name="curso" class="form-control">
-                <% for(curso of cursos){ %>     
+                <% for(curso of cursos){ %>
                 <option value="<%- curso.id %>"><%- curso.nomeCurso %></option>
                 <% } %>
               </select>
@@ -357,19 +358,19 @@
                   </select>
                 </div>
               </div>
-              
+
               <div class="col-md-4">
                 <div class="form-group">
                   <label for="sala">Sala</label>
                   <input type="number" name="sala" id="sala" class="form-control">
                 </div>
-              </div>       
+              </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label for="numero">Numero do Aluno</label>
                   <input type="number" name="numero" id="numero" class="form-control">
                 </div>
-              </div>        
+              </div>
             </div>
 
             <div class="row">
@@ -379,17 +380,17 @@
                   <input type="text" class="form-control" name="turno">
                 </div>
               </div>
-              
+
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="turma">Turma</label>
                   <select name="turma" class="form-control">
-                    <% for(turma of turmas){ %>               
+                    <% for(turma of turmas){ %>
                     <option value="<%- turma.id %>"><%- turma.nome %></option>
                     <% } %>
                   </select>
                 </div>
-              </div>    
+              </div>
 
             </div>
             <div class="form-group">
@@ -405,15 +406,15 @@
                   <small class="form-text text-muted">Nº max 3mb</small>
                 </div>
               </div>
-              
+
             </div>
             <div class="modal-footer">
               <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-              <button class="btn btn-primary" type="submit" >Cadastrar</button>
+              <button class="btn btn-primary" type="submit">Cadastrar</button>
             </div>
           </form>
         </div>
-        
+
       </div>
     </div>
   </div>
@@ -423,32 +424,32 @@
   <script src="../../js/jquery.dataTables.min.js"></script>
   <script src="../../js/dataTables.bootstrap4.min.js"></script>
   <script>
-    $(document).ready(function() {
-  $('#dataTable').DataTable({
-    "language": {
-      "decimal": "",
-      "emptyTable": "Sem dado disponivel na tabela",
-      "info": "Mostrando _START_ de _END_",
-      "infoEmpty": "Mostrando 0 de 0",
-      "infoFiltered": "(filtrado de _MAX_)",
-      "infoPostFix": "",
-      "thousands": ",",
-      "lengthMenu": "Mostrar _MENU_ ",
-      "loadingRecords": "Processando...",
-      "processing": "Processando...",
-      "search": "Pesquisar:",
-      "zeroRecords": "Nenhum resultado encontrado",
-      "paginate": {
-        "first": "Primeiro",
-        "last": "Anterior",
-        "next": "Proximo",
-        "previous": "Voltar"
-    }
-    }
-  });
-});
+    $(document).ready(function () {
+      $('#dataTable').DataTable({
+        "language": {
+          "decimal": "",
+          "emptyTable": "Sem dado disponivel na tabela",
+          "info": "Mostrando _START_ de _END_",
+          "infoEmpty": "Mostrando 0 de 0",
+          "infoFiltered": "(filtrado de _MAX_)",
+          "infoPostFix": "",
+          "thousands": ",",
+          "lengthMenu": "Mostrar _MENU_ ",
+          "loadingRecords": "Processando...",
+          "processing": "Processando...",
+          "search": "Pesquisar:",
+          "zeroRecords": "Nenhum resultado encontrado",
+          "paginate": {
+            "first": "Primeiro",
+            "last": "Anterior",
+            "next": "Proximo",
+            "previous": "Voltar"
+          }
+        }
+      });
+    });
   </script>
-                                                                            
+
 </body>
 
 </html>

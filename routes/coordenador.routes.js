@@ -4,11 +4,11 @@ import multer from 'multer';
 import controllersCoordenador from '../controllers/coordenador';
 import auth from '../middleware/is-auth';
 
-const configMulter = require('../config/multer');
+import configMulter from '../config/multer';
 var upload = multer(configMulter);
 const router = Router();
 
-router.use(auth);
+// router.use(auth);
 
 router.get('/', controllersCoordenador.getCordenador);
 router.get('/cadastrar', controllersCoordenador.getCadastrar);
@@ -16,6 +16,11 @@ router.post(
   '/cadastrar',
   upload.array('photo', 2),
   controllersCoordenador.postCadastrar
+);
+router.post(
+  '/cadastrar-colaborador',
+  upload.array('photo', 2),
+  controllersCoordenador.postCadastrarColaborador
 );
 router.get('/lancar-nota', controllersCoordenador.getLancarNota);
 router.get('/nota', controllersCoordenador.getNota);

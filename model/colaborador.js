@@ -1,5 +1,5 @@
 import knex from '../config/db';
-class Aluno {
+class Colaborador {
   constructor(nome, bi, photoBi, idCoordenador, photoAvatar, idCurso) {
     this.nome = nome;
     this.bi = bi;
@@ -8,15 +8,16 @@ class Aluno {
     this.photoAvatar = photoAvatar;
     this.photoBi = photoBi;
     this.nivelSession = 2;
+    this.palavraPasse = bi;
   }
   async save() {
-    let dados = await knex.insert(this).into('aluno');
+    let dados = await knex.insert(this).into('colaborador');
     return dados;
   }
   static async showDate() {
-    let dados = await knex.select().into('aluno');
+    let dados = await knex.select().into('colaborador');
     return dados;
   }
 }
 
-export default Aluno;
+export default Colaborador;

@@ -1,7 +1,7 @@
 import { Router } from 'express';
+import multer from 'multer';
 import aluno from '../controllers/aluno';
 import auth from '../middleware/is-auth';
-import multer from 'multer';
 
 import configMulter from '../config/multer';
 var upload = multer(configMulter);

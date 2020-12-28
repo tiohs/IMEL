@@ -1,4 +1,4 @@
-const auth = require('../model/auth');
+import auth from '../model/auth';
 
 exports.getLogin = (req, res, nex) => {
   res.render('login');

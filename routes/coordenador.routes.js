@@ -1,22 +1,25 @@
-const express = require('express');
-const router = express.Router();
-const controllersCoordenador = require('../controllers/coordenador');
-const auth = require('../middleware/is-auth');
+import { Router } from 'express';
+import multer from 'multer';
 
-const multer = require('multer');
+import controllersCoordenador from '../controllers/coordenador';
+import auth from '../middleware/is-auth';
+
 const configMulter = require('../config/multer');
 var upload = multer(configMulter);
+const router = Router();
 
-router.get('/', auth, controllersCoordenador.getCordenador);
-router.get('/cadastrar', auth, controllersCoordenador.getCadastrar);
+router.use(auth);
+
+router.get('/', controllersCoordenador.getCordenador);
+router.get('/cadastrar', controllersCoordenador.getCadastrar);
 router.post(
   '/cadastrar',
-  auth,
   upload.array('photo', 2),
   controllersCoordenador.postCadastrar
 );
-router.get('/lancar-nota', auth, controllersCoordenador.getLancarNota);
-router.get('/nota', auth, controllersCoordenador.getNota);
-router.get('/perfil', auth, controllersCoordenador.getPerfil);
-router.get('/detalhes-aluno/:id', auth, controllersCoordenador.getEditarAluno);
-module.exports = router;
+router.get('/lancar-nota', controllersCoordenador.getLancarNota);
+router.get('/nota', controllersCoordenador.getNota);
+router.get('/perfil', controllersCoordenador.getPerfil);
+router.get('/detalhes-aluno/:id', controllersCoordenador.getEditarAluno);
+
+export default router;

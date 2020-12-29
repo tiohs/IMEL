@@ -1,29 +1,29 @@
 const pathPC = 'pages/colaborador';
 
 exports.getCadastrar = (req, res) => {
-    res.render( pathPC + '/cadastrar', {colaborador : true});
-}
+  res.render(pathPC + '/cadastrar', { colaborador: true });
+};
 
 exports.postCadastrar = (req, res) => {
-    res.redirect('/cordenacao/cadastrar');
-}
+  res.redirect('/cordenacao/cadastrar');
+};
 
 exports.getIndex = (req, res) => {
-    res.render(pathPC + '/cordenador');
-}
+  res.render(pathPC + '/cordenador');
+};
 
 exports.getLancarNota = (req, res) => {
-    res.render(pathPC + "/lancarNota");
-}
+  res.render(pathPC + '/lancarNota');
+};
 
-exports.getNota = (req, res ) => {
-    res.render(pathPC + "/nota");
-}
+exports.getNota = (req, res) => {
+  res.render(pathPC + '/nota');
+};
 
 exports.getPerfil = (req, res) => {
-    res.render(pathPC + "/perfil");
-}
+  res.render(pathPC + '/perfil');
+};
 
 exports.getEditarAluno = (req, res) => {
-    res.render(pathPC + '/detalhes');
-}
+  res.render(pathPC + '/detalhes');
+};

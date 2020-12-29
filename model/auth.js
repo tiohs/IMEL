@@ -2,12 +2,11 @@ import knex from '../config/db';
 
 class auth {
   static async date(bi, password) {
-    const aluno =
-      (await knex
-        .select()
-        .into('aluno')
-        .whereRaw(`bi = "${bi}" and palavraPasse = "${password}" `)) || null;
-    console.log(!!aluno[0]);
+    const aluno = await knex
+      .select()
+      .into('aluno')
+      .whereRaw(`bi = "${bi}" and palavraPasse = "${password}" `);
+
     if (!!aluno[0]) return aluno[0];
 
     const colaborador = await knex

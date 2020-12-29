@@ -13,16 +13,12 @@ function postLoginCreate(user, url, req, res) {
 exports.postLogin = async (req, res, next) => {
   const { bi, password } = req.body;
   const user = await auth.date(bi, password);
-  switch (user.nivelSession) {
-    case 1:
-      postLoginCreate(user, '/perfil-aluno', req, res);
-      break;
-    case 2:
-      postLoginCreate(user, '/cordenacao/cadastrar', req, res);
-    default:
-      res.redirect('/');
-      break;
-  }
+
+  if (user.nivelSession === 1)
+    return postLoginCreate(user, '/perfil-aluno', req, res);
+  if (user.nivelSession === 2)
+    return postLoginCreate(user, '/cordenacao/cadastrar', req, res);
+  return res.redirect('/');
 };
 
 exports.postLogout = (req, res, nex) => {

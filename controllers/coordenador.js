@@ -8,8 +8,14 @@ exports.getCadastrar = async (req, res) => {
   const dados1 = await Aluno.shows();
   const dados2 = await Colaborador.showDate();
   const dados = [...dados1, ...dados2];
+  console.log(req.session.user);
   const [cursos, turmas] = await Geral.Dates();
-  res.render(pathPC + '/cadastrar', { dados, cursos, turmas });
+  res.render(pathPC + '/cadastrar', {
+    dados,
+    cursos,
+    turmas,
+    user: req.session.user,
+  });
 };
 
 exports.postCadastrar = async (req, res) => {
@@ -48,23 +54,23 @@ exports.postCadastrarColaborador = async (req, res) => {
 };
 
 exports.getCordenador = (req, res) => {
-  res.render(pathPC + '/cordenador');
+  res.render(pathPC + '/cordenador', { user: req.session.user });
 };
 
 exports.getLancarNota = (req, res) => {
-  res.render(pathPC + '/lancarNota');
+  res.render(pathPC + '/lancarNota', { user: req.session.user });
 };
 
 exports.getNota = (req, res) => {
-  res.render(pathPC + '/nota');
+  res.render(pathPC + '/nota', { user: req.session.user });
 };
 
 exports.getPerfil = (req, res) => {
-  res.render(pathPC + '/perfil');
+  res.render(pathPC + '/perfil', { user: req.session.user });
 };
 
 exports.getEditarAluno = async (req, res) => {
   const id = req.params.id;
   var result = await Aluno.show(id);
-  res.render(pathPC + '/detalhes', { result });
+  res.render(pathPC + '/detalhes', { result, user: req.session.user });
 };

@@ -9,6 +9,7 @@ import session from 'express-session';
 import routerAluno from './routes/alunos.routes';
 import routerCoordenador from './routes/coordenador.routes';
 import routerAuth from './routes/auth.routes';
+import routerAdmin from './routes/admin.routes';
 
 // Store Session
 var MySQLStore = require('express-mysql-session')(session);
@@ -43,10 +44,11 @@ app.use(
     },
   })
 );
-
+app.use(routerAdmin);
 app.use(routerAuth);
 app.use('/cordenacao', routerCoordenador);
 app.use(routerAluno);
+
 app.listen(3000, () => {
   console.log('Server on port 3000');
 });

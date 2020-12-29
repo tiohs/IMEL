@@ -36,7 +36,7 @@ exports.getTroca = (req, res, nex) => {
 
 exports.updatePassword = async (req, res, nex) => {
   const { password, id } = req.body;
-  await Aluno.updatePassword(password, id);
+  await Aluno.update(id, { palavraPasse: password });
   req.session.destroy(() => {
     res.redirect('/');
   });
@@ -45,7 +45,8 @@ exports.updatePassword = async (req, res, nex) => {
 exports.postUpdatePhoto = async (req, res, nex) => {
   const { id } = req.body;
   const { filename } = req.file;
-  const user = await Aluno.updatePhoto(id, filename);
+  await Aluno.update(id, { photoAvatar: filename });
+  const user = await Aluno.show(id);
   req.session.user = user[0];
   res.redirect('/perfil-aluno');
 };

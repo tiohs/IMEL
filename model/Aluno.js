@@ -1,7 +1,7 @@
 import knex from '../config/db';
 
 class Aluno {
-  constructor(
+  constructor({
     nome,
     bi,
     numero,
@@ -12,8 +12,8 @@ class Aluno {
     photoBi,
     photoAvatar,
     idCurso,
-    idTurma
-  ) {
+    idTurma,
+  }) {
     this.nome = nome;
     this.bi = bi;
     this.numero = numero;
@@ -31,27 +31,20 @@ class Aluno {
     let dados = await knex.insert(this).into('aluno');
     return dados;
   }
-  static async showDate() {
+  static async shows() {
     let dados = await knex.select().into('aluno');
     return dados;
   }
-  static async showDateSingle(id) {
+  static async show(id) {
     let dado = await knex.select().into('aluno').whereRaw(`id = "${id}"`);
     return dado;
   }
-  static async updatePassword(password, id) {
+  static async update(id, dado) {
     const dados = await knex
       .whereRaw(`id = "${id}"`)
-      .update({ palavraPasse: password })
+      .update(dado)
       .table('aluno');
     return dados;
-  }
-  static async updatePhoto(id, filename) {
-    const dados = await knex
-      .whereRaw(`id = "${id}"`)
-      .update({ photoAvatar: filename })
-      .table('aluno');
-    return this.showDateSingle(dados);
   }
 }
 

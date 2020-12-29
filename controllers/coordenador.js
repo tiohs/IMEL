@@ -5,7 +5,7 @@ import Colaborador from '../model/colaborador';
 const pathPC = 'pages/coordenacao';
 
 exports.getCadastrar = async (req, res) => {
-  const dados1 = await Aluno.showDate();
+  const dados1 = await Aluno.shows();
   const dados2 = await Colaborador.showDate();
   const dados = [...dados1, ...dados2];
   const [cursos, turmas] = await Geral.Dates();
@@ -15,19 +15,19 @@ exports.getCadastrar = async (req, res) => {
 exports.postCadastrar = async (req, res) => {
   const { nome, bi, curso, classe, sala, numero, turno, turma } = req.body;
   const [filePhonto, fileBI] = req.files;
-  const aluno = new Aluno(
+  const aluno = new Aluno({
     nome,
     bi,
     numero,
     classe,
     sala,
     turno,
-    bi,
-    fileBI.filename,
-    filePhonto.filename,
-    curso,
-    turma
-  );
+    palavraPasse: bi,
+    photoBi: fileBI.filename,
+    photoAvatar: filePhonto.filename,
+    idCurso: curso,
+    idTurma: turma,
+  });
   await aluno.save();
   res.redirect('/cordenacao/cadastrar');
 };
@@ -64,7 +64,7 @@ exports.getPerfil = (req, res) => {
 };
 
 exports.getEditarAluno = async (req, res) => {
-  const parms = req.params.id;
-  var result = await Aluno.showDateSingle(parms);
+  const id = req.params.id;
+  var result = await Aluno.show(id);
   res.render(pathPC + '/detalhes', { result });
 };

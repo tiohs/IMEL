@@ -44,7 +44,10 @@ app.use(
     },
   })
 );
-
+app.post('/update', (req, res, next) => {
+  const dados = req.body;
+  console.log(dados);
+});
 app.use(routerAuth);
 app.use('/cordenacao', routerCoordenador);
 app.use(routerAluno);

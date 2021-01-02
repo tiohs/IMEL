@@ -1,3 +1,3 @@
 exports.getIndex = (req, res, next) => {
-    res.render('pages/adim/adimn');
-}
+  res.render('pages/adim/cadastrar');
+};

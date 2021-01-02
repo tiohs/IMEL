@@ -44,7 +44,7 @@ app.use(
     },
   })
 );
-app.use(routerAdmin);
+
 app.use(routerAuth);
 app.use('/cordenacao', routerCoordenador);
 app.use(routerAluno);

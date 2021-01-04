@@ -15,6 +15,12 @@ class auth {
       .whereRaw(`bi = "${bi}" and palavraPasse = "${password}" `);
     if (!!colaborador[0]) return colaborador[0];
 
+    const coordenador = await knex
+      .select()
+      .into('coordenador')
+      .whereRaw(`bi = "${bi}" and palavraPasse = "${password}" `);
+    if (!!coordenador[0]) return coordenador[0];
+
     return null;
   }
 }

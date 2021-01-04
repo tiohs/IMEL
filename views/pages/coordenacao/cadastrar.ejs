@@ -97,9 +97,11 @@
                                 <td><%- (dado.nivelSession == 1) ? 'Aluno' : 'Colaborador'; %></td>
 
                                 <td><%- new Date (dado.datatimes).toLocaleDateString() %></td>
-                                <td><a href="/cordenacao/detalhes-aluno/<%- dado.id %>" class="btn btn-secondary">
+                                <td>
+                                  <a href="<%- (dado.nivelSession == 1) ? `/cordenacao/detalhes/${dado.id}` : 'B' %>" class="btn btn-secondary">
                                     <i class="fa fa-angle-double-right"></i> Detalhes
-                                  </a></td>
+                                  </a>
+                                </td>
                               </tr>
                               <% } %>
                               <% } %>

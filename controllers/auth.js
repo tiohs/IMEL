@@ -16,8 +16,13 @@ exports.postLogin = async (req, res, next) => {
 
   if (user.nivelSession === 1)
     return postLoginCreate(user, '/perfil-aluno', req, res);
+
   if (user.nivelSession === 2)
     return postLoginCreate(user, '/cordenacao/cadastrar', req, res);
+
+  if (user.nivelSession === 3)
+    return postLoginCreate(user, '/cordenacao/cadastrar', req, res);
+
   return res.redirect('/');
 };
 

@@ -47,18 +47,18 @@
                     <i class="fa fa-arrow-left"></i> Voltar para Dashboard
                   </a>
                 </div>
-                <div class="col-md-3">
+                <!-- <div class="col-md-3">
                   <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#passwordModal">
                     <i class="fa fa-lock"></i> Mudar Password
                   </a>
-                </div>
+                </div> -->
               </div>
             </div>
           </section>
         
 
           <section id="profile">
-            <div class="container">
+            <!-- <div class="container">
               <div class="row">
                 <div class="col-md-9">
                   <div class="card">
@@ -85,11 +85,53 @@
                 </div>
                 <div class="col-md-3">
                   <h3>Teu Avatar</h3>
-                  <img src="../img/me.jpg" alt="" class="d-block img-fluid mb-3">
+                  <img src="http://localhost:3000/<%- user.photoAvatar %>" alt="" class="d-block img-fluid mb-3">
                   <button class="btn btn-primary btn-block">Editar Imagen</button>
                 </div>
               </div>
+            </div> -->
+
+                    <!--inicio-->
+        <div class="container">
+          <div class="row">
+            <div class="col col-md-9">
+              <div class="card mb-4">
+                <div class="card-header">
+                  Minha informação
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-4 phot">
+                      <img src="http://localhost:3000/<%- user.photoAvatar %>" alt="" class="d-block img-fluid mb-3">
+                    <button class="btn btn-primary btn-block">Editar Imagen</button>
+                      <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#passwordModal">
+                        <i class="fa fa-lock"></i> Mudar Password
+                      </a>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="infod">
+                        <div class="infog">
+                          <p class="pb-4">Nome:</p>
+                          <p class="pb-4">Bilhete:</p>
+                          <p class="pb-4">Processo:</p>
+                          <p class="pb-4">Curso:</p>
+                        </div>
+                        <div class="">
+                          <p class="pb-4"><%- user.nome %></p>
+                          <p class="pb-4"><%- user.bi %></p>
+                          <p class="pb-4"><%- user.id %></p>
+                          <p class="pb-4"><%- user.idCurso %></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+  
+          </div>
+        </div>
+        <!--fim-->
           </section>
         
           <!-- PASSWORD MODAL -->

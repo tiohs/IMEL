@@ -25,6 +25,6 @@ router.post(
 router.get('/lancar-nota', controllersCoordenador.getLancarNota);
 router.get('/nota', controllersCoordenador.getNota);
 router.get('/perfil', controllersCoordenador.getPerfil);
-router.get('/detalhes/:id', controllersCoordenador.getEditarAluno);
+router.get('/detalhes-aluno/:id', controllersCoordenador.getEditarAluno);
 
 export default router;

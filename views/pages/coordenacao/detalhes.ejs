@@ -35,8 +35,8 @@
                   </a>
                 </div>
                 <div class="col-md-3">
-                  <a href="#" class="btn btn-success btn-block" id="salvar">
-                    <i class="fa fa-check"></i> Savar mudanças
+                  <a href="#" class="btn btn-success btn-block">
+                    <i class="fa fa-check"></i> Salvar mudanças
                   </a>
                 </div>
               </div>
@@ -51,7 +51,7 @@
             </div>
             <div class="col-md-9">
               
-              <form action="/update" method="post">
+              <form action="">
                 <section id="posts">
                   <div class="container">
                     <div class="row">
@@ -66,13 +66,13 @@
                                 <div class="col-md-6">
                                   <div class="form-group">
                                     <label for="name">Nome</label>
-                                    <input type="text" name="nome" class="form-control" value="<%- result[0].nome %>">
+                                    <input type="text" class="form-control" value="<%- result[0].nome %>">
                                   </div>
                                 </div>
                                 <div class="col-md-6">
                                   <div class="form-group">
-                                    <label for="bi" >Bi</label>
-                                    <input type="text" name="bi" class="form-control" value="<%- result[0].bi %>">
+                                    <label for="bi">Bi</label>
+                                    <input type="text" class="form-control" value="<%- result[0].bi %>">
                                   </div>
                                 </div>
                               </div>
@@ -91,13 +91,11 @@
                               </div>
                               
                               <div class="row">
-                                <div class="form-group">
-                                  <label for="title">Curso</label>
-                                  <select name="curso" class="form-control">
-                                    <% for(curso of cursos){ %>
-                                    <option value="<%- curso.id %>"><%- curso.nomeCurso %></option>
-                                    <% } %>
-                                  </select>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="title">Curso</label>
+                                    <input type="text" class="form-control" value="<%- result[0].curso %>">
+                                  </div>
                                 </div>
                                 <div class="col-md-6">
                                   <div class="form-group">
@@ -134,11 +132,7 @@
                                 <div class="col-md-6">
                                   <div class="form-group">
                                     <label for="turma">Turma</label>
-                                    <select name="turma" class="form-control">
-                                      <% for(turma of turmas){ %>
-                                      <option value="<%- turma.id %>"><%- turma.nome %></option>
-                                      <% } %>
-                                    </select>
+                                    <input type="text" class="form-control" value="At">
                                   </div>
                                 </div>
                               </div>
@@ -206,13 +200,7 @@
 
   <script src="../../js/jquery.min.js"></script>
   <script src="../../js/bootstrap.bundle.min.js"></script>
-  <script>
-    const form = document.querySelector('form');
-    const submit = document.querySelector('#salvar');
-    submit.addEventListener('click', ()=> {
-      form.submit();
-    });
-  </script>
+
 </body>
 
 </html>

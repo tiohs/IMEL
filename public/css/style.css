@@ -19,6 +19,12 @@ body{
   z-index: 10;
 }
 
+/**/
+.topbar.navbar-light .navbar-nav .nav-item .nav-link {
+  color: #4577b0;
+}
+/**/
+
 .logod{
   width: 100px;
   height: 50px;

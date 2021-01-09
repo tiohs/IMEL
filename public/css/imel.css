@@ -88,6 +88,18 @@ body {
   width: 200px;
 }
 
+/**/
+.phot img{
+  width: 255px;
+  height: 170px;
+}
+.infod {
+  display: flex;
+}
+
+.infog {
+  margin-right: 10px;
+}
 /*avatar*/
 .imgAvatar{
   border-radius: 50%;

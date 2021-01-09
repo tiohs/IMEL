@@ -21,18 +21,11 @@
 
   <div id="wrapper">
 
-    <!-- Sidebar -->
-    <%- include('./includes/sidebar', {user}) %>
-        <!-- fim do Topbar -->
+    <%- include('./includes/sidebar') %>
+    
 
         <!-- inicio da Pag. de Conteúdo -->
         <div class="container-fluid">
-
-          <div class="col-md-3 mb-4">
-            <a href="#" class="btn btn-success btn-block">
-              <i class="fa fa-check"></i> Savar mudanças
-            </a>
-          </div>
 
           <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -43,138 +36,56 @@
                 <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
                   <div class="row">
                     <div class="col-sm-12 col-md-6 d-flex">
-                      <div id="dataTable_filter" class="dataTables_filter">
-                        <label>
-                          Pesquisar:<input type="search" class="form-control form-control-sm" placeholder=""
-                            aria-controls="dataTable">
-                        </label>
-                      </div>
+                      
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-sm-12">
 
 
-                      <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0"
-                      role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                        <tbody><tr>
-                          <td rowspan="2">Nº</td>
-                          <td rowspan="2" align="center">Nome</td>
-                          <td colspan="3" align="center">MAT</td>
-                          <td colspan="3" align="center">TIC</td>
-                          <td colspan="3" align="center">OAE</td>
-                          <td colspan="3" align="center">BDRC</td>
-                          <td colspan="3" align="center">PORT</td>
-                          <td colspan="3" align="center">FAI</td>
-                          <td colspan="3" align="center">TLP</td>
-                          <td colspan="3" align="center">ING</td>
-                          <td colspan="3">ED.F</td>
-    
-                        </tr>
-                        <tr>
-                          <td>P1</td>
-                        <td>P2</td>
-                        <td>P3</td>
-    
-                        <td>P1</td>
-                        <td>P2</td>
-                        <td>P3</td>
-    
-                        <td>P1</td>
-                        <td>P2</td>
-                        <td>P3</td>
-    
-                        <td>P1</td>
-                        <td>P2</td>
-                        <td>P3</td>
-    
-                        <td>P1</td>
-                        <td>P2</td>
-                        <td>P3</td>
-    
-                        <td>P1</td>
-                        <td>P2</td>
-                        <td>P3</td>
-    
-                        <td>P1</td>
-                        <td>P2</td>
-                        <td>P3</td>
-    
-                        <td>P1</td>
-                        <td>P2</td>
-                        <td>P3</td>
-    
-                        <td>P1</td>
-                        <td>P2</td>
-                        <td>P3</td>
-    
-                        </tr>
-    
-                        <tr>
-                          <td>01</td>
-                          <td>Ariana Grande</td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                        </tr>
-    
-                        <tr>
-                          <td>02</td>
-                          <td>Kylie Jenner</td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                            <td><input type="number" class="inp"></td>
-                        </tr>
-    
-                      </tbody>
+                      <table class="table table-bordered dataTable" id="dataTable"  cellspacing="0"
+                        role="grid" aria-describedby="dataTable_info">
+                        <thead>
+                          <tr role="row">
+                            <th class="sorting_asc" 
+                              aria-sort="ascending">Nome</th>
+                            <th class="sorting">Turma</th>
+                            <th class="sorting">Turno</th>
+                            <th class="sorting">Classe</th>
+                              <th class="sorting"></th>
+                          </tr>
+                        </thead>
+                        
+                        <tbody>
+
+                          <tr role="row" class="odd">
+                            <td class="sorting_1">Bruno</td>
+                            <td>AN</td>
+                            <td>Noite</td>
+                            <td>13</td>
+                            <td><a href="/cordenacao/nota" class="btn btn-secondary" data-toggle="modal" data-target="#addNotaModal">
+                              <i class="fa fa-angle-double-right"></i> Lançar
+                            </a></td>
+                          </tr>
+                          <tr role="row" class="odd">
+                            <td class="sorting_1">Marcelino</td>
+                            <td>AN</td>
+                            <td>Noite</td>
+                            <td>13</td>
+                            <td><a href="/cordenacao/nota" class="btn btn-secondary" data-toggle="modal" data-target="#addNotaModal">
+                              <i class="fa fa-angle-double-right"></i> Lançar
+                            </a></td>
+                          </tr>
+                          <tr role="row" class="odd">
+                            <td class="sorting_1">MIlton</td>
+                            <td>AN</td>
+                            <td>Noite</td>
+                            <td>13</td>
+                            <td><a href="/cordenacao/nota" class="btn btn-secondary" data-toggle="modal" data-target="#addNotaModal">
+                              <i class="fa fa-angle-double-right"></i> Lançar
+                            </a></td>
+                          </tr>
+                        </tbody>
                       </table>
                     </div>
                   </div>
@@ -183,11 +94,15 @@
             </div>
           </div>
 
+          
+
 
 
         </div>
         <!-- /.container-fluid -->
 
+
+        
       </div>
       <!-- fim do Main Content -->
 
@@ -195,7 +110,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; ABDJAM 2020</span>
+            <span>Copyright &copy; ABJAM 2020</span>
           </div>
         </div>
       </footer>
@@ -227,8 +142,141 @@
     </div>
   </div>
 
+    <!-- Nota MODAL -->
+    <div class="modal fade" id="addNotaModal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header bg-m text-white">
+            <h5 class="modal-title">Lançar nota</h5>
+            <button class="close" data-dismiss="modal"><span>&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <form method="" action="">
+              <div class="form-group">
+                <label for="title">Disciplina</label>
+                <select class="form-control">
+                  <option value="">Matemática</option>
+                  <option value="">Programação</option>
+                  <option value="">Banco de dados</option>
+                </select>
+              </div>
+  
+              <h3>Iº trimestre</h3>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="classe">1º Nota</label>
+                    <input class="inp" type="number">
+                  </div>
+                </div>
+                
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="sala">2º Nota</label>
+                    <input class="inp" type="number">
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="sala">Média</label>
+                    <input class="inp" type="number">
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+              <h3>IIº trimestre</h3>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="classe">1º Nota</label>
+                    <input class="inp" type="number">
+                  </div>
+                </div>
+                
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="sala">2º Nota</label>
+                    <input class="inp" type="number">
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="sala">Média</label>
+                    <input class="inp" type="number">
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+
+              <h3>IIIº trimestre</h3>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="classe">1º Nota</label>
+                    <input class="inp" type="number">
+                  </div>
+                </div>
+                
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="sala">2º Nota</label>
+                    <input class="inp" type="number">
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="sala">Média</label>
+                    <input class="inp" type="number">
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal-footer">
+                <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button class="btn btn-primary" type="submit" >Cadastrar</button>
+              </div>
+            </form>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
   <script src="../../js/jquery.min.js"></script>
   <script src="../../js/bootstrap.bundle.min.js"></script>
+  <script src="../../js/jquery.dataTables.min.js"></script>
+  <script src="../../js/dataTables.bootstrap4.min.js"></script>
+  <script>
+    $(document).ready(function() {
+  $('#dataTable').DataTable({
+    "language": {
+      "decimal": "",
+      "emptyTable": "Sem dado disponivel na tabela",
+      "info": "Mostrando _START_ de _END_",
+      "infoEmpty": "Mostrando 0 de 0",
+      "infoFiltered": "(filtrado de _MAX_)",
+      "infoPostFix": "",
+      "thousands": ",",
+      "lengthMenu": "Mostrar _MENU_ ",
+      "loadingRecords": "Processando...",
+      "processing": "Processando...",
+      "search": "Pesquisar:",
+      "zeroRecords": "Nenhum resultado encontrado",
+      "paginate": {
+        "first": "Primeiro",
+        "last": "Anterior",
+        "next": "Proximo",
+        "previous": "Voltar"
+    }
+    }
+  });
+});
+  </script>
 </body>
 
 </html>

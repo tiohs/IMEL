@@ -97,11 +97,9 @@
                                 <td><%- (dado.nivelSession == 1) ? 'Aluno' : 'Colaborador'; %></td>
 
                                 <td><%- new Date (dado.datatimes).toLocaleDateString() %></td>
-                                <td>
-                                  <a href="<%- (dado.nivelSession == 1) ? `/cordenacao/detalhes/${dado.id}` : 'B' %>" class="btn btn-secondary">
+                                <td><a href="/cordenacao/detalhes-aluno/<%- dado.id %>" class="btn btn-secondary">
                                     <i class="fa fa-angle-double-right"></i> Detalhes
-                                  </a>
-                                </td>
+                                  </a></td>
                               </tr>
                               <% } %>
                               <% } %>
@@ -170,11 +168,11 @@
           <form method="POST" action="/cordenacao/cadastrar-colaborador" enctype="multipart/form-data">
             <div class="form-group">
               <label for="name">Nome</label>
-              <input type="text" name="nome" class="form-control">
+              <input type="text" name="nome" class="form-control" required>
             </div>
             <div class="form-group">
               <label for="BI">BI</label>
-              <input type="text" class="form-control" name="bi">
+              <input type="text" class="form-control" name="bi" required>
             </div>
             <div class="form-group">
               <label for="title">Curso</label>
@@ -188,12 +186,12 @@
               <div class="row">
                 <div class="col-md-6">
                   <label for="file">Escolher foto de Perfil </label>
-                  <input type="file" name="photo" class="form-control-file">
+                  <input type="file" name="photo" class="form-control-file" required>
                   <small class="form-text text-muted">Nº max 3mb</small>
                 </div>
                 <div class="col-md-6">
                   <label for="file">BI Foto </label>
-                  <input type="file" name="photo" class="form-control-file">
+                  <input type="file" name="photo" class="form-control-file" required>
                   <small class="form-text text-muted">Nº max 3mb</small>
                 </div>
               </div>
@@ -224,13 +222,13 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="nome">Nome</label>
-                  <input type="text" name="nome" class="form-control">
+                  <input type="text" name="nome" class="form-control" required>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="bi">Bi</label>
-                  <input type="text" name="bi" class="form-control">
+                  <input type="text" name="bi" class="form-control" required>
                 </div>
               </div>
             </div>
@@ -260,13 +258,13 @@
               <div class="col-md-4">
                 <div class="form-group">
                   <label for="sala">Sala</label>
-                  <input type="number" name="sala" id="sala" class="form-control">
+                  <input type="number" name="sala" id="sala" class="form-control" required>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label for="numero">Numero do Aluno</label>
-                  <input type="number" name="numero" id="numero" class="form-control">
+                  <input type="number" name="numero" id="numero" class="form-control" required>
                 </div>
               </div>
             </div>
@@ -275,7 +273,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="turno">Turno</label>
-                  <input type="text" class="form-control" name="turno">
+                  <input type="text" class="form-control" name="turno" required>
                 </div>
               </div>
 
@@ -295,12 +293,12 @@
               <div class="row">
                 <div class="col-md-6">
                   <label for="file">Escolher foto de Perfil </label>
-                  <input type="file" name="photo" class="form-control-file">
+                  <input type="file" name="photo" class="form-control-file" required>
                   <small class="form-text text-muted">Nº max 3mb</small>
                 </div>
                 <div class="col-md-6">
                   <label for="file">BI Foto </label>
-                  <input type="file" name="photo" class="form-control-file">
+                  <input type="file" name="photo" class="form-control-file" required>
                   <small class="form-text text-muted">Nº max 3mb</small>
                 </div>
               </div>
@@ -347,7 +345,7 @@
       });
     });
   </script>
-
+  
 </body>
 
 </html>

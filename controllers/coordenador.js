@@ -71,13 +71,6 @@ exports.getPerfil = (req, res) => {
 
 exports.getEditarAluno = async (req, res) => {
   const id = req.params.id;
-  const [cursos, turmas] = await Geral.Dates();
   var result = await Aluno.show(id);
-  console.log(result);
-  res.render(pathPC + '/detalhes', {
-    result,
-    user: req.session.user,
-    cursos,
-    turmas,
-  });
+  res.render(pathPC + '/detalhes', { result, user: req.session.user });
 };

@@ -46,22 +46,22 @@
       <div class="container">
         <div class="row">
           <div class="col-md-3 mr-auto">
-            <a href="index.html" class="btn btn-light btn-block">
+            <a href="/index" class="btn btn-light btn-block">
               <i class="fa fa-arrow-left"></i> Voltar para Dashboard
             </a>
           </div>
-          <div class="col-md-3">
+          <!-- <div class="col-md-3">
             <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#passwordModal">
               <i class="fa fa-lock"></i> Mudar Password
             </a>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
 
 
     <section id="profile">
-      <div class="container">
+      <!-- <div class="container">
         <div class="row">
           <div class="col-md-9">
             <div class="card">
@@ -106,7 +106,59 @@
             </a>
           </div>
         </div>
+      </div> -->
+
+      <!--inicio-->
+      <div class="container">
+        <div class="row">
+          <div class="col col-md-9">
+            <div class="card mb-4">
+              <div class="card-header">
+                Minha informação
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-4 phot">
+                    <img src="<%- user.photoAvatar %>" alt="" class="d-block img-fluid mb-3">
+                    <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#ImgModal">
+                      Editar Imagem
+                    </a>
+                  <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#passwordModal">
+                    <i class="fa fa-lock"></i> Mudar Password
+                  </a>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="infod">
+                      <div class="infog">
+                        <p class="pb-4">Nome:</p>
+                        <p class="pb-4">Bilhete:</p>
+                        <p class="pb-4">Processo:</p>
+                        <p class="pb-4">Curso:</p>
+                        <p class="pb-4">Classe:</p>
+                        <p class="pb-4">Sala:</p>
+                        <p class="pb-4">Turno:</p>
+                        <p class="pb-4">Turma:</p>
+                      </div>
+                      <div class="">
+                        <p class="pb-4"><%- user.nome %></p>
+                        <p class="pb-4"><%- user.bi %></p>
+                        <p class="pb-4"><%- user.id %></p>
+                        <p class="pb-4"><%- user.idCurso %></p>
+                        <p class="pb-4"><%- user.classe %></p>
+                        <p class="pb-4"><%- user.sala %></p>
+                        <p class="pb-4"><%- user.turno %></p>
+                        <p class="pb-4"><%- user.idTurma %></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
+      <!--fim-->
     </section>
 
     <!-- IMG MODAL -->

@@ -44,14 +44,12 @@ app.use(
     },
   })
 );
-app.post('/update', (req, res, next) => {
-  const dados = req.body;
-  console.log(dados);
-});
+
 app.use(routerAuth);
 app.use('/cordenacao', routerCoordenador);
 app.use(routerAluno);
+app.use('/admin', routerAdmin);
 
-app.listen(3000, () => {
+app.listen(3333, () => {
   console.log('Server on port 3000');
 });

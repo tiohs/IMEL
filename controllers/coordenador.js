@@ -65,12 +65,12 @@ exports.getNota = async (req, res) => {
   const id = req.params.id;
   const alunos = await Aluno.allTurmaAluno(id);
   const [, turma] = await Geral.datesSingle(id);
-  const disciplina = await Geral.desciplina();
+  const disciplinas = await Geral.desciplina();
   res.render(pathPC + '/nota', {
     user: req.session.user,
     turma,
     alunos,
-    disciplina,
+    disciplinas,
   });
 };
 

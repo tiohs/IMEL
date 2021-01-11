@@ -61,8 +61,10 @@ exports.getLancarNota = async (req, res) => {
   res.render(pathPC + '/lancarNota', { user: req.session.user, turmas });
 };
 
-exports.getNota = (req, res) => {
-  res.render(pathPC + '/nota', { user: req.session.user });
+exports.getNota = async (req, res) => {
+  const id = req.params.id;
+  var [, turma] = await Geral.datesSingle(id);
+  res.render(pathPC + '/nota', { user: req.session.user, turma });
 };
 
 exports.getPerfil = (req, res) => {

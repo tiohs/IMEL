@@ -23,7 +23,7 @@ router.post(
   controllersCoordenador.postCadastrarColaborador
 );
 router.get('/lancar-nota', controllersCoordenador.getLancarNota);
-router.get('/nota', controllersCoordenador.getNota);
+router.get('/nota/:id', controllersCoordenador.getNota);
 router.get('/perfil', controllersCoordenador.getPerfil);
 router.get('/detalhes-aluno/:id', controllersCoordenador.getEditarAluno);
 

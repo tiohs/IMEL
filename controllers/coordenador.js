@@ -63,10 +63,15 @@ exports.getLancarNota = async (req, res) => {
 
 exports.getNota = async (req, res) => {
   const id = req.params.id;
-  var alunos = await Aluno.allTurmaAluno(id);
-  console.log(alunos);
-  var [, turma] = await Geral.datesSingle(id);
-  res.render(pathPC + '/nota', { user: req.session.user, turma });
+  const alunos = await Aluno.allTurmaAluno(id);
+  const [, turma] = await Geral.datesSingle(id);
+  const disciplina = await Geral.desciplina();
+  res.render(pathPC + '/nota', {
+    user: req.session.user,
+    turma,
+    alunos,
+    disciplina,
+  });
 };
 
 exports.getPerfil = (req, res) => {

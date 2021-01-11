@@ -11,6 +11,9 @@ class Geral {
     const turma = await knex.select().into('turma').whereRaw(`id = ${id}`);
     return [curso, turma];
   }
+  static desciplina() {
+    return knex.select().into('disciplina');
+  }
 }
 
 export default Geral;

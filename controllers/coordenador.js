@@ -56,8 +56,9 @@ exports.getCordenador = (req, res) => {
   res.render(pathPC + '/cordenador', { user: req.session.user });
 };
 
-exports.getLancarNota = (req, res) => {
-  res.render(pathPC + '/lancarNota', { user: req.session.user });
+exports.getLancarNota = async (req, res) => {
+  const [, turmas] = await Geral.Dates();
+  res.render(pathPC + '/lancarNota', { user: req.session.user, turmas });
 };
 
 exports.getNota = (req, res) => {

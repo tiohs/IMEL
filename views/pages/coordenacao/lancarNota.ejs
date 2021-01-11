@@ -45,42 +45,26 @@
                         <thead>
                           <tr role="row">
                             <th class="sorting_asc" 
-                              aria-sort="ascending">Sala</th>
+                              aria-sort="ascending">ID</th>
                             <th class="sorting">Turma
                             </th>
-                            <th class="sorting">Turno</th>
-                            <th class="sorting">Classe</th>
+                            <th class="sorting">Sala</th>
                               <th class="sorting"></th>
                           </tr>
                         </thead>
-                        
+                        <% for(turma of turmas ) { %>
                         <tbody>
-
                           <tr role="row" class="odd">
-                            <td class="sorting_1">1</td>
-                            <td>An</td>
-                            <td>Noite</td>
-                            <td>13</td>
-                            <td><a href="/cordenacao/nota" class="btn btn-secondary">
+                            <td class="sorting_1"><%- turma.id %></td>
+                            <td><%- turma.nome %></td>
+                            <td><%- turma.sala %></td>
+                            
+                            <td><a href="/cordenacao/nota/<%- turma.id %>" class="btn btn-secondary">
                               <i class="fa fa-angle-double-right"></i> Lançar
                             </a></td>
                           </tr>
-                        </tbody>
-
-                        
-                        <tbody>
-
-                          <tr role="row" class="odd">
-                            <td class="sorting_1">2</td>
-                            <td>At</td>
-                            <td>Tarde</td>
-                            <td>13</td>
-                            <td><a href="/cordenacao/nota" class="btn btn-secondary">
-                              <i class="fa fa-angle-double-right"></i> Lançar
-                            </a></td>
-                          </tr>
-                        </tbody>
-
+                        </tbody> 
+                      <% } %>
                       </table>
                     </div>
                   </div>

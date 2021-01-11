@@ -46,6 +46,10 @@ class Aluno {
       .table('aluno');
     return dados;
   }
+  static allTurmaAluno(id) {
+    const dados = knex.table('aluno').whereRaw(`idTurma = "${id}"`);
+    return dados;
+  }
 }
 
 export default Aluno;

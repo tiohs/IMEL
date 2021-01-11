@@ -57,34 +57,17 @@
                         </thead>
                         
                         <tbody>
-
+                          <% for( aluno of alunos ) { %>
                           <tr role="row" class="odd">
-                            <td class="sorting_1">Bruno</td>
-                            <td>AN</td>
-                            <td>Noite</td>
-                            <td>13</td>
+                            <td class="sorting_1"><%- aluno.nome %></td>
+                            <td><%- turma[0].nome %></td>
+                            <td><%- aluno.turno %></td>
+                            <td><%- aluno.classe %></td>
                             <td><a href="/cordenacao/nota" class="btn btn-secondary" data-toggle="modal" data-target="#addNotaModal">
                               <i class="fa fa-angle-double-right"></i> Lançar
                             </a></td>
                           </tr>
-                          <tr role="row" class="odd">
-                            <td class="sorting_1">Marcelino</td>
-                            <td>AN</td>
-                            <td>Noite</td>
-                            <td>13</td>
-                            <td><a href="/cordenacao/nota" class="btn btn-secondary" data-toggle="modal" data-target="#addNotaModal">
-                              <i class="fa fa-angle-double-right"></i> Lançar
-                            </a></td>
-                          </tr>
-                          <tr role="row" class="odd">
-                            <td class="sorting_1">MIlton</td>
-                            <td>AN</td>
-                            <td>Noite</td>
-                            <td>13</td>
-                            <td><a href="/cordenacao/nota" class="btn btn-secondary" data-toggle="modal" data-target="#addNotaModal">
-                              <i class="fa fa-angle-double-right"></i> Lançar
-                            </a></td>
-                          </tr>
+                          <% } %>
                         </tbody>
                       </table>
                     </div>
@@ -151,7 +134,7 @@
             <button class="close" data-dismiss="modal"><span>&times;</span></button>
           </div>
           <div class="modal-body">
-            <form method="" action="">
+            <form method="post" action="/nota">
               <div class="form-group">
                 <label for="title">Disciplina</label>
                 <select class="form-control">
@@ -161,8 +144,8 @@
                 </select>
               </div>
               <div class="form-group">
-                <label for="title">Disciplina</label>
-                <select class="form-control">
+                <label for="title">Trimestre</label>
+                <select class="form-control" name="trimestre">
                   <option value="1">Iº trimestre</option>
                   <option value="2">IIº trimestre</option>
                   <option value="3">IIIº trimestre</option>
@@ -174,21 +157,21 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="classe">1º Nota</label>
-                    <input class="inp" type="number">
+                    <input class="inp" name="nota1" type="number">
                   </div>
                 </div>
                 
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="sala">2º Nota</label>
-                    <input class="inp" type="number">
+                    <input class="inp" name="nota2" type="number">
                   </div>
                 </div>
 
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="sala">Média</label>
-                    <input class="inp" type="number">
+                    <input class="inp" name="media" type="number">
                   </div>
                 </div>
               </div>

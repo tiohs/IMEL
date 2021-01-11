@@ -50,3 +50,9 @@ exports.postUpdatePhoto = async (req, res, nex) => {
   req.session.user = user[0];
   res.redirect('/perfil-aluno');
 };
+
+exports.postNota = async (req, res) => {
+  const date = req.body;
+  date.media = (date.nota1 + date.nota2) / 2;
+  console.log(date.media);
+};

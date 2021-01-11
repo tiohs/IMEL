@@ -15,5 +15,6 @@ router.get('/reclamacao', aluno.getReclamacao);
 router.get('/perfil-aluno', aluno.getPerfil);
 router.post('/update-password', aluno.updatePassword);
 router.post('/update-photo', upload.single('photo'), aluno.postUpdatePhoto);
+router.post('/nota', aluno.postNota);
 
 export default router;

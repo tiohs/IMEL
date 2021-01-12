@@ -6,6 +6,7 @@ import { urlencoded } from 'body-parser';
 import session from 'express-session';
 
 // Routes
+import flash from 'connect-flash';
 import routerAluno from './routes/alunos.routes';
 import routerCoordenador from './routes/coordenador.routes';
 import routerAuth from './routes/auth.routes';
@@ -45,6 +46,7 @@ app.use(
   })
 );
 
+app.use(flash());
 app.use(routerAuth);
 app.use('/cordenacao', routerCoordenador);
 app.use(routerAluno);

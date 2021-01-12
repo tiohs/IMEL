@@ -63,7 +63,8 @@
                             <td><%- turma[0].nome %></td>
                             <td><%- aluno.turno %></td>
                             <td><%- aluno.classe %></td>
-                            <td><a href="/cordenacao/nota" class="btn btn-secondary" data-toggle="modal" data-target="#addNotaModal">
+                            <td><a href="/cordenacao/nota" class="btn btn-secondary aluno" data-toggle="modal" data-target="#addNotaModal">
+                              <input type="hidden" value="<%- aluno.id %>">
                               <i class="fa fa-angle-double-right"></i> Lançar
                             </a></td>
                           </tr>
@@ -151,7 +152,7 @@
                   <option value="3">IIIº trimestre</option>
                 </select>
               </div>
-  
+              <input type="hidden" name="idAluno" id="idAluno" value="">
               
               <div class="row">
                 <div class="col-md-4">
@@ -190,6 +191,7 @@
   <script src="../../js/bootstrap.bundle.min.js"></script>
   <script src="../../js/jquery.dataTables.min.js"></script>
   <script src="../../js/dataTables.bootstrap4.min.js"></script>
+  <script src="../../js/main.js"></script>
   <script>
     $(document).ready(function() {
   $('#dataTable').DataTable({

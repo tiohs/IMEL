@@ -14,6 +14,9 @@ class Geral {
   static desciplina() {
     return knex.select().into('disciplina');
   }
+  static storeNota(dados) {
+    return knex.insert(dados).into('nota');
+  }
 }
 
 export default Geral;

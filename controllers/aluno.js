@@ -53,6 +53,9 @@ exports.postUpdatePhoto = async (req, res, nex) => {
 
 exports.postNota = async (req, res) => {
   const date = req.body;
-  date.media = (+date.nota1 + +date.nota2) / 2;
-  console.log(date.media);
+  await geral.storeNota(date);
+};
+
+exports.apiNotaAluno = async (req, res) => {
+  const id = req.params.id;
 };

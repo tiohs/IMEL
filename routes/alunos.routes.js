@@ -16,5 +16,5 @@ router.get('/perfil-aluno', aluno.getPerfil);
 router.post('/update-password', aluno.updatePassword);
 router.post('/update-photo', upload.single('photo'), aluno.postUpdatePhoto);
 router.post('/nota', aluno.postNota);
-
+router.get('/api/nota/:id', aluno.apiNotaAluno);
 export default router;

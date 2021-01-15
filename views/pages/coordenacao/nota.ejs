@@ -138,7 +138,7 @@
             <form method="post" action="/nota">
               <div class="form-group">
                 <label for="title">Disciplina</label>
-                <select class="form-control">
+                <select class="form-control" name="idDisciplina">
                   <% for(disciplina of disciplinas ) { %>
                   <option value="<%- disciplina.id %>"><%- disciplina.nomeDisciplina %></option>
                   <% } %>
@@ -152,33 +152,33 @@
                   <option value="3">IIIº trimestre</option>
                 </select>
               </div>
-              <input type="hidden" name="idAluno" id="idAluno" value="">
-              
+              <input type="hidden" name="idAluno" id="idAluno" value="1">
               <div class="row">
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="classe">1º Nota</label>
-                    <input class="inp" name="nota1" type="number">
+                    <input class="inp" name="nota1" id="nota1" type="number">
                   </div>
                 </div>
                 
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="sala">2º Nota</label>
-                    <input class="inp" name="nota2" type="number">
+                    <input class="inp" name="nota2" id="nota2" type="number" value="0">
                   </div>
                 </div>
 
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="sala">Média</label>
-                    <input class="inp" name="media" type="number">
+                    <p id="media"></p>
+                    <input type="hidden" class="inp" name="media"  type="number">
                   </div>
                 </div>
               </div>
               <div class="modal-footer">
                 <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button class="btn btn-primary" type="submit" >Cadastrar</button>
+                <button class="btn btn-primary" id="cadastrar" >Cadastrar</button>
               </div>
             </form>
           </div>

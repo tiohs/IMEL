@@ -1,188 +1,225 @@
 <!DOCTYPE html>
 <html lang="pt">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dash aluno</title>
-  <link rel="stylesheet" href="../../fontawesome-free/css/all.min.css">
-  <link rel="stylesheet" href="../../css/imel.css">
-  <link rel="sortcut icon" href="../../img/log.ico" type="image/x-icon">
-  <link rel="stylesheet" href="../../css/style.css">
-  <link rel="stylesheet" href="../../css/troca.css">
-  <style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dash aluno</title>
+    <link rel="stylesheet" href="../../fontawesome-free/css/all.min.css" />
+    <link rel="stylesheet" href="../../css/imel.css" />
+    <link rel="sortcut icon" href="../../img/log.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../css/troca.css" />
+    <style></style>
+  </head>
+  <body>
+    <%- include('./includes/header', {user}); %>
 
-  </style>
-</head>
-<body>
-  <%- include('./includes/header', {user}); %>
-
-  <!--  -->
-  <section class="intro">
-    <div class="container">
-      <h1>Trocar Curso</h1>
-      <!-- <blockquote class="quote">
+    <!--  -->
+    <section class="intro">
+      <div class="container">
+        <h1>Trocar Curso</h1>
+        <!-- <blockquote class="quote">
         <p>"A educação é a nosssa maior arma para mudar o futuro, a arte de saber estar"</p>
         <cite>SIMON JOSEPH</cite>
       </blockquote> -->
-    </div>
-  </section>
-
-  
-  <div class="container-fluid">
-
-    <!-- ACTIONS -->
-    <section id="action" class="py-4 mb-4 bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3">
-            <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addUserModalC">
-              <i class="fa fa-plus"></i> Cadastrar troca
-            </a>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- POSTS -->
-    <section id="posts">
-      <div class="container">
-        <div class="card shadow mb-4">
-          <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Cadastrados</h6>
+    <div class="container-fluid">
+      <!-- ACTIONS -->
+      <section id="action" class="py-4 mb-4 bg-light">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+              <a
+                href="#"
+                class="btn btn-primary btn-block"
+                data-toggle="modal"
+                data-target="#addUserModalC"
+              >
+                <i class="fa fa-plus"></i> Cadastrar troca
+              </a>
+            </div>
           </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                <div class="row">
-                  <div class="col-sm-12 col-md-6 d-flex">
-                    <div id="dataTable_filter" class="dataTables_filter">
-                      <label>
-                        Pesquisar:<input type="search" class="form-control form-control-sm" placeholder=""
-                          aria-controls="dataTable">
-                      </label>
+        </div>
+      </section>
+
+      <!-- POSTS -->
+      <section id="posts">
+        <div class="container">
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Cadastrados</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <div
+                  id="dataTable_wrapper"
+                  class="dataTables_wrapper dt-bootstrap4"
+                >
+                  <div class="row">
+                    <div class="col-sm-12 col-md-6 d-flex">
+                      <div id="dataTable_filter" class="dataTables_filter">
+                        <label>
+                          Pesquisar:<input
+                            type="search"
+                            class="form-control form-control-sm"
+                            placeholder=""
+                            aria-controls="dataTable"
+                          />
+                        </label>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-12">
-                    <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0"
-                      role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                      <thead>
-                        <tr role="row">
-                          <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                            aria-sort="ascending" 
-                            >#</th>
-                          <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                            >Nome
-                          </th>
-                          <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                            >Curso</th>
-                          <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                            >Turno</th>
-                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <table
+                        class="table table-bordered dataTable"
+                        id="dataTable"
+                        width="100%"
+                        cellspacing="0"
+                        role="grid"
+                        aria-describedby="dataTable_info"
+                        style="width: 100%"
+                      >
+                        <thead>
+                          <tr role="row">
+                            <th
+                              class="sorting_asc"
+                              tabindex="0"
+                              aria-controls="dataTable"
+                              rowspan="1"
+                              colspan="1"
+                              aria-sort="ascending"
+                            >
+                              #
+                            </th>
+                            <th
+                              class="sorting"
+                              tabindex="0"
+                              aria-controls="dataTable"
+                              rowspan="1"
+                              colspan="1"
+                            >
+                              Nome
+                            </th>
+                            <th
+                              class="sorting"
+                              tabindex="0"
+                              aria-controls="dataTable"
+                              rowspan="1"
+                              colspan="1"
+                            >
+                              Curso
+                            </th>
+                            <th
+                              class="sorting"
+                              tabindex="0"
+                              aria-controls="dataTable"
+                              rowspan="1"
+                              colspan="1"
+                            >
+                              Turno
+                            </th>
+                            <th
+                              class="sorting"
+                              tabindex="0"
+                              aria-controls="dataTable"
+                              rowspan="1"
+                              colspan="1"
                             ></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-
-                        <tr role="row" class="odd">
-                          <td class="sorting_1">1</td>
-                          <td>Ariana Grande</td>
-                          <td>Infogest</td>
-                          <td>Manhã</td>
-                          <td><a href="detalhes.html" class="btn btn-secondary">
-                            <i class="fa fa-angle-double-right"></i> Trocar
-                          </a></td>
-                        </tr>
-                        <tr role="row" class="even">
-                          <td class="sorting_1">2</td>
-                          <td>Kylie Jenner</td>
-                          <td>Contabilidade</td>
-                          <td>Noite</td>
-                          <td><a href="detalhes.html" class="btn btn-secondary">
-                            <i class="fa fa-angle-double-right"></i> Trocar
-                          </a></td>
-                        </tr>
-                      </tbody>
-                    </table>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr role="row" class="odd">
+                            <td class="sorting_1">1</td>
+                            <td>Ariana Grande</td>
+                            <td>Infogest</td>
+                            <td>Manhã</td>
+                            <td>
+                              <a href="detalhes.html" class="btn btn-secondary">
+                                <i class="fa fa-angle-double-right"></i> Trocar
+                              </a>
+                            </td>
+                          </tr>
+                          <tr role="row" class="even">
+                            <td class="sorting_1">2</td>
+                            <td>Kylie Jenner</td>
+                            <td>Contabilidade</td>
+                            <td>Noite</td>
+                            <td>
+                              <a href="detalhes.html" class="btn btn-secondary">
+                                <i class="fa fa-angle-double-right"></i> Trocar
+                              </a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-  </div>
-  <!-- /.container-fluid -->
-<!--  -->
-
-  <footer>
-    <div class="copy">
-      <div class="container">
-        <p>
-          <a href="#">ABDJAM 2020 - Todos direitos reservados.</a>
-        </p>
-      </div>
+      </section>
     </div>
-  </footer>
+    <!-- /.container-fluid -->
+    <!--  -->
 
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Sair?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Selecionar "Logout" se quiseres terminar a sesão.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a class="btn btn-primary" href="../../logo.html">Logout</a>
+    <footer>
+      <div class="copy">
+        <div class="container">
+          <p>
+            <a href="#">ABDJAM 2020 - Todos direitos reservados.</a>
+          </p>
         </div>
       </div>
-    </div>
-  </div>
+    </footer>
 
-  
-  <div class="modal fade" id="addUserModalC">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header bg-m text-white">
-          <h5 class="modal-title">Cadastrar Troca</h5>
-          <button class="close" data-dismiss="modal"><span>&times;</span></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="curso">Curso</label>
-              <select class="form-control">
-                <option value="">Infogest</option>
-                <option value="">Contabilidade</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="turno">Turno</label>
-              <select class="form-control">
-                <option value="">Manhã</option>
-                <option value="">Tarde</option>
-                <option value="">Noite</option>
-              </select>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button class="btn btn-primary" data-dismiss="modal">Cadastrar</button>
+    <!-- Logout Modal-->
+    <%- include('./includes/modalLogout.ejs'); %>
+
+    <div class="modal fade" id="addUserModalC">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header bg-m text-white">
+            <h5 class="modal-title">Cadastrar Troca</h5>
+            <button class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="curso">Curso</label>
+                <select class="form-control">
+                  <option value="">Infogest</option>
+                  <option value="">Contabilidade</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="turno">Turno</label>
+                <select class="form-control">
+                  <option value="">Manhã</option>
+                  <option value="">Tarde</option>
+                  <option value="">Noite</option>
+                </select>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">
+              Fechar
+            </button>
+            <button class="btn btn-primary" data-dismiss="modal">
+              Cadastrar
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <script src="../../js/jquery.min.js"></script>
-  <script src="../../js/bootstrap.bundle.min.js"></script>
-</body>
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

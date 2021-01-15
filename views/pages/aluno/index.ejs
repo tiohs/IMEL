@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dash aluno</title>
-  <link rel="stylesheet" href="../../fontawesome-free/css/all.min.css">
-  <link rel="stylesheet" href="../../css/imel.css">
-  <link rel="sortcut icon" href="../../img/log.ico" type="image/x-icon">
-  <link rel="stylesheet" href="../../css/style.css">
-  <link rel="stylesheet" href="../../css/aluno.css">
-  <style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dash aluno</title>
+    <link rel="stylesheet" href="../../fontawesome-free/css/all.min.css" />
+    <link rel="stylesheet" href="../../css/imel.css" />
+    <link rel="sortcut icon" href="../../img/log.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../css/aluno.css" />
+    <style></style>
+  </head>
+  <body>
+    <%- include('./includes/header', {user}); %>
 
-  </style>
-</head>
-<body>
-<%- include('./includes/header', {user}); %>
+    <!--  -->
+    <section class="intro">
+      <div class="container">
+        <h1>Imel</h1>
+        <blockquote class="quote">
+          <p>
+            "A educação é a nosssa maior arma para mudar o futuro, a arte de
+            saber estar"
+          </p>
+          <cite>SIMON JOSEPH</cite>
+        </blockquote>
+      </div>
+    </section>
 
-  <!--  -->
-  <section class="intro">
-    <div class="container">
-      <h1>Imel</h1>
-      <blockquote class="quote">
-        <p>"A educação é a nosssa maior arma para mudar o futuro, a arte de saber estar"</p>
-        <cite>SIMON JOSEPH</cite>
-      </blockquote>
-    </div>
-  </section>
-
-  <!--  -->
-  <!-- <section class="cards container">
+    <!--  -->
+    <!-- <section class="cards container">
     <ul>
       <li class="grid-8">
         <div class="card-icon">
@@ -61,81 +62,107 @@
     </ul>
   </section> -->
 
-  <section id="icon-boxes" class="p-5">
-    <div class="container">
-      <div class="row mb-4">
-        <div class="col-md-6">
-          <div class="card bg-m text-center text-white">
-            <div class="card-body">
-              <i class="fa fa-user fs"></i>
-              <h3>Perfil</h3>
-              Visualize As Tuas Informações Academicas Podendo Também Fazer A Alteração Das Tuas Credências...
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card bg-m text-center text-white">
-            <div class="card-body">
-              <i class="fa fa-calendar-alt fs"></i>
-              <h3>Consulta de nota</h3>
-              De Uma Forma Mais Simples e Eficaz Faz a Consulta Das Tuas Notas Podendo Assim Visualizar Notas Do Iº, IIº e IIIº Trimestre...
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row mb-4">
-        <div class="col-md-6">
-          <div class="card bg-m text-center text-white">
-            <div class="card-body">
-              <i class="fa fa-envelope fs"></i>
-              <h3>Troca de Curso</h3>
-              Nem Sempre, Mais a Casos Em Que Alunos Fazem a Incrição Em Um Determinado Curso E o Nome Sai Em Um Outro Curso, Se É o Teu Caso Temos a solução Pra Ti...
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card bg-m text-center text-white">
-            <div class="card-body">
-              <i class="fa fa-book fs"></i>
-              <h3>Reclamação</h3>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, architecto.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <footer>
-    <div class="copy">
+    <section id="icon-boxes" class="p-5">
       <div class="container">
-        <p>
-          <a href="#">ABDJAM 2020 - Todos direitos reservados.</a>
-        </p>
-      </div>
-    </div>
-  </footer>
+        <div class="row mb-4">
+          <div class="col-md-6">
+            <div class="card bg-m text-center text-white">
+              <div class="card-body">
+                <i class="fa fa-user fs"></i>
+                <h3>Perfil</h3>
+                Visualize As Tuas Informações Academicas Podendo Também Fazer A
+                Alteração Das Tuas Credências...
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card bg-m text-center text-white">
+              <div class="card-body">
+                <i class="fa fa-calendar-alt fs"></i>
+                <h3>Consulta de nota</h3>
+                De Uma Forma Mais Simples e Eficaz Faz a Consulta Das Tuas Notas
+                Podendo Assim Visualizar Notas Do Iº, IIº e IIIº Trimestre...
+              </div>
+            </div>
+          </div>
+        </div>
 
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Sair?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
+        <div class="row mb-4">
+          <div class="col-md-6">
+            <div class="card bg-m text-center text-white">
+              <div class="card-body">
+                <i class="fa fa-envelope fs"></i>
+                <h3>Troca de Curso</h3>
+                Nem Sempre, Mais a Casos Em Que Alunos Fazem a Incrição Em Um
+                Determinado Curso E o Nome Sai Em Um Outro Curso, Se É o Teu
+                Caso Temos a solução Pra Ti...
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card bg-m text-center text-white">
+              <div class="card-body">
+                <i class="fa fa-book fs"></i>
+                <h3>Reclamação</h3>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Adipisci, architecto.
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="modal-body">Selecionar "Logout" se quiseres terminar a sesão.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a class="btn btn-primary" href="../../logo.html">Logout</a>
+      </div>
+    </section>
+    <footer>
+      <div class="copy">
+        <div class="container">
+          <p>
+            <a href="#">ABDJAM 2020 - Todos direitos reservados.</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Logout Modal-->
+    <%- include('./includes/modalLogout.ejs'); %>
+
+    <div
+      class="modal fade"
+      id="logoutModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Sair?</h5>
+            <button
+              class="close"
+              type="button"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Selecionar "Logout" se quiseres terminar a sesão.
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              type="button"
+              data-dismiss="modal"
+            >
+              Cancelar
+            </button>
+            <a class="btn btn-primary" href="../../logo.html">Logout</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <script src="../../js/jquery.min.js"></script>
-  <script src="../../js/bootstrap.bundle.min.js"></script>
-</body>
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

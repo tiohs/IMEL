@@ -4,6 +4,7 @@ import { join } from 'path';
 import express from 'express';
 import { urlencoded } from 'body-parser';
 import session from 'express-session';
+import flash from 'connect-flash';
 
 const app = express();
 
@@ -32,8 +33,6 @@ var options = {
 
 var sessionStore = new MySQLStore(options);
 
-
-
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 app.use(urlencoded({ extended: false }));
@@ -54,6 +53,7 @@ app.use(
   })
 );
 
+app.use(flash());
 app.use(routerAuth);
 app.use('/cordenacao', routerCoordenador);
 app.use(routerAluno);

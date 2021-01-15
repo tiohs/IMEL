@@ -11,11 +11,15 @@ class Geral {
     const turma = await knex.select().into('turma').whereRaw(`id = ${id}`);
     return [curso, turma];
   }
+  // disciplina.filter((dado)=> dado.id === 1 )[0].curso
   static desciplina() {
     return knex.select().into('disciplina');
   }
   static storeNota(dados) {
     return knex.insert(dados).into('nota');
+  }
+  static notaAluno(id){
+    return knex.select().into('nota').whereRaw(`idAluno = ${id}`)
   }
 }
 

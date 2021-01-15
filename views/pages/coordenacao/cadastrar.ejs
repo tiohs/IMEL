@@ -14,6 +14,18 @@
   <link href="../../fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="../../css/imel.css" rel="stylesheet">
 
+  <style>
+    .direct{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn-primary.active{
+      color: #1105fe;
+    }
+  </style>
+
 </head>
 
 <body id="page-top">
@@ -42,7 +54,9 @@
                     <i class="fa fa-plus"></i> Cadastrar Aluno
                   </a>
                 </div>
+
               </div>
+              
             </div>
           </section>
 
@@ -50,8 +64,19 @@
           <section id="posts">
             <div class="container">
               <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Cadastrados</h6>
+                <div class="card-header py-3 direct">
+                  <h6 class="m-0 font-weight-bold text-primary">Cadastrados </h6>
+                  <div class="directC">
+                    
+                    <% if(user.nivelSession > 2) { %>
+                      <a href="#" class="btn btn-primary active" id="tr1" >
+                        <i class="fa fa-user"></i> Lista dos Alunos
+                      </a>
+                      <a href="#" class="btn btn-primary" id="tr2">
+                        <i class="fa fa-users-cog"></i> Lista dos Colaboradores
+                      </a>
+                      <% } %>
+                  </div>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -66,19 +91,7 @@
                           <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0"
                             role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                             <thead>
-                              <!-- <tr role="row">
-                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                  aria-sort="ascending" 
-                                  >#</th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                  >Nome
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                  >Função</th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                  >Data de cadastro</th>
-                                  <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                  ></th> -->
+                              
                               <tr>
                                 <th>#</th>
                                 <th>Nome</th>
@@ -88,7 +101,8 @@
                               </tr>
                               </tr>
                             </thead>
-                            <tbody>
+                            <!--Aluno-->
+                            <tbody id="alu"  style="display: table-row-group">
                               <% for(dado of dados){ %>
                                 <% if(user.nivelSession !== dado.nivelSession) { %>
                               <tr role="row" class="odd">
@@ -97,14 +111,32 @@
                                 <td><%- (dado.nivelSession == 1) ? 'Aluno' : 'Colaborador'; %></td>
 
                                 <td><%- new Date (dado.datatimes).toLocaleDateString() %></td>
-                                <td><a href="/cordenacao/detalhes-aluno/<%- dado.id %>" class="btn btn-secondary">
+                                <td><a href="/cordenacao/detalhes-aluno/<%- dado.id %>" class="btn btn-primary">
                                     <i class="fa fa-angle-double-right"></i> Detalhes
                                   </a></td>
                               </tr>
                               <% } %>
                               <% } %>
                             </tbody>
+                            <!--colaborador-->
+                            <tbody id="cola" style="display: none;">
+                              <!-- <% for(dado of dados){ %>
+                                <% if(user.nivelSession !== dado.nivelSession) { %>
+                              <tr role="row" class="odd">
+                                <td class="sorting_1"><%- dado.numero_id %></td>
+                                <td><%- dado.nome %></td>
+                                <td><%- (dado.nivelSession == 1) ? 'Aluno' : 'Colaborador'; %></td>
+
+                                <td><%- new Date (dado.datatimes).toLocaleDateString() %></td>
+                                <td><a href="/cordenacao/detalhes-aluno/<%- dado.id %>" class="btn btn-primary">
+                                    <i class="fa fa-angle-double-right"></i> Detalhes
+                                  </a></td>
+                              </tr>
+                              <% } %>
+                              <% } %> -->
+                            </tbody>
                           </table>
+                          
                         </div>
                       </div>
                     </div>
@@ -165,7 +197,7 @@
           <button class="close" data-dismiss="modal"><span>&times;</span></button>
         </div>
         <div class="modal-body">
-          <form method="POST" data-toggle="validator" action="/cordenacao/cadastrar-colaborador" enctype="multipart/form-data">
+          <form method="POST" action="/cordenacao/cadastrar-colaborador" enctype="multipart/form-data">
             <div class="form-group">
               <label for="name">Nome</label>
               <input type="text" name="nome" class="form-control" required>
@@ -217,7 +249,7 @@
           <button class="close" data-dismiss="modal"><span>&times;</span></button>
         </div>
         <div class="modal-body">
-          <form method="POST" data-toggle="validator" action="/cordenacao/cadastrar" enctype="multipart/form-data">
+          <form method="POST" action="/cordenacao/cadastrar" enctype="multipart/form-data">
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
@@ -319,6 +351,31 @@
   <script src="../../js/bootstrap.bundle.min.js"></script>
   <script src="../../js/jquery.dataTables.min.js"></script>
   <script src="../../js/dataTables.bootstrap4.min.js"></script>
+  <script>
+    const tr1 = document.getElementById('tr1');
+    const tr2 = document.getElementById('tr2');
+    
+
+    const alu = document.getElementById('alu');
+    const cola = document.getElementById('cola');
+    
+
+    tr1.addEventListener('click', () => {
+      alu.style.display = "table-row-group";
+      cola.style.display = "none";
+
+      tr1.classList.add("active");
+      tr2.classList.remove("active");
+    });
+
+    tr2.addEventListener('click', () => {
+      alu.style.display = "none";
+      cola.style.display = "table-row-group";
+
+      tr2.classList.add("active");
+      tr1.classList.remove("active");
+    });
+  </script>
   <script>
     $(document).ready(function () {
       $('#dataTable').DataTable({

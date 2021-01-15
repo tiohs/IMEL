@@ -5,8 +5,16 @@ import express from 'express';
 import { urlencoded } from 'body-parser';
 import session from 'express-session';
 
+const app = express();
+
+const server = require('http').Server(app);
+const io = require('socket.io')(server);
+
+io.on('connection', (socket) => {
+  console.log('a user connected');
+});
+
 // Routes
-import flash from 'connect-flash';
 import routerAluno from './routes/alunos.routes';
 import routerCoordenador from './routes/coordenador.routes';
 import routerAuth from './routes/auth.routes';
@@ -24,7 +32,7 @@ var options = {
 
 var sessionStore = new MySQLStore(options);
 
-const app = express();
+
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
@@ -46,12 +54,11 @@ app.use(
   })
 );
 
-app.use(flash());
 app.use(routerAuth);
 app.use('/cordenacao', routerCoordenador);
 app.use(routerAluno);
 app.use('/admin', routerAdmin);
 
-app.listen(3333, () => {
-  console.log('Server on port 3000');
+server.listen(3333, () => {
+  console.log('listening on *:3333');
 });

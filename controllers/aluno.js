@@ -9,9 +9,13 @@ exports.getIndex = (req, res, nex) => {
   });
 };
 
-exports.getConsultaNota = (req, res, nex) => {
+exports.getConsultaNota = async (req, res, nex) => {
+  const result = await geral.notaAluno(req.session.user.id);
+  const disciplina = await geral.desciplina();
   res.render(pathViews + 'consultar', {
     user: req.session.user,
+    notas: result,
+    disciplina
   });
 };
 
@@ -53,7 +57,10 @@ exports.postUpdatePhoto = async (req, res, nex) => {
 
 exports.postNota = async (req, res) => {
   const date = req.body;
+  let page = date.idd;
+  delete date.idd;
   await geral.storeNota(date);
+  res.redirect(`/cordenacao/nota/${page}`);
 };
 
 exports.apiNotaAluno = async (req, res) => {

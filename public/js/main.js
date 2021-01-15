@@ -6,6 +6,7 @@
   var nota1 = doc.querySelector('#nota1');
   var nota2 = doc.querySelector('#nota2');
   var media = doc.querySelector('#media');
+  var idMedia = doc.querySelector('#idMedia');
 
   table.addEventListener('click', (e) => {
     let clickAluno = e.target.classList.contains('aluno');
@@ -18,7 +19,9 @@
   function onKeyUp(element) {
     element.onkeyup = () => {
       console.log(nota1.value, nota2.value);
-      media.innerHTML = (parseInt(nota1.value) + parseInt(nota2.value)) / 2;
+      let result = (parseInt(nota1.value) + parseInt(nota2.value)) / 2;
+      media.innerHTML = result;
+      idMedia.value = result;
     };
   }
   onKeyUp(nota2);

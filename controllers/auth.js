@@ -19,13 +19,13 @@ exports.postLogin = async (req, res, next) => {
   const user = await auth.date(bi, password);
   if (!(user === null)) {
     if (user.nivelSession === 1)
-      return postLoginCreate(user, '/perfil-aluno', req, res);
+      return postLoginCreate(user, '/aluno', req, res);
 
     if (user.nivelSession === 2)
-      return postLoginCreate(user, '/cordenacao/cadastrar', req, res);
+      return postLoginCreate(user, '/cordenacao/', req, res);
 
     if (user.nivelSession === 3)
-      return postLoginCreate(user, '/cordenacao/cadastrar', req, res);
+      return postLoginCreate(user, '/cordenacao/', req, res);
   }
   req.flash('error', 'Email ou senha não existente ! ');
   return res.redirect('/');

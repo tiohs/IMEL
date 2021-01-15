@@ -18,8 +18,8 @@ class Geral {
   static storeNota(dados) {
     return knex.insert(dados).into('nota');
   }
-  static notaAluno(id){
-    return knex.select().into('nota').whereRaw(`idAluno = ${id}`)
+  static notaAluno(id) {
+    return knex.select().into('nota').whereRaw(`idAluno = ${id}`);
   }
 }
 

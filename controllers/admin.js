@@ -1,6 +1,6 @@
 import Geral from '../model/geral';
 import Cordenador from '../model/cordenacao';
-exports.getIndex = (req, res, next) => {
+exports.getIndex = async (req, res, next) => {
   res.render('pages/admin/admin');
 };
 

@@ -7,7 +7,7 @@ const pathPC = 'pages/coordenacao';
 exports.getCadastrar = async (req, res) => {
   const dados1 = await Aluno.shows();
   const dados2 = await Colaborador.showDate();
-  const dados = [...dados1, ...dados2];
+  const dados = [dados1, dados2];
   const [cursos, turmas] = await Geral.Dates();
   res.render(pathPC + '/cadastrar', {
     dados,

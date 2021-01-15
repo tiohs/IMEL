@@ -103,8 +103,7 @@
                             </thead>
                             <!--Aluno-->
                             <tbody id="alu"  style="display: table-row-group">
-                              <% for(dado of dados){ %>
-                                <% if(user.nivelSession !== dado.nivelSession) { %>
+                              <% for(dado of dados[0]){ %>
                               <tr role="row" class="odd">
                                 <td class="sorting_1"><%- dado.numero_id %></td>
                                 <td><%- dado.nome %></td>
@@ -115,13 +114,13 @@
                                     <i class="fa fa-angle-double-right"></i> Detalhes
                                   </a></td>
                               </tr>
-                              <% } %>
                               <% } %>
                             </tbody>
                             <!--colaborador-->
+                            <% if(user.nivelSession > 2) { %>
                             <tbody id="cola" style="display: none;">
-                              <!-- <% for(dado of dados){ %>
-                                <% if(user.nivelSession !== dado.nivelSession) { %>
+                               <% for(dado of dados[1]){ %>
+                                
                               <tr role="row" class="odd">
                                 <td class="sorting_1"><%- dado.numero_id %></td>
                                 <td><%- dado.nome %></td>
@@ -133,9 +132,9 @@
                                   </a></td>
                               </tr>
                               <% } %>
-                              <% } %> -->
                             </tbody>
                           </table>
+                          <% } %> 
                           
                         </div>
                       </div>

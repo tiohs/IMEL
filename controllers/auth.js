@@ -1,7 +1,6 @@
 import auth from '../model/auth';
 
 exports.getLogin = (req, res, nex) => {
-  console.log(req.flash('error'));
   res.render('login', { messages: req.flash('error') });
 };
 

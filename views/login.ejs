@@ -1,34 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="css/logo.css">
-  <link rel="stylesheet" href="fontawesome-free/css/all.min.css">
-</head>
-<body>
-  <div class="login">
-    <div class="login-form">
-      <div class="login-form-wrapper">
-        <h2>Login</h2>
-        <form action="/login" method="POST">
-          <div class="inputBox form-group">
-            <input type="text" name="bi" required="">
-            <label>BI</label>
-          </div>
-          <div class="inputBox form-group">
-            <input type="password" name="password" required="">
-            <label>Palavra passe</label>
-          </div>
-          <input type="submit" class="btl" value="Login">
-        </form>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/logo.css" />
+    <link rel="stylesheet" href="fontawesome-free/css/all.min.css" />
+    <link href="../../css/imel.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="login">
+      <div class="login-form">
+        <div class="login-form-wrapper">
+          <% if(!!messages[0]){ %>
+          <div class="alert alert-danger" role="alert"><%- messages[0] %></div>
+          <% } %>
+          <h2>Login</h2>
+          <form action="/login" method="POST">
+            <div class="inputBox form-group">
+              <input type="text" name="bi" required="" />
+              <label>BI</label>
+            </div>
+            <div class="inputBox form-group">
+              <input type="password" name="password" required="" />
+              <label>Palavra passe</label>
+            </div>
+            <input type="submit" class="btl" value="Login" />
+          </form>
+        </div>
+      </div>
+      <div class="banner-login">
+        <img src="img/log.png" alt="logo" />
       </div>
     </div>
-    <div class="banner-login">
-      <img src="img/log.png" alt="logo">
-    </div>
-  </div>
-                                                                            
-</body>
+  </body>
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/bootstrap.bundle.min.js"></script>
 </html>

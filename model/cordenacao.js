@@ -6,15 +6,15 @@ class Colaborador {
     this.idCurso = idCurso;
     this.photoAvatar = photoAvatar;
     this.photoBi = photoBi;
-    this.nivelSession = 2;
+    this.nivelSession = 3;
     this.palavraPasse = bi;
   }
   async save() {
-    let dados = await knex.insert(this).into('colaborador');
+    let dados = await knex.insert(this).into('coordenador');
     return dados;
   }
   static async showDate() {
-    let dados = await knex.select().into('colaborador');
+    let dados = await knex.select().into('coordenador');
     return dados;
   }
 }

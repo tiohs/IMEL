@@ -1,12 +1,13 @@
 import Geral from '../model/geral';
-
+import Cordenador from '../model/cordenacao';
 exports.getIndex = (req, res, next) => {
   res.render('pages/admin/admin');
 };
 
 exports.cadastrar = async (req, res, next) => {
   const [cursos] = await Geral.Dates();
-  res.render('pages/admin/cadastrar', { cursos });
+  const result = await Cordenador.showDate();
+  res.render('pages/admin/cadastrar', { cursos, result });
 };
 
 exports.detalhes = (req, res, next) => {
@@ -18,16 +19,15 @@ exports.gerir = (req, res, next) => {
 };
 
 exports.postCadastrarCordenador = async (req, res) => {
-  const { nome, bi, curso, idCordenador } = req.body;
+  const { nome, bi, curso } = req.body;
   const [filePhonto, fileBI] = req.files;
-  const colaborador = new Colaborador(
+  const cordenador = new Cordenador(
     nome,
     bi,
     fileBI.filename,
-    idCordenador,
     filePhonto.filename,
     curso
   );
-  await colaborador.save();
-  res.redirect('/cordenacao/cadastrar');
+  await cordenador.save();
+  res.redirect('/admin/cadastrar');
 };

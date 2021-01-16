@@ -8,7 +8,6 @@ exports.getCadastrar = async (req, res) => {
   const dados1 = await Aluno.shows();
   const dados2 = await Colaborador.showDate();
   const dados = [dados1, dados2];
-  console.log(req.get('io'));
   const [cursos, turmas] = await Geral.Dates();
   res.render(pathPC + '/cadastrar', {
     dados,

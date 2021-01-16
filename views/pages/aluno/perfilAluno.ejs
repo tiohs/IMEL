@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,16 +8,184 @@
   <link rel="stylesheet" href="../../css/imel.css">
   <link rel="sortcut icon" href="../../img/log.ico" type="image/x-icon">
   <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/aluno.css">
   <style>
 
   </style>
 </head>
-
 <body>
-  <%- include('./includes/header', {user}); %>
+  <header class="header">
+    <!-- <div class="container"> -->
+      <!-- <a href="index.html">
+        <img src="../../img/log.png" class="grid-4" alt="logo">
+      </a> -->
+      <!-- <nav class="grid-12 header_menu">
+        <ul>
+          <li><a href="#">Aluno</a></li>
+          <li><a href="#">Consulta de nota</a></li>
+          <li><a href="#">Troca de curso</a></li>
+          <li><a href="#">Reclamação</a></li>
+        </ul>
+      </nav> -->
+      <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top topbar shadow"> -->
+        <!-- <div class="container"> -->
+          <!-- <a href="index.html" class="navbar-brand">
+            <img src="../../img/log.png" class="logod" alt="logo">
+          </a>
+          <button class="navbar-toggler collapsed" data-toggle="collapse" data-target="#navbarCollapse" aria-expanded="false">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse" id="navbarCollapse" style="">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a href="#home" class="nav-link">Aluno</a>
+              </li>
+              <li class="nav-item">
+                <a href="#explore-head-section" class="nav-link">Consultar</a>
+              </li>
+              <li class="nav-item">
+                <a href="#create-head-section" class="nav-link">Trocar de curso</a>
+              </li> -->
+              <!--  -->
+              <!-- Nav Item - notificações -->
+            <!-- <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bell fa-fw"></i>
+                <span class="badge badge-danger badge-counter">1+</span>
+              </a>
+
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                aria-labelledby="alertsDropdown">
+                <h6 class="dropdown-header">
+                  notificações
+                </h6>
+
+                <a class="dropdown-item d-flex align-items-center" href="detalhes.html">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-warning">
+                      <i class="fas fa-exclamation-triangle text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">Agosto 09, 2020</div>
+                    Fazer troca de curso.
+                  </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Mais notificações</a>
+              </div>
+            </li>
+
+            <div class="topbar-divider d-none d-sm-block"></div> -->
+
+            <!-- Nav Item - Informação do usuario -->
+            <!-- <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-white-600 small">Ariana Grande</span>
+                <img class="img-profile rounded-circle" src="../../img/me.jpg">
+              </a> -->
+              <!-- Dropdown - Informação do usuario -->
+              <!-- <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="perfil.html">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Perfil
+                </a>
+
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+            </ul>
+          </div> -->
+        <!-- </div> -->
+      <!-- </nav> -->
+    <!-- </div> -->
+    <nav class="navbar navbar-expand-md navbar-light topbar ">
+
+      <a href="index.html">
+        <img src="../../img/log.png" width="250" height="60" class="grid-4" alt="logo">
+      </a>
+      <button class="navbar-toggler collapsed" data-toggle="collapse" data-target="#navbarNav" aria-expanded="false"><span class="navbar-toggler-icon"></span></button>
+      <div class="navbar-collapse collapse" id="navbarNav" style="">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a href="" class="nav-link">Aluno</a>
+          </li>
+          <li class="nav-item">
+            <a href="consultar.html" class="nav-link">Consultar nota</a>
+          </li>
+          <li class="nav-item">
+            <a href="troca.html" class="nav-link">Trocar curso</a>
+          </li>
+          <li class="nav-item">
+            <a href="reclamacao.html" class="nav-link">Reclamação</a>
+          </li>
+
+          <!--Nav Item - notificações -->
+          <li class="nav-item dropdown no-arrow mx-1">
+            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-bell fa-fw"></i>
+              <span class="badge badge-danger badge-counter">1+</span>
+            </a>
+
+            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+              aria-labelledby="alertsDropdown">
+              <h6 class="dropdown-header">
+                notificações
+              </h6>
+
+              <a class="dropdown-item d-flex align-items-center" href="detalhes.html">
+                <div class="mr-3">
+                  <div class="icon-circle bg-warning">
+                    <i class="fas fa-exclamation-triangle text-white"></i>
+                  </div>
+                </div>
+                <div>
+                  <div class="small text-gray-500">Agosto 09, 2020</div>
+                  Fazer troca de curso.
+                </div>
+              </a>
+              <a class="dropdown-item text-center small text-gray-500" href="#">Mais notificações</a>
+            </div>
+          </li>
+
+          <div class="topbar-divider d-none d-sm-block"></div>
+
+          <!-- Nav Item - Informação do usuario -->
+          <li class="nav-item dropdown no-arrow">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <span class="mr-2 d-none d-lg-inline text-white-600 small">Ariana Grande</span>
+              <img class="img-profile rounded-circle" src="../../img/me.jpg">
+            </a> 
+            <!-- Dropdown - Informação do usuario -->
+            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+              <a class="dropdown-item" href="perfilAluno.html">
+                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                Perfil
+              </a>
+
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                Logout
+              </a>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+  </nav>
+  </header>
 
   <!--  -->
-  <!-- <section class="intro">
+  <section class="intro">
     <div class="container">
       <h1>Imel</h1>
       <blockquote class="quote">
@@ -26,149 +193,87 @@
         <cite>SIMON JOSEPH</cite>
       </blockquote>
     </div>
+  </section>
+
+  <!--  -->
+  <!-- <section class="cards container">
+    <ul>
+      <li class="grid-8">
+        <div class="card-icon">
+          <i class="fas fa-calendar"></i>
+        </div>
+        <h3>Consulta de notas</h3>
+        <p>Visualize As Tuas Informações Academicas Podendo Também Fazer A Alteração Das Tuas Credências.</p>
+      </li>
+      <li class="grid-8">
+        <div class="card-icon">
+          <i class="fas fa-calendar"></i>
+        </div>
+        <h3>Consulta de notas</h3>
+        <p>Visualize As Tuas Informações Academicas Podendo Também Fazer A Alteração Das Tuas Credências.</p>
+      </li>
+      <li class="grid-8">
+        <div class="card-icon">
+          <i class="fas fa-calendar"></i>
+        </div>
+        <h3>Consulta de notas</h3>
+        <p>Visualize As Tuas Informações Academicas Podendo Também Fazer A Alteração Das Tuas Credências.</p>
+      </li>
+      <li class="grid-8">
+        <div class="card-icon">
+          <i class="fas fa-calendar"></i>
+        </div>
+        <h3>Consulta de notas</h3>
+        <p>Visualize As Tuas Informações Academicas Podendo Também Fazer A Alteração Das Tuas Credências.</p>
+      </li>
+    </ul>
   </section> -->
 
-  <!-- inicio da Pag. de Conteúdo -->
-  <div class="container-fluid py-5">
-
-    <header id="main-header" class="  text-black">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <h1><i class="fa fa-user"></i> Perfil</h1>
-          </div>
-        </div>
-      </div>
-    </header>
-
-
-    <section id="action" class="py-4 mb-4 bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3 mr-auto">
-            <a href="index.html" class="btn btn-light btn-block">
-              <i class="fa fa-arrow-left"></i> Voltar para Dashboard
-            </a>
-          </div>
-          <div class="col-md-3">
-            <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#passwordModal">
-              <i class="fa fa-lock"></i> Mudar Password
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <section id="profile">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-9">
-            <div class="card">
-              <div class="card-header">
-                <h4>Editar Perfil</h4>
-              </div>
-              <div class="card-body">
-                <form>
-                  <div class="form-group">
-                    <label for="name">Nome</label>
-                    <input type="text" class="form-control" value="<%- user.nome %>">
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Processo</label>
-                    <input type="number" class="form-control" value="<%- user.id %>">
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Curso</label>
-                    <input type="text" class="form-control" value="<%- user.nomeCurso %>">
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Classe</label>
-                    <input type="text" class="form-control" value="<%- user.classe %>">
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Sala</label>
-                    <input type="text" class="form-control" value="<%- user.sala %>">
-                  </div>
-                  <div class="form-group">
-                    <label for="turno">Turno</label>
-                    <input type="text" id="turno" class="form-control" value="<%- user.turno %>">
-                  </div>
-                </form>
-              </div>
+  <section id="icon-boxes" class="p-5">
+    <div class="container">
+      <div class="row mb-4">
+        <div class="col-md-6">
+          <div class="card bg-m text-center text-white">
+            <div class="card-body">
+              <i class="fa fa-user fs"></i>
+              <h3>Perfil</h3>
+              Visualize As Tuas Informações Academicas Podendo Também Fazer A Alteração Das Tuas Credências...
             </div>
           </div>
-          <div class="col-md-3">
-            <h3>Teu Avatar</h3>
-            <img src="<%- user.photoAvatar %>" alt="" class="d-block img-fluid mb-3">
-            <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#ImgModal">
-              Editar Imagem
-            </a>
+        </div>
+        <div class="col-md-6">
+          <div class="card bg-m text-center text-white">
+            <div class="card-body">
+              <i class="fa fa-calendar-alt fs"></i>
+              <h3>Consulta de nota</h3>
+              De Uma Forma Mais Simples e Eficaz Faz a Consulta Das Tuas Notas Podendo Assim Visualizar Notas Do Iº, IIº e IIIº Trimestre...
+            </div>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- IMG MODAL -->
-    <div class="modal fade" id="ImgModal">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header bg-m text-white">
-            <h5 class="modal-title">Mudar a Imagem</h5>
-            <button class="close" data-dismiss="modal"><span>&times;</span></button>
+      <div class="row mb-4">
+        <div class="col-md-6">
+          <div class="card bg-m text-center text-white">
+            <div class="card-body">
+              <i class="fa fa-envelope fs"></i>
+              <h3>Troca de Curso</h3>
+              Nem Sempre, Mais a Casos Em Que Alunos Fazem a Incrição Em Um Determinado Curso E o Nome Sai Em Um Outro Curso, Se É o Teu Caso Temos a solução Pra Ti...
+            </div>
           </div>
-          <div class="modal-body">
-            <form action="/update-photo" method="POST" enctype="multipart/form-data">
-              <div class="form-group">
-                <input type="file" name="photo" id="">
-              </div>
-              <input type="hidden" name="id" value="<%- user.id %>">
-          </div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            <button class="btn btn-primary" type="submit">Atualizar Imagem</button>
-          </div>
-          </form>
         </div>
-      </div>
-    </div>
-
-    <!---->
-
-    <!-- PASSWORD MODAL -->
-    <div class="modal fade" id="passwordModal">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header bg-m text-white">
-            <h5 class="modal-title">Mudar a Password</h5>
-            <button class="close" data-dismiss="modal"><span>&times;</span></button>
+        <div class="col-md-6">
+          <div class="card bg-m text-center text-white">
+            <div class="card-body">
+              <i class="fa fa-book fs"></i>
+              <h3>Reclamação</h3>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, architecto.
+            </div>
           </div>
-          <div class="modal-body">
-            <form action="/update-password" method="POST">
-              <div class="form-group">
-                <label for="name">Password</label>
-                <input type="password" name="password" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="name">Confirma Password</label>
-                <input type="password" class="form-control">
-              </div>
-              <input type="hidden" name="id" value="<%- user.id %>">
-
-          </div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            <button class="btn btn-primary" type="submit">Atualizar Password</button>
-          </div>
-          </form>
         </div>
       </div>
     </div>
-
-    <!---->
-
-  </div>
-
+  </section>
   <footer>
     <div class="copy">
       <div class="container">
@@ -193,9 +298,7 @@
         <div class="modal-body">Selecionar "Logout" se quiseres terminar a sesão.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <form action="/logout" method="post">
-            <button class="btn btn-primary" type="submit">Logout</button>
-          </form>
+          <a class="btn btn-primary" href="../../logo.html">Logout</a>
         </div>
       </div>
     </div>
@@ -203,5 +306,4 @@
   <script src="../../js/jquery.min.js"></script>
   <script src="../../js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>

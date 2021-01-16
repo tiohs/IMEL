@@ -1,9 +1,11 @@
 import Aluno from '../model/Aluno';
 import geral from '../model/geral';
+import io from '../config/socketIO';
 
 const pathViews = 'pages/aluno/';
 
 exports.getIndex = (req, res, nex) => {
+  io.getIO().emit('logado', {post : { ok : 'Logado !'}})
   res.render(pathViews + 'index', {
     user: req.session.user,
   });

@@ -14,7 +14,7 @@ const io = require('socket.io')(server);
 io.on('connection', (socket) => {
   console.log('a user connected');
 });
-
+app.set('io', io);
 // Routes
 import routerAluno from './routes/alunos.routes';
 import routerCoordenador from './routes/coordenador.routes';

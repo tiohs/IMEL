@@ -61,5 +61,5 @@ app.use('/cordenacao', routerCoordenador);
 app.use(routerAluno);
 
 server.listen(3000, () => {
-  console.log('listening on *:3000');
+  console.log('listening on *:3333');
 });

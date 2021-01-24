@@ -53,7 +53,7 @@ exports.postCadastrarColaborador = async (req, res) => {
 };
 
 exports.getCordenador = (req, res) => {
-  res.render(pathPC + '/cordenador', { user: req.session.user });
+  res.render(pathPC + '/cordenador', { user: req.session.user, wel : req.flash('welcome') });
 };
 
 exports.getLancarNota = async (req, res) => {

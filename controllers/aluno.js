@@ -5,9 +5,11 @@ import io from '../config/socketIO';
 const pathViews = 'pages/aluno/';
 
 exports.getIndex = (req, res, nex) => {
+  
   io.getIO().emit('logado', {post : { ok : 'Logado !'}})
   res.render(pathViews + 'index', {
     user: req.session.user,
+    wel : req.flash('welcome')
   });
 };
 
@@ -58,11 +60,15 @@ exports.postUpdatePhoto = async (req, res, nex) => {
 };
 
 exports.postNota = async (req, res) => {
+  
   const date = req.body;
   let page = date.idd;
   delete date.idd;
   await geral.storeNota(date);
+  console.log(`id-${date.idAluno}`);
+  io.getIO().emit(`id-${date.idAluno}`, {post : 'Nota lançada!' })
   res.redirect(`/cordenacao/nota/${page}`);
+
 };
 
 exports.apiNotaAluno = async (req, res) => {

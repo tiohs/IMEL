@@ -7,6 +7,7 @@ exports.getLogin = (req, res, nex) => {
 function postLoginCreate(user, url, req, res) {
   req.session.isLoggedIn = true;
   req.session.user = user;
+  req.flash('welcome', true);
   return res.redirect(url);
 }
 

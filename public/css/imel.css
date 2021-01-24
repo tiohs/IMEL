@@ -11036,3 +11036,38 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
+.widt {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  display: none;
+  width: 100%;
+  height: 1000;
+  overflow: hidden;
+  outline: 0;
+}
+.heig {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 500px;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  outline: 0;
+}
+
+.chek{
+margin: 0 auto;
+text-align: center;
+padding: 100px 0;
+}
+
+.chek > i{
+font-size: 120px;
+color: #4e73df;
+}

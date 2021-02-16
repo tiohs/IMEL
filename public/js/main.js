@@ -8,25 +8,26 @@
   var media = doc.querySelector('#media');
   var idMedia = doc.querySelector('#idMedia');
 
-  table.addEventListener('click', (e) => {
-    let clickAluno = e.target.classList.contains('aluno');
-    nota1.value = 0;
-    nota2.value = 0;
-    if (clickAluno) {
-      idAluno.value = e.target.firstElementChild.value;
+  if (table) {
+    table.addEventListener('click', (e) => {
+      let clickAluno = e.target.classList.contains('aluno');
+      nota1.value = 0;
+      nota2.value = 0;
+      if (clickAluno) {
+        idAluno.value = e.target.firstElementChild.value;
+      }
+    });
+    function onKeyUp(element) {
+      element.onkeyup = () => {
+        console.log(nota1.value, nota2.value);
+        let result = (parseInt(nota1.value) + parseInt(nota2.value)) / 2;
+        media.innerHTML = result;
+        idMedia.value = result;
+      };
     }
-  });
-  function onKeyUp(element) {
-    element.onkeyup = () => {
-      console.log(nota1.value, nota2.value);
-      let result = (parseInt(nota1.value) + parseInt(nota2.value)) / 2;
-      media.innerHTML = result;
-      idMedia.value = result;
-    };
+    onKeyUp(nota2);
+    onKeyUp(nota1);
   }
-  onKeyUp(nota2);
-  onKeyUp(nota1);
-
   cadastrar.addEventListener('click', () => {
     form.submit();
   });

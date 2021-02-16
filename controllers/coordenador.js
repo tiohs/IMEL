@@ -53,7 +53,10 @@ exports.postCadastrarColaborador = async (req, res) => {
 };
 
 exports.getCordenador = (req, res) => {
-  res.render(pathPC + '/cordenador', { user: req.session.user, wel : req.flash('welcome') });
+  res.render(pathPC + '/cordenador', {
+    user: req.session.user,
+    wel: req.flash('welcome'),
+  });
 };
 
 exports.getLancarNota = async (req, res) => {
@@ -82,4 +85,10 @@ exports.getEditarAluno = async (req, res) => {
   const id = req.params.id;
   var result = await Aluno.show(id);
   res.render(pathPC + '/detalhes', { result, user: req.session.user });
+};
+
+exports.updateData = async (req, res, next) => {
+  const { id, nome, bi, turno, classe, sala } = req.body;
+  await Aluno.update(id, { nome, bi, turno, classe, sala });
+  res.redirect(`/cordenacao/detalhes-aluno/${id}`);
 };

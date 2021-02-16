@@ -1,15 +1,15 @@
 import Aluno from '../model/Aluno';
 import geral from '../model/geral';
 import io from '../config/socketIO';
+import Notification from '../model/notifiquetion';
 
 const pathViews = 'pages/aluno/';
 
 exports.getIndex = (req, res, nex) => {
-  
-  io.getIO().emit('logado', {post : { ok : 'Logado !'}})
+  io.getIO().emit('logado', { post: { ok: 'Logado !' } });
   res.render(pathViews + 'index', {
     user: req.session.user,
-    wel : req.flash('welcome')
+    wel: req.flash('welcome'),
   });
 };
 
@@ -19,7 +19,7 @@ exports.getConsultaNota = async (req, res, nex) => {
   res.render(pathViews + 'consultar', {
     user: req.session.user,
     notas: result,
-    disciplina
+    disciplina,
   });
 };
 
@@ -60,15 +60,19 @@ exports.postUpdatePhoto = async (req, res, nex) => {
 };
 
 exports.postNota = async (req, res) => {
-  
   const date = req.body;
   let page = date.idd;
   delete date.idd;
   await geral.storeNota(date);
-  console.log(`id-${date.idAluno}`);
-  io.getIO().emit(`id-${date.idAluno}`, {post : 'Nota lançada!' })
+  io.getIO().emit(`id-${date.idAluno}`, { post: 'Nota lançada!' });
+  const disciplina = await geral.desciplinaIndex(date.idDisciplina);
+  console.log(disciplina);
+  Notification.store({
+    idUser: date.idAluno,
+    content: ``,
+    reader: true,
+  });
   res.redirect(`/cordenacao/nota/${page}`);
-
 };
 
 exports.apiNotaAluno = async (req, res) => {

@@ -15,6 +15,11 @@ class Geral {
   static desciplina() {
     return knex.select().into('disciplina');
   }
+
+  static desciplinaIndex(id) {
+    return knex.select().into('disciplina').whereRaw(`id = ${id}`);
+  }
+
   static storeNota(dados) {
     return knex.insert(dados).into('nota');
   }

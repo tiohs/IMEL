@@ -237,17 +237,8 @@
   <script src="../../js/jquery.min.js"></script>
   <script src="../../js/bootstrap.bundle.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
-  <script>
-    const audioObj = new Audio('../../music/facebook_sound.mp3');
-    var socket = io.connect('http://localhost:3000');
-    socket.on('id-<%- user.id%>', (msg) => {
-      const showNotification = document.querySelector('#notificationNumber');
-      showNotification.style.display = 'inline-block';
-      console.log(showNotification.firstChild);
-      showNotification.innerHTML = 1;
-      audioObj.play();
-    });
-  </script>
+  <%- include('./includes/notification.ejs', {notificationIndex}); %>
+
 </body>
 
 </html>

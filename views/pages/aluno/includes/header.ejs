@@ -157,7 +157,8 @@
               </div>
               <div>
                 <div class="small text-gray-500">Agosto 09, 2020</div>
-                <%- notificationIndex[2].content %>
+                <% if(!!notificationIndex[2]) { %> <%-
+                notificationIndex[2].content %> <% } %>
               </div>
             </a>
             <form

@@ -5,10 +5,13 @@ import Notification from '../model/notifiquetion';
 
 const pathViews = 'pages/aluno/';
 
-exports.getIndex = (req, res, nex) => {
+exports.getIndex = async (req, res, nex) => {
   io.getIO().emit('logado', { post: { ok: 'Logado !' } });
+  let notificationIndex = await Notification.indexCount(req.session.user.id);
+
   res.render(pathViews + 'index', {
     user: req.session.user,
+    notificationIndex,
     wel: req.flash('welcome'),
   });
 };
@@ -16,8 +19,11 @@ exports.getIndex = (req, res, nex) => {
 exports.getConsultaNota = async (req, res, nex) => {
   const result = await geral.notaAluno(req.session.user.id);
   const disciplina = await geral.desciplina();
+  let notificationIndex = await Notification.indexCount(req.session.user.id);
+
   res.render(pathViews + 'consultar', {
     user: req.session.user,
+    notificationIndex,
     notas: result,
     disciplina,
   });
@@ -25,20 +31,27 @@ exports.getConsultaNota = async (req, res, nex) => {
 
 exports.getPerfil = async (req, res, nex) => {
   const [curso, turma] = await geral.datesSingle(1);
+  let notificationIndex = await Notification.indexCount(req.session.user.id);
+
   res.render(pathViews + 'perfilAluno', {
     user: req.session.user,
+    notificationIndex,
   });
 };
 
-exports.getReclamacao = (req, res, nex) => {
+exports.getReclamacao = async (req, res, nex) => {
+  let notificationIndex = await Notification.indexCount(req.session.user.id);
   res.render(pathViews + 'reclamacao', {
     user: req.session.user,
+    notificationIndex,
   });
 };
 
-exports.getTroca = (req, res, nex) => {
+exports.getTroca = async (req, res, nex) => {
+  let notificationIndex = await Notification.indexCount(req.session.user.id);
   res.render(pathViews + 'troca', {
     user: req.session.user,
+    notificationIndex,
   });
 };
 
@@ -65,10 +78,10 @@ exports.postNota = async (req, res) => {
   delete date.idd;
   await geral.storeNota(date);
   io.getIO().emit(`id-${date.idAluno}`, { post: 'Nota lançada!' });
-  const disciplina = await geral.desciplinaIndex(date.idDisciplina);
-  Notification.store({
+  const [disciplina] = await geral.desciplinaIndex(date.idDisciplina);
+  await Notification.store({
     idUser: date.idAluno,
-    content: `${disciplina.nomeDisciplina}`,
+    content: `Foi lançada a tua nota de ${disciplina.nomeDisciplina}`,
     reader: true,
   });
   res.redirect(`/cordenacao/nota/${page}`);

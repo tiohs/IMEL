@@ -163,11 +163,13 @@
       </div>
     </div>
     <!-- Check MODAL -->
-    <div class="modal fade widt" id="CheckModal" >
+    <div class="modal fade widt" id="CheckModal">
       <div class="modal-dialog modal-lg">
         <div class="modal-content heig">
           <div class="modal-header text-white">
-            <button class="close" data-dismiss="modal"><span>&times;</span></button>
+            <button class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
           </div>
           <div class="modal-body">
             <div class="chek">
@@ -182,20 +184,9 @@
     <script src="../../js/bootstrap.bundle.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <% if (!!wel[0]) { %>
-      <script>
+    <script>
       $('#CheckModal').modal('show');
     </script>
-    <%  } %>
-    <script>
-      const audioObj = new Audio('../../music/facebook_sound.mp3');
-      var socket = io.connect('http://localhost:3000');
-      socket.on('id-<%- user.id%>', (msg) => {
-        const showNotification = document.querySelector('#notificationNumber');
-        showNotification.style.display = 'inline-block';
-        console.log(showNotification.firstChild);
-        showNotification.innerHTML = 1;
-        audioObj.play();
-      });
-    </script>
+    <% } %> <%- include('./includes/notification.ejs', {notificationIndex}); %>
   </body>
 </html>

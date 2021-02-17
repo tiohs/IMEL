@@ -1,12 +1,19 @@
 import knex from '../config/db';
 
 class Notification {
-  store(data) {
+  static store(data) {
     return knex.insert(data).into('notification');
   }
-  index() {
+  static index() {
     return knex.select().into('notification');
+  }
+  static indexCount(id) {
+    return knex
+      .select()
+      .table('notification')
+      .where('idUser', id)
+      .where('reader', true);
   }
 }
 
-export default new Notification();
+export default Notification;

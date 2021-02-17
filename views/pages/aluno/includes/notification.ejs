@@ -1,0 +1,16 @@
+<script>
+  const audioObj = new Audio('../../music/facebook_sound.mp3');
+  var socket = io.connect('http://localhost:3000');
+  let valorInicial = parseInt('<%- notificationIndex.length %>');
+  countNotification(valorInicial);
+  function countNotification(dado) {
+    const showNotification = document.querySelector('#notificationNumber');
+    showNotification.innerHTML = dado;
+  }
+
+  socket.on('id-<%- user.id%>', (msg) => {
+    valorInicial += 1;
+    countNotification(valorInicial);
+    audioObj.play();
+  });
+</script>

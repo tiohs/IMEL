@@ -87,6 +87,7 @@ exports.postNota = async (req, res) => {
   res.redirect(`/cordenacao/nota/${page}`);
 };
 
-exports.apiNotaAluno = async (req, res) => {
-  const id = req.params.id;
+exports.postNotification = async (req, res) => {
+  const { idAluno } = req.body;
+  console.log(idAluno);
 };

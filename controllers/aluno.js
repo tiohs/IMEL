@@ -89,5 +89,6 @@ exports.postNota = async (req, res) => {
 
 exports.postNotification = async (req, res) => {
   const { idAluno } = req.body;
-  console.log(idAluno);
+  await Notification.updateReadNotification(idAluno);
+  res.redirect('/aluno');
 };

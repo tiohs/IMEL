@@ -14,6 +14,9 @@ class Notification {
       .where('idUser', id)
       .where('reader', true);
   }
+  static updateReadNotification(id) {
+    return this.indexCount(id).update({ reader: false });
+  }
 }
 
 export default Notification;

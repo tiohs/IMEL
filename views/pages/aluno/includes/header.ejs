@@ -1,9 +1,9 @@
 <header class="header">
-    <!-- <div class="container"> -->
-      <!-- <a href="index.html">
+  <!-- <div class="container"> -->
+  <!-- <a href="index.html">
         <img src="../../img/log.png" class="grid-4" alt="logo">
       </a> -->
-      <!-- <nav class="grid-12 header_menu">
+  <!-- <nav class="grid-12 header_menu">
         <ul>
           <li><a href="#">Aluno</a></li>
           <li><a href="#">Consulta de nota</a></li>
@@ -11,9 +11,9 @@
           <li><a href="#">Reclamação</a></li>
         </ul>
       </nav> -->
-      <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top topbar shadow"> -->
-        <!-- <div class="container"> -->
-          <!-- <a href="index.html" class="navbar-brand">
+  <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top topbar shadow"> -->
+  <!-- <div class="container"> -->
+  <!-- <a href="index.html" class="navbar-brand">
             <img src="../../img/log.png" class="logod" alt="logo">
           </a>
           <button class="navbar-toggler collapsed" data-toggle="collapse" data-target="#navbarCollapse" aria-expanded="false">
@@ -30,9 +30,9 @@
               <li class="nav-item">
                 <a href="#create-head-section" class="nav-link">Trocar de curso</a>
               </li> -->
-              <!--  -->
-              <!-- Nav Item - notificações -->
-            <!-- <li class="nav-item dropdown no-arrow mx-1">
+  <!--  -->
+  <!-- Nav Item - notificações -->
+  <!-- <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
@@ -62,15 +62,15 @@
 
             <div class="topbar-divider d-none d-sm-block"></div> -->
 
-            <!-- Nav Item - Informação do usuario -->
-            <!-- <li class="nav-item dropdown no-arrow">
+  <!-- Nav Item - Informação do usuario -->
+  <!-- <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-white-600 small">Ariana Grande</span>
                 <img class="img-profile rounded-circle" src="../../img/me.jpg">
               </a> -->
-              <!-- Dropdown - Informação do usuario -->
-              <!-- <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+  <!-- Dropdown - Informação do usuario -->
+  <!-- <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="perfil.html">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Perfil
@@ -85,85 +85,131 @@
             </li>
             </ul>
           </div> -->
-        <!-- </div> -->
-      <!-- </nav> -->
-    <!-- </div> -->
-    <nav class="navbar navbar-expand-md navbar-light topbar">
+  <!-- </div> -->
+  <!-- </nav> -->
+  <!-- </div> -->
+  <nav class="navbar navbar-expand-md navbar-light topbar">
+    <a href="/index">
+      <img
+        src="../../img/log.png"
+        width="250"
+        height="60"
+        class="grid-4"
+        alt="logo"
+      />
+    </a>
+    <button
+      class="navbar-toggler collapsed"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-expanded="false"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a href="/aluno" class="nav-link cl">Aluno</a>
+        </li>
+        <li class="nav-item">
+          <a href="/consulta-nota" class="nav-link">Consultar nota</a>
+        </li>
+        <li class="nav-item">
+          <a href="/troca" class="nav-link">Trocar curso</a>
+        </li>
+        <li class="nav-item">
+          <a href="/reclamacao" class="nav-link">Reclamação</a>
+        </li>
 
-      <a href="/index">
-        <img src="../../img/log.png" width="250" height="60" class="grid-4" alt="logo">
-      </a>
-      <button class="navbar-toggler collapsed" data-toggle="collapse" data-target="#navbarNav" aria-expanded="false"><span class="navbar-toggler-icon"></span></button>
-      <div class="navbar-collapse collapse" id="navbarNav" style="">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a href="/aluno" class="nav-link cl">Aluno</a>
-          </li>
-          <li class="nav-item">
-            <a href="/consulta-nota" class="nav-link">Consultar nota</a>
-          </li>
-          <li class="nav-item">
-            <a href="/troca" class="nav-link">Trocar curso</a>
-          </li>
-          <li class="nav-item">
-            <a href="/reclamacao" class="nav-link">Reclamação</a>
-          </li>
+        <!--Nav Item - notificações -->
+        <li class="nav-item dropdown no-arrow mx-1">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="alertsDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <i class="fas fa-bell fa-fw"></i>
+            <span
+              class="badge badge-danger badge-counter"
+              id="notificationNumber"
+              >0</span
+            >
+          </a>
 
-          <!--Nav Item - notificações -->
-          <li class="nav-item dropdown no-arrow mx-1">
-            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-bell fa-fw"></i>
-              <span class="badge badge-danger badge-counter" id="notificationNumber" style="display: none;" >1</span>
+          <div
+            class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+            aria-labelledby="alertsDropdown"
+          >
+            <h6 class="dropdown-header">notificações</h6>
+
+            <a
+              class="dropdown-item d-flex align-items-center"
+              href="detalhes.html"
+            >
+              <div class="mr-3">
+                <div class="icon-circle bg-warning">
+                  <i class="fas fa-exclamation-triangle text-white"></i>
+                </div>
+              </div>
+              <div>
+                <div class="small text-gray-500">Agosto 09, 2020</div>
+                Fazer troca de curso.
+              </div>
+            </a>
+            <a class="dropdown-item text-center small text-gray-500" href="#"
+              >Mais notificações</a
+            >
+          </div>
+        </li>
+
+        <div class="topbar-divider d-none d-sm-block"></div>
+
+        <!-- Nav Item - Informação do usuario -->
+        <li class="nav-item dropdown no-arrow">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="userDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <span class="mr-2 d-none d-lg-inline text-white-600 small"
+              ><%- user.nome %></span
+            >
+            <img
+              class="img-profile rounded-circle"
+              src="<%- user.photoAvatar %>"
+            />
+          </a>
+          <!-- Dropdown - Informação do usuario -->
+          <div
+            class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+            aria-labelledby="userDropdown"
+          >
+            <a class="dropdown-item" href="/perfil-aluno">
+              <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+              Perfil
             </a>
 
-            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-              aria-labelledby="alertsDropdown">
-              <h6 class="dropdown-header">
-                notificações
-              </h6>
-
-              <a class="dropdown-item d-flex align-items-center" href="detalhes.html">
-                <div class="mr-3">
-                  <div class="icon-circle bg-warning">
-                    <i class="fas fa-exclamation-triangle text-white"></i>
-                  </div>
-                </div>
-                <div>
-                  <div class="small text-gray-500">Agosto 09, 2020</div>
-                  Fazer troca de curso.
-                </div>
-              </a>
-              <a class="dropdown-item text-center small text-gray-500" href="#">Mais notificações</a>
-            </div>
-          </li>
-
-          <div class="topbar-divider d-none d-sm-block"></div>
-
-          <!-- Nav Item - Informação do usuario -->
-          <li class="nav-item dropdown no-arrow">
-            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              <span class="mr-2 d-none d-lg-inline text-white-600 small"><%- user.nome %></span>
-              <img class="img-profile rounded-circle" src="<%- user.photoAvatar %>">
-            </a> 
-            <!-- Dropdown - Informação do usuario -->
-            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-              <a class="dropdown-item" href="/perfil-aluno">
-                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                Perfil
-              </a>
-
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                Logout
-              </a>
-            </div>
-          </li>
-
-        </ul>
-      </div>
-
+            <div class="dropdown-divider"></div>
+            <a
+              class="dropdown-item"
+              href="#"
+              data-toggle="modal"
+              data-target="#logoutModal"
+            >
+              <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+              Logout
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
   </nav>
-  </header>
+</header>

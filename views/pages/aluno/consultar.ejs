@@ -178,11 +178,16 @@
     <script>
       const audioObj = new Audio('../../music/facebook_sound.mp3');
       var socket = io.connect('http://localhost:3000');
-      socket.on('id-<%- user.id%>', (msg) => {
+      let valorInicial = 10;
+      countNotification(valorInicial);
+      function countNotification(dado) {
         const showNotification = document.querySelector('#notificationNumber');
-        showNotification.style.display = 'inline-block';
-        console.log(showNotification.firstChild);
-        showNotification.innerHTML = 1;
+        showNotification.innerHTML = dado;
+      }
+
+      socket.on('id-<%- user.id%>', (msg) => {
+        valorInicial += 1;
+        countNotification(valorInicial);
         audioObj.play();
       });
     </script>

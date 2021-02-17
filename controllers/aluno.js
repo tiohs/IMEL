@@ -66,10 +66,9 @@ exports.postNota = async (req, res) => {
   await geral.storeNota(date);
   io.getIO().emit(`id-${date.idAluno}`, { post: 'Nota lançada!' });
   const disciplina = await geral.desciplinaIndex(date.idDisciplina);
-  console.log(disciplina);
   Notification.store({
     idUser: date.idAluno,
-    content: ``,
+    content: `${disciplina.nomeDisciplina}`,
     reader: true,
   });
   res.redirect(`/cordenacao/nota/${page}`);

@@ -15,20 +15,8 @@
 </head>
 
 <body>
-  <%- include('./includes/header', {user}); %>
+  <%- include('./includes/header', {user, , notificationIndex}); %>
 
-  <!--  -->
-  <!-- <section class="intro">
-    <div class="container">
-      <h1>Imel</h1>
-      <blockquote class="quote">
-        <p>"A educação é a nosssa maior arma para mudar o futuro, a arte de saber estar"</p>
-        <cite>SIMON JOSEPH</cite>
-      </blockquote>
-    </div>
-  </section> -->
-
-  <!-- inicio da Pag. de Conteúdo -->
   <div class="container-fluid py-5">
 
     <header id="main-header" class="  text-black">
@@ -50,65 +38,13 @@
               <i class="fa fa-arrow-left"></i> Voltar para Dashboard
             </a>
           </div>
-          <!-- <div class="col-md-3">
-            <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#passwordModal">
-              <i class="fa fa-lock"></i> Mudar Password
-            </a>
-          </div> -->
+          
         </div>
       </div>
     </section>
 
 
     <section id="profile">
-      <!-- <div class="container">
-        <div class="row">
-          <div class="col-md-9">
-            <div class="card">
-              <div class="card-header">
-                <h4>Editar Perfil</h4>
-              </div>
-              <div class="card-body">
-                <form>
-                  <div class="form-group">
-                    <label for="name">Nome</label>
-                    <input type="text" class="form-control" value="<%- user.nome %>">
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Processo</label>
-                    <input type="number" class="form-control" value="<%- user.id %>">
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Curso</label>
-                    <input type="text" class="form-control" value="<%- user.nomeCurso %>">
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Classe</label>
-                    <input type="text" class="form-control" value="<%- user.classe %>">
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Sala</label>
-                    <input type="text" class="form-control" value="<%- user.sala %>">
-                  </div>
-                  <div class="form-group">
-                    <label for="turno">Turno</label>
-                    <input type="text" id="turno" class="form-control" value="<%- user.turno %>">
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <h3>Teu Avatar</h3>
-            <img src="<%- user.photoAvatar %>" alt="" class="d-block img-fluid mb-3">
-            <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#ImgModal">
-              Editar Imagem
-            </a>
-          </div>
-        </div>
-      </div> -->
-
-      <!--inicio-->
       <div class="container">
         <div class="row">
           <div class="col col-md-9">

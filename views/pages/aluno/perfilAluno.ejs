@@ -9,94 +9,136 @@
   <link rel="stylesheet" href="../../css/imel.css">
   <link rel="sortcut icon" href="../../img/log.ico" type="image/x-icon">
   <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/profile.css">
   <style>
+    .infod {
+      display: flex;
+    }
+
+    .infog {
+      margin-right: 10px;
+    }
+
 
   </style>
 </head>
 
 <body>
-  <%- include('./includes/header', {user, , notificationIndex}); %>
+  <%- include('./includes/header', {user, notificationIndex}); %>
 
+  <section class="intro">
+    <div class="container">
+      <div class="row">
+        <div class="col col-4">
+          <a href="#" class="">
+            <img class="img-profile rounded-circle" src="<%- user.photoAvatar %>">
+          </a>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- inicio da Pag. de Conteúdo -->
   <div class="container-fluid py-5">
-
-    <header id="main-header" class="  text-black">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <h1><i class="fa fa-user"></i> Perfil</h1>
-          </div>
-        </div>
-      </div>
-    </header>
-
-
-    <section id="action" class="py-4 mb-4 bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3 mr-auto">
-            <a href="/index" class="btn btn-light btn-block">
-              <i class="fa fa-arrow-left"></i> Voltar para Dashboard
-            </a>
-          </div>
-          
-        </div>
-      </div>
-    </section>
-
-
     <section id="profile">
       <div class="container">
-        <div class="row">
-          <div class="col col-md-9">
-            <div class="card mb-4">
-              <div class="card-header">
-                Minha informação
-              </div>
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-4 phot">
-                    <img src="<%- user.photoAvatar %>" alt="" class="d-block img-fluid mb-3">
-                    <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#ImgModal">
-                      Editar Imagem
-                    </a>
-                  <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#passwordModal">
-                    <i class="fa fa-lock"></i> Mudar Password
-                  </a>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="infod">
-                      <div class="infog">
-                        <p class="pb-4">Nome:</p>
-                        <p class="pb-4">Bilhete:</p>
-                        <p class="pb-4">Processo:</p>
-                        <p class="pb-4">Curso:</p>
-                        <p class="pb-4">Classe:</p>
-                        <p class="pb-4">Sala:</p>
-                        <p class="pb-4">Turno:</p>
-                        <p class="pb-4">Turma:</p>
-                      </div>
-                      <div class="">
-                        <p class="pb-4"><%- user.nome %></p>
-                        <p class="pb-4"><%- user.bi %></p>
-                        <p class="pb-4"><%- user.id %></p>
-                        <p class="pb-4"><%- user.idCurso %></p>
-                        <p class="pb-4"><%- user.classe %></p>
-                        <p class="pb-4"><%- user.sala %></p>
-                        <p class="pb-4"><%- user.turno %></p>
-                        <p class="pb-4"><%- user.idTurma %></p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
+        <!---->
+        <div class="row mb-4">
+          
+        <div class="col-md-4">
       </div>
-      <!--fim-->
+          <div class="col-md-4">
+            <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#ImgModal">
+              Editar Imagem
+            </a>
+        </div>
+        <div class="col-md-4">
+          <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#passwordModal">
+            <i class="fa fa-lock"></i> Mudar Password
+          </a>
+      </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h4>Perfil</h4>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="form-group">
+                <label for="name">Nome</label>
+                <input type="text" class="form-control" value="<%- user.nome %>" disabled>
+              </div>
+              <div class="form-group">
+                <label for="email">Processo</label>
+                <input type="number" class="form-control" value="<%- user.numero %>" disabled>
+              </div>
+              <div class="form-group">
+                <label for="email">Curso</label>
+                <input type="text" class="form-control" value="<%- user.curso %>" disabled>
+              </div>
+              <div class="form-group">
+                <label for="email">Classe</label>
+                <input type="text" class="form-control" value="<%- user.classe %>" disabled>
+              </div>
+              <div class="form-group">
+                <label for="email">Sala</label>
+                <input type="text" class="form-control" value="<%- user.sala %>" disabled>
+              </div>
+              <div class="form-group">
+                <label for="email">Turno</label>
+                <input type="text" class="form-control" value="<%- user.turno %>" disabled>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!---->
+
+      </div>
     </section>
 
+    <!-- PASSWORD MODAL -->
+    <div class="modal fade" id="passwordModal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header bg-m text-white">
+            <h5 class="modal-title">Mudar a Password</h5>
+            <button class="close" data-dismiss="modal"><span>&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="name">Password</label>
+                <input type="password" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="name">Confirma Password</label>
+                <input type="password" class="form-control">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button class="btn btn-primary" data-dismiss="modal">Atualizar Password</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="copy">
+      <div class="container">
+        <p>
+          <a href="#">ABDJAM 2020 - Todos direitos reservados.</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+
+  
     <!-- IMG MODAL -->
     <div class="modal fade" id="ImgModal">
       <div class="modal-dialog modal-lg">
@@ -155,21 +197,9 @@
 
     <!---->
 
-  </div>
-
-  <footer>
-    <div class="copy">
-      <div class="container">
-        <p>
-          <a href="#">ABDJAM 2020 - Todos direitos reservados.</a>
-        </p>
-      </div>
-    </div>
-  </footer>
 
   <!-- Logout Modal-->
   <%- include('./includes/modalLogout.ejs'); %>
-
   <script src="../../js/jquery.min.js"></script>
   <script src="../../js/bootstrap.bundle.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>

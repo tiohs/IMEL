@@ -8,7 +8,7 @@ import configMulter from '../config/multer';
 var upload = multer(configMulter);
 const router = Router();
 
-// router.use(auth);
+router.use(auth);
 
 router.get('/', controllersCoordenador.getCordenador);
 router.get('/cadastrar', controllersCoordenador.getCadastrar);
@@ -27,4 +27,5 @@ router.get('/nota/:id', controllersCoordenador.getNota);
 router.get('/perfil', controllersCoordenador.getPerfil);
 router.get('/detalhes-aluno/:id', controllersCoordenador.getEditarAluno);
 router.post('/update', controllersCoordenador.updateData);
+
 export default router;

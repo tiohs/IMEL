@@ -19,7 +19,6 @@
     <section class="intro">
       <div class="container">
         <h2>Consultar nota</h2>
-        <!-- <blockquote class="quote">
         <p>"A educação é a nosssa maior arma para mudar o futuro, a arte de saber estar"</p>
         <cite>SIMON JOSEPH</cite>
       </blockquote> -->
@@ -174,7 +173,6 @@
     <script src="../../js/jquery.min.js"></script>
     <script src="../../js/bootstrap.bundle.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
     <%- include('./includes/notification.ejs', {notificationIndex}); %>
 
     <script>
@@ -188,20 +186,29 @@
 
       tr1.addEventListener('click', () => {
         it1.style.display = 'block';
-        it2.style.display = 'none';
-        it3.style.display = 'none';
+        if(it2 ) {
+          it2.style.display = 'none';
+          it3.style.display = 'none'; 
+        }
+    
       });
 
       tr2.addEventListener('click', () => {
         it1.style.display = 'none';
-        it2.style.display = 'block';
-        it3.style.display = 'none';
+        if(it2) {
+          it2.style.display = 'block';
+          it3.style.display = 'none';
+        }
+       
       });
 
       tr3.addEventListener('click', () => {
         it1.style.display = 'none';
-        it2.style.display = 'none';
-        it3.style.display = 'block';
+        if(it2){
+          it2.style.display = 'none';
+          it3.style.display = 'block';
+        }
+       
       });
     </script>
   </body>

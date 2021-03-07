@@ -72,17 +72,18 @@
                               </tr>
                             </thead>
                             <tbody>
-    
-                              <tr role="row" class="odd">
-                                <td class="sorting_1">1</td>
-                                <td>Ariana Grande</td>
-                                <td>Aluno</td>
-                                <td>09/08/2020</td>
-                                <td><a href="detalhes.html" class="btn btn-secondary">
-                                  <i class="fa fa-angle-double-right"></i> Detalhes
-                                </a></td>
-                              </tr>
-                              
+                                <% for(dado of dados){ %>
+                                <tr role="row" class="odd">
+                                  <td class="sorting_1"><%- dado.numero_id %></td>
+                                  <td><%- dado.nome %></td>
+                                  <td>Cordenador</td>
+  
+                                  <td><%- new Date (dado.datatimes).toLocaleDateString() %></td>
+                                  <td><a href="/admin/detalhes/<%- dado.id %>" class="btn btn-primary">
+                                      <i class="fa fa-angle-double-right"></i> Detalhes
+                                    </a></td>
+                                </tr>
+                                <% } %>          
                             </tbody>
                           </table>
                         </div>
@@ -117,26 +118,7 @@
   <!-- fim da Pag Wrapper -->
 
   <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Sair?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Selecionar "Logout" se quiseres terminar a sesão.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a class="btn btn-primary" href="../../logo.html">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
+  <%- include('./includes/modalLogout.ejs'); %>
   <div class="modal fade" id="addUserModalC">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">

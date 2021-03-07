@@ -27,41 +27,6 @@
         </blockquote>
       </div>
     </section>
-
-    <!--  -->
-    <!-- <section class="cards container">
-    <ul>
-      <li class="grid-8">
-        <div class="card-icon">
-          <i class="fas fa-calendar"></i>
-        </div>
-        <h3>Consulta de notas</h3>
-        <p>Visualize As Tuas Informações Academicas Podendo Também Fazer A Alteração Das Tuas Credências.</p>
-      </li>
-      <li class="grid-8">
-        <div class="card-icon">
-          <i class="fas fa-calendar"></i>
-        </div>
-        <h3>Consulta de notas</h3>
-        <p>Visualize As Tuas Informações Academicas Podendo Também Fazer A Alteração Das Tuas Credências.</p>
-      </li>
-      <li class="grid-8">
-        <div class="card-icon">
-          <i class="fas fa-calendar"></i>
-        </div>
-        <h3>Consulta de notas</h3>
-        <p>Visualize As Tuas Informações Academicas Podendo Também Fazer A Alteração Das Tuas Credências.</p>
-      </li>
-      <li class="grid-8">
-        <div class="card-icon">
-          <i class="fas fa-calendar"></i>
-        </div>
-        <h3>Consulta de notas</h3>
-        <p>Visualize As Tuas Informações Academicas Podendo Também Fazer A Alteração Das Tuas Credências.</p>
-      </li>
-    </ul>
-  </section> -->
-
     <section id="icon-boxes" class="p-5">
       <div class="container">
         <div class="row mb-4">
@@ -163,13 +128,11 @@
       </div>
     </div>
     <!-- Check MODAL -->
-    <div class="modal fade widt" id="CheckModal">
+    <div class="modal fade widt" id="CheckModal" >
       <div class="modal-dialog modal-lg">
         <div class="modal-content heig">
           <div class="modal-header text-white">
-            <button class="close" data-dismiss="modal">
-              <span>&times;</span>
-            </button>
+            <button class="close" data-dismiss="modal"><span>&times;</span></button>
           </div>
           <div class="modal-body">
             <div class="chek">
@@ -184,9 +147,11 @@
     <script src="../../js/bootstrap.bundle.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <% if (!!wel[0]) { %>
-    <script>
+      <script>
       $('#CheckModal').modal('show');
     </script>
-    <% } %> <%- include('./includes/notification.ejs', {notificationIndex}); %>
+    <%  } %>
+    <%- include('./includes/notification.ejs', {notificationIndex}); %>
+
   </body>
 </html>

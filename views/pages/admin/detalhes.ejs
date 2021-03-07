@@ -52,7 +52,7 @@
           <div class="row">
             <div class="col-md-3 text-center">
               <h4>Fotografia do aluno</h4>
-              <img class="imgAvatar" src="../../img/me.jpg" alt=""
+              <img class="imgAvatar" src="http://localhost:3000/<%- dado.photoAvatar %>" alt=""
                 class="d-block img-fluid mb-3">
             </div>
             <div class="col-md-9">
@@ -71,13 +71,13 @@
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label for="name">Nome</label>
-                                  <input type="text" class="form-control" value="">
+                                  <input type="text" class="form-control" value="<%- dado.nome %>">
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label for="bi">Bi</label>
-                                  <input type="text" class="form-control" value="">
+                                  <input type="text" class="form-control" value="<%- dado.bi %>">
                                 </div>
                               </div>
                             </div>
@@ -144,25 +144,7 @@
   <!-- fim da Pag Wrapper -->
 
   <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Sair?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Selecionar "Logout" se quiseres terminar a sesão.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a class="btn btn-primary" href="../../logo.html">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
+  <%- include('./includes/modalLogout.ejs'); %>
   <script src="../../js/jquery.min.js"></script>
   <script src="../../js/bootstrap.bundle.min.js"></script>
 </body>

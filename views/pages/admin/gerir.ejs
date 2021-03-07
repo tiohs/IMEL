@@ -15,6 +15,17 @@
   <link href="../../css/imel.css" rel="stylesheet">
   <link rel="stylesheet" href="../../css/datatables/dataTables.bootstrap4.min.css">
 
+  <style>
+    .direct{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn-primary.active{
+      color: #1105fe;
+    }
+  </style>
 </head>
 
 <body id="page-top">
@@ -34,53 +45,77 @@
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary">Cadastrados</h6>
+                  <div class="row">
+                    <div class="col-md4">
+                      <div class="directC">
+                        <a href="#" class="btn btn-primary active" id="tr1" >
+                          <i class="fa fa-user"></i> Lista dos Alunos
+                        </a>
+                        <a href="#" class="btn btn-primary" id="tr2">
+                          <i class="fa fa-users-cog"></i> Lista dos Colaboradores
+                        </a>
+                    </div>
+                    </div>
+                  </div>
                 </div>
+              
                 <div class="card-body">
                   <div class="table-responsive">
                     <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                      
+                      <div class="row">
+                        <div class="col-sm-12 col-md-6 d-flex">
+
+                        </div>
+                      </div>
                       <div class="row">
                         <div class="col-sm-12">
                           <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0"
                             role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                             <thead>
-                              <tr role="row">
-                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                  aria-sort="ascending" 
-                                  >#</th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                  >Nome
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                  >Função</th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                  >Data de cadastro</th>
-                                  <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                  ></th>
+                              
+                              <tr>
+                                <th>#</th>
+                                <th>Nome</th>
+                                <th>Função</th>
+                                <th>Data de cadastro</th>
+                                <th></th>
+                              </tr>
                               </tr>
                             </thead>
-                            <tbody>
-    
+                            <!--Aluno-->
+                            <tbody id="alu"  style="display: table-row-group">
+                              <% for(dado of dados[0]){ %>
                               <tr role="row" class="odd">
-                                <td class="sorting_1">1</td>
-                                <td>Ariana Grande</td>
-                                <td>Aluno</td>
-                                <td>09/08/2020</td>
-                                <td class="text-center">
-                                  <!-- <a href="detalhes.html" class="btn btn-secondary">
-                                  <i class="fa fa-angle-double-right"></i> Detalhes
-                                </a> -->
-                                <a href="#" class="btn btn-success" data-toggle="modal" data-target="#passwordModal">
-                                  <i class="fa fa-lock"></i> Mudar Password
-                                </a>
-                                <a href="#" class="btn btn-danger">
-                                  <i class="fa fa-trash"></i>
-                                </a>
-                              </td>
+                                <td class="sorting_1"><%- dado.numero_id %></td>
+                                <td><%- dado.nome %></td>
+                                <td><%- (dado.nivelSession == 1) ? 'Aluno' : 'Colaborador'; %></td>
+
+                                <td><%- new Date (dado.datatimes).toLocaleDateString() %></td>
+                                <td class="text-center"> <!-- <a href="detalhes.html" class="btn btn-secondary"> <i class="fa fa-angle-double-right"></i> Detalhes </a> --> 
+                                  <a href="#" class="btn btn-success" data-toggle="modal" data-target="#passwordModal"> 
+                                    <i class="fa fa-lock"></i> Mudar Password </a> 
+                                    <a href="#" class="btn btn-danger"> <i class="fa fa-trash"></i> </a>
+                                 </td>
                               </tr>
-                              
+                              <% } %>
+                            </tbody>
+                            <!--colaborador-->
+                            
+                            <tbody id="cola" style="display: none;">
+                               <% for(dado of dados[1]){ %>
+                                
+                              <tr role="row" class="odd">
+                                <td class="sorting_1"><%- dado.numero_id %></td>
+                                <td><%- dado.nome %></td>
+                                <td><%- (dado.nivelSession == 1) ? 'Aluno' : 'Colaborador'; %></td>
+
+                                <td><%- new Date (dado.datatimes).toLocaleDateString() %></td>
+                                <td class="text-center"> <!-- <a href="detalhes.html" class="btn btn-secondary"> <i class="fa fa-angle-double-right"></i> Detalhes </a> --> <a href="#" class="btn btn-success" data-toggle="modal" data-target="#passwordModal"> <i class="fa fa-lock"></i> Mudar Password </a> <a href="#" class="btn btn-danger"> <i class="fa fa-trash"></i> </a> </td>
+                              <% } %>
                             </tbody>
                           </table>
+                          
+                          
                         </div>
                       </div>
                     </div>
@@ -111,58 +146,67 @@
   <!-- fim da Pag Wrapper -->
 
   <!-- PASSWORD MODAL -->
-  <div class="modal fade" id="passwordModal">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header bg-m text-white">
-          <h5 class="modal-title">Mudar a Password</h5>
-          <button class="close" data-dismiss="modal"><span>&times;</span></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="name">Password</label>
-              <input type="password" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="name">Confirma Password</label>
-              <input type="password" class="form-control">
-            </div>
+    <div class="modal fade" id="passwordModal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header bg-m text-white">
+            <h5 class="modal-title">Mudar a Password</h5>
+            <button class="close" data-dismiss="modal"><span>&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <form action="/admin/update-password" method="POST">
+              <div class="form-group">
+                <label for="name">Password</label>
+                <input type="password" name="password" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="name">Confirma Password</label>
+                <input type="password" class="form-control">
+              </div>
+              <input type="hidden" name="id" value="">
+
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button class="btn btn-primary" type="submit">Atualizar Password</button>
+          </div>
           </form>
         </div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button class="btn btn-primary" data-dismiss="modal">Atualizar Password</button>
-        </div>
       </div>
     </div>
-  </div>
 
   <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Sair?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Selecionar "Logout" se quiseres terminar a sesão.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a class="btn btn-primary" href="../../logo.html">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <%- include('./includes/modalLogout.ejs'); %>
 
   <script src="../../js/jquery.min.js"></script>
   <script src="../../js/bootstrap.bundle.min.js"></script>
   <script src="../../css/datatables/jquery.dataTables.min.js"></script>
   <script src="../../css/datatables/dataTables.bootstrap4.min.js"></script>
+  <script>
+    const tr1 = document.getElementById('tr1');
+    const tr2 = document.getElementById('tr2');
+    
 
+    const alu = document.getElementById('alu');
+    const cola = document.getElementById('cola');
+    
+
+    tr1.addEventListener('click', () => {
+      alu.style.display = "table-row-group";
+      cola.style.display = "none";
+
+      tr1.classList.add("active");
+      tr2.classList.remove("active");
+    });
+
+    tr2.addEventListener('click', () => {
+      alu.style.display = "none";
+      cola.style.display = "table-row-group";
+
+      tr2.classList.add("active");
+      tr1.classList.remove("active");
+    });
+  </script>
   <script>
     $(document).ready(function() {
   $('#dataTable').DataTable({

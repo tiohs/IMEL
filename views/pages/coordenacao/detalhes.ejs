@@ -22,8 +22,8 @@
     <%- include('./includes/sidebar', {user}) %>
         <!-- fim do Topbar -->
 
-        <!-- inicio da Pag. de Conteúdo -->
-        <div class="container-fluid">
+         <!-- inicio da Pag. de Conteúdo -->
+         <div class="container-fluid">
 
           <!-- ACTIONS -->
           <section id="action" class="py-4 mb-4 bg-light">
@@ -44,93 +44,95 @@
           </section>
 
           <!-- POSTS -->
-          <div class="row">
-            <div class="col-md-3">
-              <h4>Fotografia do aluno</h4>
-              <img class="imgAvatar" src="http://localhost:3000/<%- result[0].photoAvatar %>" alt="" class="d-block img-fluid mb-3">
-            </div>
-            <div class="col-md-9">
-              
-              <form action="/cordenacao/update" method="POST">
-                <section id="posts">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col">
-                        <div class="card">
-                          <div class="card-header">
-                            <h4>Editar dados</h4>
-                          </div>
-                          <div class="card-body">
-                            <form>
-                              <div class="row">
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label for="name">Nome</label>
-                                    <input type="text" class="form-control" name="nome" value="<%- result[0].nome %>">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-3">
+                <h4>Fotografia do aluno</h4>
+                <img class="imgAvatar" src="http://localhost:3000/<%- result[0].photoAvatar %>" alt="" class="d-block img-fluid mb-3">
+                
+              </div>
+              <div class="col-md-9">
+                
+                <form action="/cordenacao/update" method="POST">
+                  <section id="posts">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col">
+                          <div class="card">
+                            <div class="card-header">
+                              <h4>Editar dados</h4>
+                            </div>
+                            <div class="card-body">
+                              <form>
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                      <label for="name">Nome</label>
+                                      <input type="text" class="form-control" name="nome" value="<%- result[0].nome %>">
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                      <label for="bi">Bi</label>
+                                      <input type="text" class="form-control" name="bi" value="<%- result[0].bi %>">
+                                    </div>
                                   </div>
                                 </div>
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label for="bi">Bi</label>
-                                    <input type="text" class="form-control" name="bi" value="<%- result[0].bi %>">
+                                <input type="hidden" name="id" value="<%- result[0].id %>">
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                      <label for="turno">Turno</label>
+                                      <input type="text" class="form-control" name="turno" value="<%- result[0].turno %>">
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                      <label for="classe">Classe</label>
+                                      <input type="number" class="form-control" name="classe" value="<%- result[0].classe %>">
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                              <input type="hidden" name="id" value="<%- result[0].id %>">
-                              <!--
                                 
+                                <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="sala">Sala</label>
+                                    <input type="text" class="form-control" name="sala" value="<%- result[0].sala %>">
+                                  </div>
+                                </div>
+    
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                      <label for="nrAluno">Nº do aluno</label>
+                                      <input type="number" class="form-control" value="numero" value="<%- result[0].numero %>">
+                                    </div>
+                                  </div>
+                                </div>
+                              </form>
                               <div class="row">
                                 <div class="form-group col-md-4">
                                   <label for="file">BI Foto </label>
                                   <input type="file" name="photo" class="form-control-file" value="Oal.pdf">
                                   <small class="form-text text-muted">Nº max 3mb</small>
                                 </div>
-                                <div class="col-md-4"></div>
+                                <div class="col-md-4">
+                                  
+                                </div>
                                 <div class="col-md-4">
                                   <a href="http://localhost:3000/<%- result[0].photoBi %>" target="_blanck" class="btn btn-primary btn-block"> Ver BI</a>
                                 </div>
-                              </div>
                               
-                               -->
-                              <div class="row">
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label for="turno">Turno</label>
-                                    <input type="text" class="form-control" name="turno" value="<%- result[0].turno %>">
-                                  </div>
-                                </div>
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label for="classe">Classe</label>
-                                    <input type="number" class="form-control" name="classe" value="<%- result[0].classe %>">
-                                  </div>
-                                </div>
                               </div>
-                              
-                              <div class="row">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="sala">Sala</label>
-                                  <input type="text" class="form-control" name="sala" value="<%- result[0].sala %>">
-                                </div>
-                              </div>
-  
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label for="nrAluno">Nº do aluno</label>
-                                    <input type="number" class="form-control" value="numero" value="<%- result[0].numero %>">
-                                  </div>
-                                </div>
-                              </div>
-                            </form>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </section>
-              </form>
-
+                  </section>
+                </form>
+  
+              </div>
             </div>
           </div>
           
@@ -164,7 +166,6 @@
   <script src="../../js/jquery.min.js"></script>
   <script src="../../js/bootstrap.bundle.min.js"></script>
   <script src="../../js/main.js"></script>
-
 </body>
 
 </html>

@@ -8,7 +8,7 @@
   var media = doc.querySelector('#media');
   var idMedia = doc.querySelector('#idMedia');
 
-  if (table) {
+  if(nota1) {
     table.addEventListener('click', (e) => {
       let clickAluno = e.target.classList.contains('aluno');
       nota1.value = 0;
@@ -27,7 +27,9 @@
     }
     onKeyUp(nota2);
     onKeyUp(nota1);
+  
   }
+
   cadastrar.addEventListener('click', () => {
     form.submit();
   });

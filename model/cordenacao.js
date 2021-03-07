@@ -21,6 +21,13 @@ class Colaborador {
     let dado = await knex.select().into('coordenador').whereRaw(`id = "${id}"`);
     return dado;
   }
+  static async update(id, dado) {
+    const dados = await knex
+      .whereRaw(`id = "${id}"`)
+      .update(dado)
+      .table('coordenador');
+    return dados;
+  }
 }
 
 export default Colaborador;

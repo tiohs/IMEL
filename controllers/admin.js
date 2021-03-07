@@ -7,13 +7,12 @@ exports.getIndex = async (req, res, next) => {
   const cordenador = await Cordenador.showDate();
   const aluno = await Aluno.shows();
   const colaborador = await Colaborador.showDate();
-  
-  res.render('pages/admin/admin', 
-  {
-    wel : req.flash('welcome'), 
+
+  res.render('pages/admin/admin', {
+    wel: req.flash('welcome'),
     cordenador,
     aluno,
-    colaborador
+    colaborador,
   });
 };
 
@@ -25,16 +24,16 @@ exports.cadastrar = async (req, res, next) => {
 
 exports.detalhes = async (req, res, next) => {
   const id = req.params.id;
+  const [cursos] = await Geral.Dates();
   const cordenador = await Cordenador.show(id);
-  console.log(cordenador);
-  res.render('pages/admin/detalhes', { dado : cordenador[0]});
+  res.render('pages/admin/detalhes', { dado: cordenador[0], cursos });
 };
 
 exports.gerir = async (req, res, next) => {
   const dados1 = await Aluno.shows();
   const dados2 = await Colaborador.showDate();
   const dados = [dados1, dados2];
-  res.render('pages/admin/gerir', { dados } );
+  res.render('pages/admin/gerir', { dados });
 };
 
 exports.postCadastrarCordenador = async (req, res) => {

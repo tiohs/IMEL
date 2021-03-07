@@ -41,7 +41,7 @@
                 </div>
                 <div class="col-md-3">
                   <a href="#" class="btn btn-success btn-block">
-                    <i class="fa fa-check"></i> Salvar mudanças
+                    <i class="fa fa-check"></i> <span id="cadastrar">Salvar mudanças</span> 
                   </a>
                 </div>
               </div>
@@ -66,49 +66,42 @@
                           <h4>Editar dados</h4>
                         </div>
                         <div class="card-body">
-                          <form>
+                          <form method="POST" action="/cordenacao/update/coodenador" enctype="multipart/form-data">
                             <div class="row">
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label for="name">Nome</label>
-                                  <input type="text" class="form-control" value="<%- dado.nome %>">
+                                  <input type="text" name="nome" class="form-control" value="<%- dado.nome %>">
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label for="bi">Bi</label>
-                                  <input type="text" class="form-control" value="<%- dado.bi %>">
+                                  <input name="bi" type="text" class="form-control" value="<%- dado.bi %>">
                                 </div>
                               </div>
                             </div>
-
+                            <input type="hidden" name="idCoordenador" value="<%- dado.id %>">
+                            <div class="form-group">
+                              <label for="title">Curso</label>
+                              <select name="idCurso" class="form-control">
+                                <option value="<%- dado.idCurso %>"></option>
+                                <% for(curso of cursos){ %>
+                                <option value="<%- curso.id %>"><%- curso.nomeCurso %></option>
+                                <% } %>
+                              </select>
+                            </div>
                             <div class="row">
                               <div class="form-group col-md-4">
                                 <label for="file">BI Foto </label>
-                                <input type="file" name="photo" class="form-control-file" value="Oal.pdf">
+                                <input type="file" name="photo" class="form-control-file">
                                 <small class="form-text text-muted">Nº max 3mb</small>
                               </div>
                               <div class="col-md-4"></div>
                               <div class="col-md-4">
-                                <a href="#" target="_blanck" class="btn btn-primary btn-block"> Ver BI</a>
+                                <a href="http://localhost:3000/<%- dado.photoBi %>" target="_blanck" class="btn btn-primary btn-block"> Ver BI</a>
                               </div>
                             </div>
-
-                            <div class="row">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="title">Curso</label>
-                                  <input type="text" class="form-control" value="Inforgest">
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="classe">Número</label>
-                                  <input type="number" class="form-control" value="">
-                                </div>
-                              </div>
-                            </div>
-
                           </form>
                         </div>
                       </div>
@@ -147,6 +140,7 @@
   <%- include('./includes/modalLogout.ejs'); %>
   <script src="../../js/jquery.min.js"></script>
   <script src="../../js/bootstrap.bundle.min.js"></script>
+  <script src="../../js/main.js"></script>
 </body>
 
 </html>

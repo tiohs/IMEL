@@ -2,13 +2,13 @@
   const table = doc.querySelector('table');
   var idAluno = doc.querySelector('#idAluno');
   const form = doc.querySelector('form');
-  const cadastrar = doc.querySelector('#cadastrar');
+  const update = doc.querySelector('#cadastrar');
   var nota1 = doc.querySelector('#nota1');
   var nota2 = doc.querySelector('#nota2');
   var media = doc.querySelector('#media');
   var idMedia = doc.querySelector('#idMedia');
 
-  if(nota1) {
+  if (nota1) {
     table.addEventListener('click', (e) => {
       let clickAluno = e.target.classList.contains('aluno');
       nota1.value = 0;
@@ -27,10 +27,9 @@
     }
     onKeyUp(nota2);
     onKeyUp(nota1);
-  
   }
 
-  cadastrar.addEventListener('click', () => {
+  update.addEventListener('click', () => {
     form.submit();
   });
 })(window, document);

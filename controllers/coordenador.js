@@ -114,11 +114,13 @@ exports.updateDataColaborador = async (req, res, next) => {
   const dados = req.body;
   let id = dados.idCoordenador;
   delete dados.idCoordenador;
-
+  if (req.body.palavraPasse) {
+    await Colaborador.update(id, { palavraPasse: req.body.palavraPasse });
+    return res.redirect(`/admin/gerir`);
+  }
   if (req.file) {
     req.body.photoBi = req.file.filename;
   }
-
   if (dados) {
     await Colaborador.update(id, dados);
   }
@@ -137,7 +139,6 @@ exports.getDetalhes = async (req, res, next) => {
   const id = req.params.id;
   const [cursos] = await Geral.Dates();
   const colaborador = await Colaborador.show(id);
-  console.log(colaborador);
   res.render(pathPC + '/detalhes-colaborador', {
     dado: colaborador[0],
     cursos,

@@ -92,7 +92,8 @@
 
                                 <td><%- new Date (dado.datatimes).toLocaleDateString() %></td>
                                 <td class="text-center"> <!-- <a href="detalhes.html" class="btn btn-secondary"> <i class="fa fa-angle-double-right"></i> Detalhes </a> --> 
-                                  <a href="#" class="btn btn-success" data-toggle="modal" data-target="#passwordModal"> 
+                                  <a href="#" class="btn btn-success aluno" data-toggle="modal" data-target="#passwordModalAluno"> 
+                                    <input type="hidden" value="<%- dado.id %>">
                                     <i class="fa fa-lock"></i> Mudar Password </a> 
                                     <a href="#" class="btn btn-danger"> <i class="fa fa-trash"></i> </a>
                                  </td>
@@ -110,7 +111,10 @@
                                 <td><%- (dado.nivelSession == 1) ? 'Aluno' : 'Colaborador'; %></td>
 
                                 <td><%- new Date (dado.datatimes).toLocaleDateString() %></td>
-                                <td class="text-center"> <!-- <a href="detalhes.html" class="btn btn-secondary"> <i class="fa fa-angle-double-right"></i> Detalhes </a> --> <a href="#" class="btn btn-success" data-toggle="modal" data-target="#passwordModal"> <i class="fa fa-lock"></i> Mudar Password </a> <a href="#" class="btn btn-danger"> <i class="fa fa-trash"></i> </a> </td>
+                                <td class="text-center"> <!-- <a href="detalhes.html" class="btn btn-secondary"> <i class="fa fa-angle-double-right"></i> Detalhes </a> --> 
+                                  <a href="#" class="btn btn-success cola" data-toggle="modal" data-target="#passwordModal"> 
+                                    <input type="hidden" value="<%- dado.id %>">
+                                    <i class="fa fa-lock"></i> Mudar Password </a> <a href="#" class="btn btn-danger"> <i class="fa fa-trash"></i> </a> </td>
                               <% } %>
                             </tbody>
                           </table>
@@ -146,35 +150,64 @@
   <!-- fim da Pag Wrapper -->
 
   <!-- PASSWORD MODAL -->
-    <div class="modal fade" id="passwordModal">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header bg-m text-white">
-            <h5 class="modal-title">Mudar a Password</h5>
-            <button class="close" data-dismiss="modal"><span>&times;</span></button>
-          </div>
-          <div class="modal-body">
-            <form action="/admin/update-password" method="POST">
-              <div class="form-group">
-                <label for="name">Password</label>
-                <input type="password" name="password" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="name">Confirma Password</label>
-                <input type="password" class="form-control">
-              </div>
-              <input type="hidden" name="id" value="">
 
-          </div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            <button class="btn btn-primary" type="submit">Atualizar Password</button>
-          </div>
-          </form>
+  <div class="modal fade" id="passwordModalAluno">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header bg-m text-white">
+          <h5 class="modal-title">Mudar a Password Aluno</h5>
+          <button class="close" data-dismiss="modal"><span>&times;</span></button>
         </div>
+        <div class="modal-body">
+          <form action="/update-password" method="POST">
+            <div class="form-group">
+              <label for="name">Password</label>
+              <input type="password" name="password" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="name">Confirma Password</label>
+              <input type="password" class="form-control">
+            </div>
+            <input type="hidden" id="idAluno" name="id" value="">
+            <input type="hidden" name="admin" value="true">
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button class="btn btn-primary" type="submit">Atualizar Password</button>
+        </div>
+        </form>
       </div>
     </div>
+  </div>
+  
+  <div class="modal fade" id="passwordModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header bg-m text-white">
+          <h5 class="modal-title">Mudar a Password</h5>
+          <button class="close" data-dismiss="modal"><span>&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <form action="/cordenacao/update/colaborador" method="POST">
+            <div class="form-group">
+              <label for="name">Password</label>
+              <input type="password" name="palavraPasse" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="name">Confirma Password</label>
+              <input type="password" class="form-control">
+            </div>
+            <input type="hidden" name="idCoordenador" id="idColaborador" value="">
 
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button class="btn btn-primary" type="submit">Atualizar Password</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
   <!-- Logout Modal-->
   <%- include('./includes/modalLogout.ejs'); %>
 
@@ -182,6 +215,8 @@
   <script src="../../js/bootstrap.bundle.min.js"></script>
   <script src="../../css/datatables/jquery.dataTables.min.js"></script>
   <script src="../../css/datatables/dataTables.bootstrap4.min.js"></script>
+  <script src="../../js/senha.js"></script>
+
   <script>
     const tr1 = document.getElementById('tr1');
     const tr2 = document.getElementById('tr2');

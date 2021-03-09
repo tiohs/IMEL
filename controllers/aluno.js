@@ -6,14 +6,13 @@ import Notification from '../model/notifiquetion';
 const pathViews = 'pages/aluno/';
 
 exports.getIndex = async (req, res, nex) => {
-  
-  io.getIO().emit('logado', {post : { ok : 'Logado !'}})
+  io.getIO().emit('logado', { post: { ok: 'Logado !' } });
   let notificationIndex = await Notification.indexCount(req.session.user.id);
 
   res.render(pathViews + 'index', {
     user: req.session.user,
-    wel : req.flash('welcome'),
-    notificationIndex
+    wel: req.flash('welcome'),
+    notificationIndex,
   });
 };
 
@@ -25,7 +24,7 @@ exports.getConsultaNota = async (req, res, nex) => {
     user: req.session.user,
     notas: result,
     disciplina,
-    notificationIndex
+    notificationIndex,
   });
 };
 
@@ -35,7 +34,7 @@ exports.getPerfil = async (req, res, nex) => {
   const [curso, turma] = await geral.datesSingle(1);
   res.render(pathViews + 'perfilAluno', {
     user: req.session.user,
-    notificationIndex
+    notificationIndex,
   });
 };
 
@@ -43,7 +42,7 @@ exports.getReclamacao = async (req, res, nex) => {
   let notificationIndex = await Notification.indexCount(req.session.user.id);
   res.render(pathViews + 'reclamacao', {
     user: req.session.user,
-    notificationIndex
+    notificationIndex,
   });
 };
 
@@ -52,13 +51,17 @@ exports.getTroca = async (req, res, nex) => {
 
   res.render(pathViews + 'troca', {
     user: req.session.user,
-    notificationIndex
+    notificationIndex,
   });
 };
 
 exports.updatePassword = async (req, res, nex) => {
-  const { password, id } = req.body;
+  const { password, id, admin } = req.body;
+
   await Aluno.update(id, { palavraPasse: password });
+  if (admin) {
+    res.redirect('/admin/gerir');
+  }
   req.session.destroy(() => {
     res.redirect('/');
   });
@@ -78,15 +81,16 @@ exports.postNota = async (req, res) => {
   let page = date.idd;
   delete date.idd;
   await geral.storeNota(date);
- 
+
   const [disciplina] = await geral.desciplinaIndex(date.idDisciplina);
   await Notification.store({
     idUser: date.idAluno,
     content: `Foi lançada a tua nota de ${disciplina.nomeDisciplina}`,
     reader: true,
   });
-  io.getIO().emit(`id-${date.idAluno}`, { 
-    content: `Foi lançada a tua nota de ${disciplina.nomeDisciplina}` });
+  io.getIO().emit(`id-${date.idAluno}`, {
+    content: `Foi lançada a tua nota de ${disciplina.nomeDisciplina}`,
+  });
   res.redirect(`/cordenacao/nota/${page}`);
 };
 

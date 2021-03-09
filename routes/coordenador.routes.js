@@ -32,5 +32,6 @@ router.post(
   upload.single('photo'),
   controllersCoordenador.updateDataCordenacao
 );
+router.get('/delete/:id', controllersCoordenador.delete);
 
 export default router;

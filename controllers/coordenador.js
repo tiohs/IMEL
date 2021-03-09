@@ -104,6 +104,14 @@ exports.updateDataCordenacao = async (req, res, next) => {
   if (dados) {
     await Cordenador.update(id, dados);
   }
-
   return res.redirect(`/admin/detalhes/${id}`);
+};
+
+exports.delete = async (req, res, next) => {
+  const id = req.params.id;
+  console.log(id);
+  if (id) {
+    await Cordenador.delete(id);
+  }
+  res.redirect('/cordenacao/cadastrar');
 };

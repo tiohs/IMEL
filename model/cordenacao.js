@@ -21,12 +21,11 @@ class Colaborador {
     let dado = await knex.select().into('coordenador').whereRaw(`id = "${id}"`);
     return dado;
   }
-  static async update(id, dado) {
-    const dados = await knex
-      .whereRaw(`id = "${id}"`)
-      .update(dado)
-      .table('coordenador');
-    return dados;
+  static update(id, dado) {
+    return knex.whereRaw(`id = "${id}"`).update(dado).table('coordenador');
+  }
+  static async delete(id) {
+    return knex.whereRaw(`id = ${1}`).delete().table('coordenador');
   }
 }
 

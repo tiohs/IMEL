@@ -98,13 +98,32 @@ exports.updateDataCordenacao = async (req, res, next) => {
   const dados = req.body;
   let id = dados.idCoordenador;
   delete dados.idCoordenador;
+
   if (req.file) {
     req.body.photoBi = req.file.filename;
   }
+
   if (dados) {
     await Cordenador.update(id, dados);
   }
+
   return res.redirect(`/admin/detalhes/${id}`);
+};
+
+exports.updateDataColaborador = async (req, res, next) => {
+  const dados = req.body;
+  let id = dados.idCoordenador;
+  delete dados.idCoordenador;
+
+  if (req.file) {
+    req.body.photoBi = req.file.filename;
+  }
+
+  if (dados) {
+    await Colaborador.update(id, dados);
+  }
+
+  return res.redirect(`/cordenacao/detalhes-colaborador/${id}`);
 };
 
 exports.delete = async (req, res, next) => {
@@ -118,6 +137,7 @@ exports.getDetalhes = async (req, res, next) => {
   const id = req.params.id;
   const [cursos] = await Geral.Dates();
   const colaborador = await Colaborador.show(id);
+  console.log(colaborador);
   res.render(pathPC + '/detalhes-colaborador', {
     dado: colaborador[0],
     cursos,

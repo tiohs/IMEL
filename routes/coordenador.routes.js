@@ -32,6 +32,12 @@ router.post(
   upload.single('photo'),
   controllersCoordenador.updateDataCordenacao
 );
+router.post(
+  '/update/colaborador',
+  upload.single('photo'),
+  controllersCoordenador.updateDataColaborador
+);
+
 router.get('/delete/:id', controllersCoordenador.delete);
 router.get('/detalhes-colaborador/:id', controllersCoordenador.getDetalhes);
 export default router;

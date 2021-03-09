@@ -22,6 +22,9 @@ class Colaborador {
     let dados = await knex.select().into('colaborador');
     return dados;
   }
+  static update(id, dado) {
+    return knex.whereRaw(`id = "${id}"`).update(dado).table('colaborador');
+  }
 }
 
 export default Colaborador;

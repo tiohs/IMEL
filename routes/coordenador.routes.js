@@ -33,5 +33,5 @@ router.post(
   controllersCoordenador.updateDataCordenacao
 );
 router.get('/delete/:id', controllersCoordenador.delete);
-
+router.get('/detalhes-colaborador/:id', controllersCoordenador.getDetalhes);
 export default router;

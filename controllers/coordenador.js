@@ -109,9 +109,18 @@ exports.updateDataCordenacao = async (req, res, next) => {
 
 exports.delete = async (req, res, next) => {
   const id = req.params.id;
-  console.log(id);
   if (id) {
     await Cordenador.delete(id);
   }
   res.redirect('/cordenacao/cadastrar');
+};
+exports.getDetalhes = async (req, res, next) => {
+  const id = req.params.id;
+  const [cursos] = await Geral.Dates();
+  const colaborador = await Colaborador.show(id);
+  res.render(pathPC + '/detalhes-colaborador', {
+    dado: colaborador[0],
+    cursos,
+    user: req.session.user,
+  });
 };

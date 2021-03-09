@@ -14,6 +14,10 @@ class Colaborador {
     let dados = await knex.insert(this).into('colaborador');
     return dados;
   }
+  static async show(id) {
+    let dado = await knex.select().into('colaborador').whereRaw(`id = "${id}"`);
+    return dado;
+  }
   static async showDate() {
     let dados = await knex.select().into('colaborador');
     return dados;

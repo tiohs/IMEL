@@ -20,7 +20,7 @@
   <li class="nav-item active">
     <a class="nav-link" href="/cordenacao/">
       <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>Cordenador</span></a
+      <span> <%- (user.nivelSession > 2) ? 'Coordenador' : 'Colaborador' %></span></a
     >
   </li>
 

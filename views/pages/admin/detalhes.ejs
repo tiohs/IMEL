@@ -30,7 +30,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-md-3 mr-auto">
-                  <a href="cordenador.html" class="btn btn-light btn-block">
+                  <a href="/admin/cadastrar" class="btn btn-light btn-block">
                     <i class="fa fa-arrow-left"></i> Voltar para Dashboard
                   </a>
                 </div>
@@ -85,9 +85,17 @@
                             <div class="form-group">
                               <label for="title">Curso</label>
                               <select name="idCurso" class="form-control">
-                                <option value="<%- dado.idCurso %>"></option>
+
                                 <% for(curso of cursos){ %>
-                                <option value="<%- curso.id %>"><%- curso.nomeCurso %></option>
+                                  <% if(curso.id === dado.idCurso ) { %>
+                                  <option value="<%- curso.id %>"><%- curso.nomeCurso %></option>
+                                  <% } %>
+                                <% } %>
+
+                                <% for(curso of cursos){ %>
+                                  <% if(curso.id !== dado.idCurso ) { %>
+                                    <option value="<%- curso.id %>"><%- curso.nomeCurso %></option>
+                                    <% } %>
                                 <% } %>
                               </select>
                             </div>

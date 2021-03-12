@@ -81,9 +81,16 @@
                               <div class="form-group">
                                 <label for="title">Curso</label>
                                 <select name="idCurso" class="form-control">
-                                  <option value="<%- dado.idCurso %>"></option>
                                   <% for(curso of cursos){ %>
-                                  <option value="<%- curso.id %>"><%- curso.nomeCurso %></option>
+                                    <% if(curso.id === dado.idCurso ) { %>
+                                    <option value="<%- curso.id %>"><%- curso.nomeCurso %></option>
+                                    <% } %>
+                                  <% } %>
+  
+                                  <% for(curso of cursos){ %>
+                                    <% if(curso.id !== dado.idCurso ) { %>
+                                      <option value="<%- curso.id %>"><%- curso.nomeCurso %></option>
+                                      <% } %>
                                   <% } %>
                                 </select>
                               </div>

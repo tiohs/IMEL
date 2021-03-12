@@ -17,5 +17,6 @@ router.post('/update-password', aluno.updatePassword);
 router.post('/update-photo', upload.single('photo'), aluno.postUpdatePhoto);
 router.post('/nota', aluno.postNota);
 router.post('/notification', aluno.postNotification);
+router.get('/more', aluno.getMore);
 
 export default router;

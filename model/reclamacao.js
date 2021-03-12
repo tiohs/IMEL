@@ -1,19 +1,16 @@
 import knex from '../config/db';
 
-class Notification {
+class Reclamacao {
   static store(data) {
-    return knex.insert(data).into('notification');
+    return knex.insert(data).into('reclamacao');
   }
   static index() {
-    return knex.select().into('notification');
-  }
-  static indexContent(id) {
-    return knex.select().into('notification').where('idUser', id);
+    return knex.select().into('reclamacao');
   }
   static indexCount(id) {
     return knex
       .select()
-      .table('notification')
+      .table('reclamacao')
       .where('idUser', id)
       .where('reader', true);
   }
@@ -22,4 +19,4 @@ class Notification {
   }
 }
 
-export default Notification;
+export default Reclamacao;

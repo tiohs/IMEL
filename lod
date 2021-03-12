@@ -1,105 +1,455 @@
-DROP DATABASE imel;
-create database imel;
-use imel;
+-- phpMyAdmin SQL Dump
+-- version 4.8.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: 12-Mar-2021 às 16:52
+-- Versão do servidor: 10.1.37-MariaDB
+-- versão do PHP: 5.6.40
 
-create table aluno (
-    id int auto_increment primary key,
-    nome varchar(255) not null,
-    bi varchar(15) not null,
-    numero varchar(10),
-    classe int not null,
-    sala varchar(100) not null,
-    turno varchar(100) not null,
-    palavraPasse varchar(100),
-    photoBi varchar(255) not null,
-    photoAvatar varchar(255),
-    idCurso int not null,
-    idTurma int not null,
-    nivelSession int not null
-);
-
-create table nota (
-    id int auto_increment primary key,
-    nota1 int,
-    nota2 int,
-    media int,
-    trimestre int,
-    idDisciplina int not null,
-    idAluno int not null
-);
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
 
 
-create table coordenador (
-    id int auto_increment primary key,
-    nome varchar(255) not null,
-    bi varchar(15) not null,
-    idCurso int not null,
-    photoAvatar varchar(255),
-    photoBi varchar(255) not null,
-    nivelSession int not null
-);
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
+--
+-- Database: `imel`
+--
 
-create table colaborador(
-    id int auto_increment primary key,
-    nome varchar(255),
-    bi varchar(15),
-    idCurso int not null,
-    idCoordenador int not null,
-    photoAvatar varchar(255),
-    photoBi varchar(255) not null,
-    nivelSession int not null
-);
+-- --------------------------------------------------------
 
-create table curso (
-    id int auto_increment primary key,
-    nomeCurso varchar(255) not null,
-    descricao text not null
-);
+--
+-- Estrutura da tabela `aluno`
+--
 
-create table CursoDisciplina (
-    id int auto_increment primary key,
-    idCurso varchar(255) not null,
-    idDisciplina varchar(255) not null
-);
+CREATE TABLE `aluno` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `bi` varchar(15) NOT NULL,
+  `numero` varchar(10) DEFAULT NULL,
+  `classe` int(11) NOT NULL,
+  `sala` varchar(100) NOT NULL,
+  `turno` varchar(100) NOT NULL,
+  `palavraPasse` varchar(100) DEFAULT NULL,
+  `photoBi` varchar(255) NOT NULL,
+  `photoAvatar` varchar(255) DEFAULT NULL,
+  `idCurso` int(11) NOT NULL,
+  `idTurma` int(11) NOT NULL,
+  `nivelSession` int(11) NOT NULL,
+  `datatimes` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-create table disciplina (
-    id int auto_increment primary key,
-    nomeDisciplina varchar(255) not null,
-    descricao text not null
-);
+--
+-- Extraindo dados da tabela `aluno`
+--
 
-create table turma(
-    id int auto_increment primary key,
-    idCurso int not null,
-    sala	varchar(20),
-    name varchar(255)
-);
+INSERT INTO `aluno` (`id`, `nome`, `bi`, `numero`, `classe`, `sala`, `turno`, `palavraPasse`, `photoBi`, `photoAvatar`, `idCurso`, `idTurma`, `nivelSession`, `datatimes`) VALUES
+(1, 'Hamilton Silva', '1020700HS001', '12', 14, '12', 'Tarde', 'carlos', '1608325956179_14365.jpg', '1608325956121_14245.jpg', 2, 1, 1, '2021-01-04 10:07:32'),
+(2, 'Hamilton Silva', '1020700HS', '1020700', 11, '12', 'Manha ', 'massango', '1608699126841_15094.jpg', '1608953411839_11772.jpg', 2, 1, 1, '2021-01-04 10:07:32'),
+(3, 'Hamilton Silva', '1020700HS1', '12', 10, '14', 'Manha ', '1020700HS1', '1608954256569_11926.jpg', '1614965283664_15896.jpg', 1, 1, 1, '2021-01-04 10:07:32'),
+(5, 'Julio Silva', '1020700JS', '14', 10, '13', 'Manha ', 'massango', '1609251070991_10570.jpg', '1609252120192_10677.jpg', 2, 1, 1, '2021-01-04 10:07:32'),
+(6, 'denivaldo cheezy', '141414DC', '7', 10, '15', 'Tarde', 'massango1234', '1610392767494_16654.jpg', '1610392767151_19416.jpg', 2, 2, 1, '2021-01-11 20:19:27'),
+(7, 'Maria De Fatima', '1020700MDF', '1020700', 12, '10', 'Manha ', '1020700MDF', '1613518685256_13282.png', '1613518685209_13027.jpg', 3, 3, 1, '2021-02-17 00:38:05');
 
+-- --------------------------------------------------------
 
+--
+-- Estrutura da tabela `colaborador`
+--
 
+CREATE TABLE `colaborador` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(255) DEFAULT NULL,
+  `bi` varchar(15) DEFAULT NULL,
+  `idCurso` int(11) NOT NULL,
+  `idCoordenador` int(11) NOT NULL,
+  `photoAvatar` varchar(255) DEFAULT NULL,
+  `photoBi` varchar(255) NOT NULL,
+  `nivelSession` int(11) NOT NULL,
+  `palavraPasse` varchar(255) NOT NULL,
+  `datatimes` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Alter table add foreign
+--
+-- Extraindo dados da tabela `colaborador`
+--
 
- 
-alter table aluno 
-add constraint fkAlunoturma foreign key (idTurma) references turma(id);
+INSERT INTO `colaborador` (`id`, `nome`, `bi`, `idCurso`, `idCoordenador`, `photoAvatar`, `photoBi`, `nivelSession`, `palavraPasse`, `datatimes`) VALUES
+(1, 'Marcio Silva', '1010200MSS', 2, 1, '1609148236725_17775.jpg', '1609148236781_12550.jpg', 2, '', '2021-01-04 10:04:29'),
+(2, 'Marcio Massango', '2020200HS', 1, 1, '1609148314239_15255.jpg', '1609148314285_12753.jpg', 2, 'massango', '2021-01-04 10:04:29'),
+(3, 'testCordenador ', 'testCordenador ', 1, 1, '1610417052693_11113.jpg', '1610417052807_11746.jpg', 2, 'testCordenador ', '2021-01-12 03:04:12');
 
-alter table aluno 
-add constraint fkAlunoCurso foreign key (idCurso) references curso(id);
+-- --------------------------------------------------------
 
-alter table nota 
-add constraint fkNotaALuno foreign key (idAluno) references aluno(id);
+--
+-- Estrutura da tabela `coordenador`
+--
 
-alter table nota 
-add constraint fkNotaDisciplina foreign key (idDisciplina) references disciplina(id);
+CREATE TABLE `coordenador` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `bi` varchar(15) NOT NULL,
+  `idCurso` int(11) NOT NULL,
+  `photoAvatar` varchar(255) DEFAULT NULL,
+  `photoBi` varchar(255) NOT NULL,
+  `nivelSession` int(11) NOT NULL,
+  `palavraPasse` varchar(255) NOT NULL,
+  `datatimes` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-alter table colaborador
-add constraint fkColaboradorCoordeenador foreign key (idCoordenador) references coordenador(id);
+--
+-- Extraindo dados da tabela `coordenador`
+--
 
-alter table coordenador
-add constraint fkCoordenadorCurso foreign key (idCurso) references curso(id);
+INSERT INTO `coordenador` (`id`, `nome`, `bi`, `idCurso`, `photoAvatar`, `photoBi`, `nivelSession`, `palavraPasse`, `datatimes`) VALUES
+(1, 'Marcos Massango', '3030bd', 2, '1020700CS', '1615125440652_13670.jpg', 3, '1020700CS', '2021-01-04 10:05:24'),
+(2, 'Caalos Massango', '1020700CMC', 1, '1609148236725_17775.jpg', '1609148236781_12550.jpg', 3, '1020700CMC', '2021-01-04 10:05:24'),
+(3, 'Hamilton Silva', '1020700HSCC0', 4, '1610736706972_13635.jpg', '1610736707054_10321.jpg', 3, '1020700HSCC0', '2021-01-15 19:51:47'),
+(4, 'Celma Nelma ', '1020700CCN', 1, '1610929275752_15912.jpg', '1610929275828_13616.jpg', 3, '1020700CCN', '2021-01-18 01:21:15');
 
+-- --------------------------------------------------------
 
--- Inserir dados 
+--
+-- Estrutura da tabela `curso`
+--
 
+CREATE TABLE `curso` (
+  `id` int(11) NOT NULL,
+  `nomeCurso` varchar(255) NOT NULL,
+  `descricao` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `curso`
+--
+
+INSERT INTO `curso` (`id`, `nomeCurso`, `descricao`) VALUES
+(1, 'Medicina', 'Medicina bom curso.'),
+(2, 'Eng. Informática', 'Bom curso'),
+(3, 'Eng. Arquitectura Urbanística  ', 'Bom curso '),
+(4, 'Gestão Empresarial ', 'Bom curso para empresas '),
+(5, 'Metafisica ', 'Bom curso ');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `cursodisciplina`
+--
+
+CREATE TABLE `cursodisciplina` (
+  `id` int(11) NOT NULL,
+  `idCurso` varchar(255) NOT NULL,
+  `idDisciplina` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `disciplina`
+--
+
+CREATE TABLE `disciplina` (
+  `id` int(11) NOT NULL,
+  `nomeDisciplina` varchar(255) NOT NULL,
+  `descricao` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `disciplina`
+--
+
+INSERT INTO `disciplina` (`id`, `nomeDisciplina`, `descricao`) VALUES
+(1, 'Matemática', 'Cadeira de cálculos '),
+(2, 'Língua Português ', 'Cadeira onde estuda a língua portuguesa ');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `nota`
+--
+
+CREATE TABLE `nota` (
+  `id` int(11) NOT NULL,
+  `nota1` int(11) DEFAULT NULL,
+  `nota2` int(11) DEFAULT NULL,
+  `media` int(11) DEFAULT NULL,
+  `trimestre` int(11) DEFAULT NULL,
+  `idDisciplina` int(11) NOT NULL,
+  `idAluno` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `nota`
+--
+
+INSERT INTO `nota` (`id`, `nota1`, `nota2`, `media`, `trimestre`, `idDisciplina`, `idAluno`) VALUES
+(20, 12, 12, 1, 1, 1, 1),
+(21, 12, 12, 12, 1, 1, 2),
+(22, 12, 16, 0, 3, 2, 1),
+(23, 10, 10, 10, 1, 1, 1),
+(24, 10, 10, 10, 1, 1, 3),
+(25, 120, 10, 65, 1, 1, 3),
+(26, 10, 20, 15, 1, 1, 1),
+(27, 10, 20, 15, 1, 1, 7),
+(28, 20, 20, 20, 2, 1, 1),
+(29, 10, 10, 10, 3, 1, 7),
+(30, 10, 10, 10, 1, 2, 7),
+(31, 20, 20, 20, 2, 2, 7),
+(32, 10, 10, 10, 2, 2, 7),
+(33, 20, 20, 20, 1, 2, 7),
+(34, 20, 20, 20, 1, 1, 7),
+(35, 0, 20, 10, 1, 1, 7),
+(36, 20, 20, 20, 1, 1, 7),
+(37, 20, 20, 20, 2, 1, 7);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `notification`
+--
+
+CREATE TABLE `notification` (
+  `id` int(11) NOT NULL,
+  `idUser` int(11) NOT NULL,
+  `content` varchar(255) DEFAULT NULL,
+  `reader` bit(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `notification`
+--
+
+INSERT INTO `notification` (`id`, `idUser`, `content`, `reader`) VALUES
+(12, 1, 'Ok', b'0'),
+(13, 5, 'Sejá bem vindo', b'0'),
+(14, 7, 'undefined', b'0'),
+(15, 7, 'Nota de undefined', b'0'),
+(16, 7, 'Nota de Matemática', b'0'),
+(17, 7, 'Foi lançada a tua nota de Matemática', b'1'),
+(18, 7, 'Foi lançada a tua nota de Matemática', b'1');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `sessions`
+--
+
+CREATE TABLE `sessions` (
+  `session_id` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `expires` int(11) UNSIGNED NOT NULL,
+  `data` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `sessions`
+--
+
+INSERT INTO `sessions` (`session_id`, `expires`, `data`) VALUES
+('fMyeTDVWOCNgYhloQHd73aMgDkkHk_6c', 1615412884, '{\"cookie\":{\"originalMaxAge\":86400000,\"expires\":\"2021-03-10T21:48:03.509Z\",\"httpOnly\":true,\"path\":\"/\"},\"flash\":{},\"isLoggedIn\":true,\"user\":{\"id\":2,\"nome\":\"Marcio Massango\",\"bi\":\"2020200HS\",\"idCurso\":1,\"idCoordenador\":1,\"photoAvatar\":\"1609148314239_15255.jpg\",\"photoBi\":\"1609148314285_12753.jpg\",\"nivelSession\":2,\"palavraPasse\":\"massango\",\"datatimes\":\"2021-01-04T09:04:29.000Z\"}}'),
+('xvw4_dgAOjiETBfOSVvBWvVKQ0ZvZRDe', 1615412861, '{\"cookie\":{\"originalMaxAge\":86400000,\"expires\":\"2021-03-10T21:47:41.481Z\",\"httpOnly\":true,\"path\":\"/\"},\"flash\":{},\"isLoggedIn\":true,\"user\":{}}');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `turma`
+--
+
+CREATE TABLE `turma` (
+  `id` int(11) NOT NULL,
+  `idCurso` int(11) NOT NULL,
+  `sala` varchar(20) DEFAULT NULL,
+  `nome` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `turma`
+--
+
+INSERT INTO `turma` (`id`, `idCurso`, `sala`, `nome`) VALUES
+(1, 2, '12', 'A'),
+(2, 2, '13', 'B'),
+(3, 1, '15', 'A'),
+(4, 1, '16', 'B');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `aluno`
+--
+ALTER TABLE `aluno`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fkAlunoturma` (`idTurma`),
+  ADD KEY `fkAlunoCurso` (`idCurso`);
+
+--
+-- Indexes for table `colaborador`
+--
+ALTER TABLE `colaborador`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fkColaboradorCoordeenador` (`idCoordenador`);
+
+--
+-- Indexes for table `coordenador`
+--
+ALTER TABLE `coordenador`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fkCoordenadorCurso` (`idCurso`);
+
+--
+-- Indexes for table `curso`
+--
+ALTER TABLE `curso`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cursodisciplina`
+--
+ALTER TABLE `cursodisciplina`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `disciplina`
+--
+ALTER TABLE `disciplina`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `nota`
+--
+ALTER TABLE `nota`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fkNotaALuno` (`idAluno`),
+  ADD KEY `fkNotaDisciplina` (`idDisciplina`);
+
+--
+-- Indexes for table `notification`
+--
+ALTER TABLE `notification`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fknotifialuno` (`idUser`);
+
+--
+-- Indexes for table `sessions`
+--
+ALTER TABLE `sessions`
+  ADD PRIMARY KEY (`session_id`);
+
+--
+-- Indexes for table `turma`
+--
+ALTER TABLE `turma`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fkTurmaCurso` (`idCurso`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `aluno`
+--
+ALTER TABLE `aluno`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `colaborador`
+--
+ALTER TABLE `colaborador`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `coordenador`
+--
+ALTER TABLE `coordenador`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `curso`
+--
+ALTER TABLE `curso`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `cursodisciplina`
+--
+ALTER TABLE `cursodisciplina`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `disciplina`
+--
+ALTER TABLE `disciplina`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `nota`
+--
+ALTER TABLE `nota`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
+--
+-- AUTO_INCREMENT for table `notification`
+--
+ALTER TABLE `notification`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `turma`
+--
+ALTER TABLE `turma`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Limitadores para a tabela `aluno`
+--
+ALTER TABLE `aluno`
+  ADD CONSTRAINT `fkAlunoCurso` FOREIGN KEY (`idCurso`) REFERENCES `curso` (`id`),
+  ADD CONSTRAINT `fkAlunoturma` FOREIGN KEY (`idTurma`) REFERENCES `turma` (`id`);
+
+--
+-- Limitadores para a tabela `colaborador`
+--
+ALTER TABLE `colaborador`
+  ADD CONSTRAINT `fkColaboradorCoordeenador` FOREIGN KEY (`idCoordenador`) REFERENCES `coordenador` (`id`);
+
+--
+-- Limitadores para a tabela `coordenador`
+--
+ALTER TABLE `coordenador`
+  ADD CONSTRAINT `fkCoordenadorCurso` FOREIGN KEY (`idCurso`) REFERENCES `curso` (`id`);
+
+--
+-- Limitadores para a tabela `nota`
+--
+ALTER TABLE `nota`
+  ADD CONSTRAINT `fkNotaALuno` FOREIGN KEY (`idAluno`) REFERENCES `aluno` (`id`),
+  ADD CONSTRAINT `fkNotaDisciplina` FOREIGN KEY (`idDisciplina`) REFERENCES `disciplina` (`id`);
+
+--
+-- Limitadores para a tabela `notification`
+--
+ALTER TABLE `notification`
+  ADD CONSTRAINT `fknotifialuno` FOREIGN KEY (`idUser`) REFERENCES `aluno` (`id`);
+
+--
+-- Limitadores para a tabela `turma`
+--
+ALTER TABLE `turma`
+  ADD CONSTRAINT `fkTurmaCurso` FOREIGN KEY (`idCurso`) REFERENCES `curso` (`id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

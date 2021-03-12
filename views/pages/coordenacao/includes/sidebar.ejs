@@ -20,9 +20,7 @@
   <li class="nav-item active">
     <a class="nav-link" href="/cordenacao/">
       <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>
-        <%- (user.nivelSession > 2) ? 'Coordenador' : 'Colaborador' %></span
-      ></a
+      <span> <%- (user.nivelSession > 2) ? 'Coordenador' : 'Colaborador' %></span></a
     >
   </li>
 
@@ -68,11 +66,7 @@
             aria-expanded="false"
           >
             <i class="fas fa-bell fa-fw"></i>
-            <span
-              class="badge badge-danger badge-counter"
-              id="notificationNumber"
-              >0</span
-            >
+            <span class="badge badge-danger badge-counter">1+</span>
           </a>
 
           <div
@@ -117,10 +111,7 @@
             <span class="mr-2 d-none d-lg-inline text-white-600 small"
               ><%- user.nome %></span
             >
-            <img
-              class="img-profile rounded-circle"
-              src="http://localhost:3000/<%- user.photoAvatar %>"
-            />
+            <img class="img-profile rounded-circle" src="http://localhost:3000/<%- user.photoAvatar %>" />
           </a>
           <!-- Dropdown - Informação do usuario -->
           <div
@@ -146,5 +137,4 @@
         </li>
       </ul>
     </nav>
-  </div>
-</div>
+

@@ -2,6 +2,7 @@ import Aluno from '../model/Aluno';
 import Geral from '../model/geral';
 import Colaborador from '../model/colaborador';
 import Cordenador from '../model/cordenacao';
+import Reclamacao from '../model/reclamacao';
 
 const pathPC = 'pages/coordenacao';
 
@@ -54,7 +55,8 @@ exports.postCadastrarColaborador = async (req, res) => {
 };
 
 exports.getCordenador = async (req, res) => {
-  let reclamacaoIndex = await Reclamacao.indexCount(req.session.user.idCurso);
+  console.log(req.session.user.idCurso);
+  let reclamacaoIndex = await Reclamacao.indexCount(2);
   res.render(pathPC + '/cordenador', {
     user: req.session.user,
     wel: req.flash('welcome'),

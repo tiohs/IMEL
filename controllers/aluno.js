@@ -78,14 +78,18 @@ exports.postUpdatePhoto = async (req, res, nex) => {
 
 exports.postNota = async (req, res) => {
   const date = req.body;
-  // // Caso existe uma nota 
-  const Nota = await geral.notaExiste(date.idAluno,date.trimestre, date.idDisciplina);
-  
+  // // Caso existe uma nota
+  const Nota = await geral.notaExiste(
+    date.idAluno,
+    date.trimestre,
+    date.idDisciplina
+  );
+
   let page = date.idd;
   delete date.idd;
   const [disciplina] = await geral.desciplinaIndex(date.idDisciplina);
-  if(Nota){
-    await geral.notaUpdate(Nota[0].id, date );
+  if (Nota) {
+    await geral.notaUpdate(Nota[0].id, date);
     await Notification.store({
       idUser: date.idAluno,
       content: `A tua nota do ${date.trimestre}º trimestre foi actualizada ${disciplina.nomeDisciplina}`,
@@ -97,7 +101,6 @@ exports.postNota = async (req, res) => {
     return res.redirect(`/cordenacao/nota/${page}`);
   }
   await geral.storeNota(date);
-
 
   await Notification.store({
     idUser: date.idAluno,
@@ -112,15 +115,22 @@ exports.postNota = async (req, res) => {
 
 exports.getMore = async (req, res) => {
   let notificationIndex = await Notification.indexCount(req.session.user.id);
-  let notificationContent = await Notification.indexContent(req.session.user.id);
+  let notificationContent = await Notification.indexContent(
+    req.session.user.id
+  );
   res.render('pages/aluno/more', {
     user: req.session.user,
     notificationIndex,
-    notificationContent
+    notificationContent,
   });
-}
+};
 exports.postNotification = async (req, res) => {
   const { idAluno } = req.body;
   await Notification.updateReadNotification(idAluno);
   res.redirect('/more');
+};
+
+exports.postReclamacao = async (req, res) => {
+  console.log(req.body);
+  res.redirect('/reclamacao');
 };

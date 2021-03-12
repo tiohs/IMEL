@@ -46,8 +46,18 @@
                   ></textarea>
                 </div>
               </div>
-              <input type="text" class="form-control" name="idUser" />
-              <input type="text" class="form-control" name="idTurma" />
+              <input
+                type="hidden"
+                class="form-control"
+                name="idUser"
+                value="<%- user.id%>"
+              />
+              <input
+                type="hidden"
+                class="form-control"
+                name="idTurma"
+                value="<%- user.idTurma %>"
+              />
               <input
                 type="submit"
                 value="Enviar"

@@ -53,10 +53,12 @@ exports.postCadastrarColaborador = async (req, res) => {
   res.redirect('/cordenacao/cadastrar');
 };
 
-exports.getCordenador = (req, res) => {
+exports.getCordenador = async (req, res) => {
+  let reclamacaoIndex = await Reclamacao.indexCount(req.session.user.idCurso);
   res.render(pathPC + '/cordenador', {
     user: req.session.user,
     wel: req.flash('welcome'),
+    reclamacaoIndex,
   });
 };
 

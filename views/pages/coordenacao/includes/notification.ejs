@@ -1,0 +1,23 @@
+<script>
+  var socket = io.connect('http://localhost:3000');
+  let valorInicial = parseInt('<%- reclamacaoIndex.length %>');
+  countNotification(valorInicial);
+  function countNotification(dado) {
+    const showNotification = document.querySelector('#notificationNumber');
+    showNotification.innerHTML = dado;
+  }
+
+  socket.on('id-<%- user.id%>', async (msg) => {
+    const audioObj = new Audio('../../music/facebook_sound.mp3');
+    await audioObj.play();
+    valorInicial += 1;
+    countNotification(valorInicial);
+  });
+</script>
+<script>
+  const formSubmit = document.querySelector('#formSubmit');
+  const submitNotifivation = document.querySelector('#submitNotification');
+  submitNotifivation.addEventListener('click', () => {
+    formSubmit.submit();
+  });
+</script>

@@ -1,7 +1,10 @@
 import Aluno from '../model/Aluno';
 import geral from '../model/geral';
+import Reclamacao from '../model/reclamacao';
+
 import io from '../config/socketIO';
 import Notification from '../model/notifiquetion';
+import Geral from '../model/geral';
 
 const pathViews = 'pages/aluno/';
 
@@ -131,6 +134,8 @@ exports.postNotification = async (req, res) => {
 };
 
 exports.postReclamacao = async (req, res) => {
-  console.log(req.body);
+  const [, turma] = await Geral.datesSingle(req.body.idTurma);
+  req.body.idTurma = turma[0].idCurso;
+  await Reclamacao.store(req.body);
   res.redirect('/reclamacao');
 };

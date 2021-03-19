@@ -2,15 +2,15 @@
 
 ### TRABALHO EM FALTA
 
-- [ ] Validação de Formulário
-- [ ] Notificação
+- [x] Validação de Formulário
+- [x] Notificação
 - [ ] Troca de Turma
 
 ### O QUE ESTAMOS A FAZER~
 
-- [ ] Autenticação do Cordenador, Admin (Back-and)
-- [ ] Pagina de Perfil de aluno , cordenador, colaborador ( Front-And )
-- [ ] Paginas completa do admin ( Front-And )
+- [x] Autenticação do Cordenador, Admin (Back-and)
+- [x] Pagina de Perfil de aluno , cordenador, colaborador ( Front-And )
+- [x] Paginas completa do admin ( Front-And )
 
 ### TABALHO FEITAS
 

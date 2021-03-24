@@ -55,9 +55,7 @@ exports.postCadastrarColaborador = async (req, res) => {
 };
 
 exports.getCordenador = async (req, res) => {
-  console.log(req.session.user.idCurso);
-  let reclamacaoIndex = await Reclamacao.indexCount(2);
-  console.log(reclamacaoIndex);
+  let reclamacaoIndex = await Reclamacao.indexCount(req.session.user.idCurso);
   res.render(pathPC + '/cordenador', {
     user: req.session.user,
     wel: req.flash('welcome'),

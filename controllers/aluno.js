@@ -134,8 +134,9 @@ exports.postNotification = async (req, res) => {
 };
 
 exports.postReclamacao = async (req, res) => {
-  const [, turma] = await Geral.datesSingle(req.body.idTurma);
-  req.body.idTurma = turma[0].idCurso;
+  io.getIO().emit(`turma-${req.body.idCurso}`, {
+    content: `Nova reclamação `,
+  });
   await Reclamacao.store(req.body);
   res.redirect('/reclamacao');
 };

@@ -5,19 +5,19 @@
   function countNotification(dado) {
     const showNotification = document.querySelector('#notificationNumber');
     showNotification.innerHTML = dado;
+    // const audioObj = new Audio('http://localhost:3000/music/facebook_sound.mp3');
+    // audioObj.play();
   }
 
-  socket.on('id-<%- user.id%>', async (msg) => {
-    const audioObj = new Audio('../../music/facebook_sound.mp3');
-    await audioObj.play();
+  socket.on('turma-<%- user.idCurso %>', async (msg) => {
     valorInicial += 1;
     countNotification(valorInicial);
   });
 </script>
-<script>
+<!-- <script>
   const formSubmit = document.querySelector('#formSubmit');
   const submitNotifivation = document.querySelector('#submitNotification');
   submitNotifivation.addEventListener('click', () => {
     formSubmit.submit();
   });
-</script>
+</script> -->

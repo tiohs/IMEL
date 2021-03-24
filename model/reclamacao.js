@@ -8,11 +8,8 @@ class Reclamacao {
     return knex.select().into('reclamacao');
   }
   static indexCount(id) {
-    return knex
-      .select()
-      .table('reclamacao')
-      .where('idUser', id)
-      .where('reader', true);
+    return knex.select().table('reclamacao').where('idCurso', id);
+    // .where('reader', true);
   }
   static updateReadNotification(id) {
     return this.indexCount(id).update({ reader: false });

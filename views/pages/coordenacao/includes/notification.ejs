@@ -2,11 +2,11 @@
   var socket = io.connect('http://localhost:3000');
   let valorInicial = parseInt('<%- reclamacaoIndex.length %>');
   countNotification(valorInicial);
-  function countNotification(dado) {
+  async function countNotification(dado) {
     const showNotification = document.querySelector('#notificationNumber');
     showNotification.innerHTML = dado;
-    // const audioObj = new Audio('http://localhost:3000/music/facebook_sound.mp3');
-    // audioObj.play();
+     const audioObj = await new Audio('./../music/facebook_sound.mp3');
+     audioObj.play();
   }
 
   socket.on('turma-<%- user.idCurso %>', async (msg) => {

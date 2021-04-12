@@ -148,3 +148,14 @@ exports.getDetalhes = async (req, res, next) => {
     user: req.session.user,
   });
 };
+
+exports.postRead = async (req, res, next) => {
+  await Reclamacao.updateReadNotification(req.body.idCordenador);
+  res.redirect('/cordenacao/cadastrar/' + req.session.user.idCurso);
+}
+
+exports.more = async (req, res, next) => {
+  const dados = await Reclamacao.indexContent(req.params.id);
+  console.log(dados);
+  res.render('pages/more');
+}

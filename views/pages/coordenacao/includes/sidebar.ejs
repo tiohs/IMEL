@@ -89,9 +89,12 @@
                 Fazer troca de curso.
               </div>
             </a>
-            <a class="dropdown-item text-center small text-gray-500" href="#"
+            <a class="dropdown-item text-center small text-gray-500" id="submitNotification"
               >Mais notificações</a
             >
+            <form action="/cordenacao/read/notification" method="post" id="formSubmit">
+              <input type="hidden" name="idCordenador" value="<%- user.id %>">
+            </form>
           </div>
         </li>
 

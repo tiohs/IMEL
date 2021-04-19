@@ -91,7 +91,9 @@
                             solicito fazer a troca para o 
                             curso de <strong><em><%- solicitar.nomeCurso %></em></strong> 
                             no turno da <strong><em>tarde</em></strong>. </p>
-                          <a href="#" class="btn btn-primary">Solicitar</a>
+                            <form action="/interessado" method="post">
+                            <input type="submit" value="Solicitar" class="btn btn-primary">
+                            </form>
                         </div>
                       </div>
                     <% } %>

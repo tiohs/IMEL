@@ -21,7 +21,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <%- include('./includes/sidebar', {user}) %>
+    <%- include('./includes/sidebar', {user, reclamacaoIndex}) %>
         <!-- fim do Topbar -->
 
         <!-- inicio da Pag. de Conteúdo -->
@@ -192,6 +192,7 @@
 
   <script src="../../js/jquery.min.js"></script>
   <script src="../../js/bootstrap.bundle.min.js"></script>
+  <%- include('./includes/notification', {reclamacaoIndex}) %>
 </body>
 
 </html>

@@ -40,6 +40,4 @@ router.post(
 
 router.get('/delete/:id', controllersCoordenador.delete);
 router.get('/detalhes-colaborador/:id', controllersCoordenador.getDetalhes);
-router.post('/read/notification', controllersCoordenador.postRead);
-router.get('/cadastrar/:id', controllersCoordenador.more);
 export default router;

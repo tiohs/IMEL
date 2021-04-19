@@ -22,7 +22,7 @@
 
   <div id="wrapper">
 
-    <%- include('./includes/sidebar') %>
+    <%- include('./includes/sidebar', {user, reclamacaoIndex}) %>
         <!-- inicio da Pag. de Conteúdo -->
         <div class="container-fluid">
 
@@ -130,6 +130,7 @@
   });
 });
   </script>
+  <%- include('./includes/notification', {reclamacaoIndex}) %>
 </body>
 
 </html>

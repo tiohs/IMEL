@@ -9,7 +9,15 @@
     <link rel="sortcut icon" href="../../img/log.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../../css/style.css" />
     <link rel="stylesheet" href="../../css/troca.css" />
-    <style></style>
+    <style>
+      .table-responsive {
+    overflow-x: none;
+}
+
+.card{
+  margin-bottom: 1rem;
+}
+    </style>
   </head>
   <body>
     <%- include('./includes/header', {user, notificationIndex}); %>
@@ -37,7 +45,7 @@
                 data-toggle="modal"
                 data-target="#addUserModalC"
               >
-                <i class="fa fa-plus"></i> Cadastrar troca
+                <i class="fa fa-plus"></i> Solicitar troca
               </a>
             </div>
           </div>
@@ -71,91 +79,22 @@
                       </div>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <table
-                        class="table table-bordered dataTable"
-                        id="dataTable"
-                        width="100%"
-                        cellspacing="0"
-                        role="grid"
-                        aria-describedby="dataTable_info"
-                        style="width: 100%"
-                      >
-                        <thead>
-                          <tr role="row">
-                            <th
-                              class="sorting_asc"
-                              tabindex="0"
-                              aria-controls="dataTable"
-                              rowspan="1"
-                              colspan="1"
-                              aria-sort="ascending"
-                            >
-                              #
-                            </th>
-                            <th
-                              class="sorting"
-                              tabindex="0"
-                              aria-controls="dataTable"
-                              rowspan="1"
-                              colspan="1"
-                            >
-                              Nome
-                            </th>
-                            <th
-                              class="sorting"
-                              tabindex="0"
-                              aria-controls="dataTable"
-                              rowspan="1"
-                              colspan="1"
-                            >
-                              Curso
-                            </th>
-                            <th
-                              class="sorting"
-                              tabindex="0"
-                              aria-controls="dataTable"
-                              rowspan="1"
-                              colspan="1"
-                            >
-                              Turno
-                            </th>
-                            <th
-                              class="sorting"
-                              tabindex="0"
-                              aria-controls="dataTable"
-                              rowspan="1"
-                              colspan="1"
-                            ></th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr role="row" class="odd">
-                            <td class="sorting_1">1</td>
-                            <td>Ariana Grande</td>
-                            <td>Infogest</td>
-                            <td>Manhã</td>
-                            <td>
-                              <a href="detalhes.html" class="btn btn-secondary">
-                                <i class="fa fa-angle-double-right"></i> Trocar
-                              </a>
-                            </td>
-                          </tr>
-                          <tr role="row" class="even">
-                            <td class="sorting_1">2</td>
-                            <td>Kylie Jenner</td>
-                            <td>Contabilidade</td>
-                            <td>Noite</td>
-                            <td>
-                              <a href="detalhes.html" class="btn btn-secondary">
-                                <i class="fa fa-angle-double-right"></i> Trocar
-                              </a>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
+                  <% for(solicitar of solicitars){ %>
+                    <div class="cards">
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title"><%- solicitar.nomeCurso %></h5>
+                          <p class="card-text">Eu <strong><em><%- solicitar.nome %></em></strong>, 
+                            pertecente ao 
+                            curso de <strong><em>Informática</em></strong> 
+                            no turno da <strong><em><%- solicitar.turno %></em></strong>, 
+                            solicito fazer a troca para o 
+                            curso de <strong><em><%- solicitar.nomeCurso %></em></strong> 
+                            no turno da <strong><em>tarde</em></strong>. </p>
+                          <a href="#" class="btn btn-primary">Solicitar</a>
+                        </div>
+                      </div>
+                    <% } %>
                   </div>
                 </div>
               </div>
@@ -190,32 +129,35 @@
             </button>
           </div>
           <div class="modal-body">
-            <form>
+            <form method="post" action="/troca" >
               <div class="form-group">
                 <label for="curso">Curso</label>
-                <select class="form-control">
-                  <option value="">Infogest</option>
-                  <option value="">Contabilidade</option>
+                <select class="form-control" name="idCurso">
+                  <% for(curso of cursos) { %>
+                    <option value="<%- curso.id %>"><%- curso.nomeCurso %></option>
+                  <% } %>
                 </select>
               </div>
-              <div class="form-group">
+              <input type="hidden" name="idUser" value="<%- user.id %>">
+              <div class="form-group" >
                 <label for="turno">Turno</label>
-                <select class="form-control">
-                  <option value="">Manhã</option>
-                  <option value="">Tarde</option>
-                  <option value="">Noite</option>
+                <select class="form-control" name="periodo">
+                  <option value="Manha">Manhã</option>
+                  <option value="Tarde">Tarde</option>
+                  <option value="Noite">Noite</option>
                 </select>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-secondary" data-dismiss="modal">
+                  Fechar
+                </button>
+                <button class="btn btn-primary" id="submitNotification">
+                  Cadastrar
+                </button>
               </div>
             </form>
           </div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" data-dismiss="modal">
-              Fechar
-            </button>
-            <button class="btn btn-primary" data-dismiss="modal">
-              Cadastrar
-            </button>
-          </div>
+         
         </div>
       </div>
     </div>

@@ -4,8 +4,7 @@ import Reclamacao from '../model/reclamacao';
 
 import io from '../config/socketIO';
 import Notification from '../model/notifiquetion';
-import Geral from '../model/geral';
-
+import Solicitartroca from '../model/solicitar';
 const pathViews = 'pages/aluno/';
 
 exports.getIndex = async (req, res, nex) => {
@@ -51,10 +50,13 @@ exports.getReclamacao = async (req, res, nex) => {
 
 exports.getTroca = async (req, res, nex) => {
   let notificationIndex = await Notification.indexCount(req.session.user.id);
-
+  const [cursos] = await geral.Dates();
+  const solicitars = await Solicitartroca.index();
   res.render(pathViews + 'troca', {
     user: req.session.user,
     notificationIndex,
+    cursos,
+    solicitars
   });
 };
 
@@ -87,11 +89,10 @@ exports.postNota = async (req, res) => {
     date.trimestre,
     date.idDisciplina
   );
-
   let page = date.idd;
   delete date.idd;
   const [disciplina] = await geral.desciplinaIndex(date.idDisciplina);
-  if (Nota) {
+  if (!!Nota[0]) {
     await geral.notaUpdate(Nota[0].id, date);
     await Notification.store({
       idUser: date.idAluno,
@@ -104,7 +105,6 @@ exports.postNota = async (req, res) => {
     return res.redirect(`/cordenacao/nota/${page}`);
   }
   await geral.storeNota(date);
-
   await Notification.store({
     idUser: date.idAluno,
     content: `Foi lançada a tua nota de ${disciplina.nomeDisciplina}`,
@@ -127,6 +127,7 @@ exports.getMore = async (req, res) => {
     notificationContent,
   });
 };
+
 exports.postNotification = async (req, res) => {
   const { idAluno } = req.body;
   await Notification.updateReadNotification(idAluno);
@@ -140,3 +141,13 @@ exports.postReclamacao = async (req, res) => {
   await Reclamacao.store(req.body);
   res.redirect('/reclamacao');
 };
+
+
+// Solicitar mudar turma 
+
+exports.trocaTurma = async (req, res) => {
+  const trocaStore = req.body;
+  // Caso ele timer um pedido não pode fazer outro
+  await Solicitartroca.store(trocaStore);
+  res.redirect("/troca");
+}

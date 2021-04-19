@@ -32,7 +32,7 @@
 
   <div id="wrapper">
 
-    <%- include('./includes/sidebar', {user}) %>
+    <%- include('./includes/sidebar', {user, reclamacaoIndex}) %>
         <!-- fim do Topbar -->
 
         <!-- inicio da Pag. de Conteúdo -->
@@ -105,7 +105,7 @@
                             <tbody id="alu"  style="display: table-row-group">
                               <% for(dado of dados[0]){ %>
                               <tr role="row" class="odd">
-                                <td class="sorting_1"><%- dado.numero_id %></td>
+                                <td class="sorting_1"><%- dado.id %></td>
                                 <td><%- dado.nome %></td>
                                 <td><%- (dado.nivelSession == 1) ? 'Aluno' : 'Colaborador'; %></td>
 
@@ -385,7 +385,7 @@
       });
     });
   </script>
-  
+  <%- include('./includes/notification', {reclamacaoIndex}) %>
 </body>
 
 </html>

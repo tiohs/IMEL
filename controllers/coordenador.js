@@ -7,6 +7,7 @@ import Reclamacao from '../model/reclamacao';
 const pathPC = 'pages/coordenacao';
 
 exports.getCadastrar = async (req, res) => {
+  let reclamacaoIndex = await Reclamacao.indexCount(req.session.user.idCurso);
   const dados1 = await Aluno.shows();
   const dados2 = await Colaborador.showDate();
   const dados = [dados1, dados2];
@@ -16,6 +17,7 @@ exports.getCadastrar = async (req, res) => {
     cursos,
     turmas,
     user: req.session.user,
+    reclamacaoIndex
   });
 };
 
@@ -64,11 +66,13 @@ exports.getCordenador = async (req, res) => {
 };
 
 exports.getLancarNota = async (req, res) => {
+  let reclamacaoIndex = await Reclamacao.indexCount(req.session.user.idCurso);
   const [, turmas] = await Geral.Dates();
-  res.render(pathPC + '/lancarNota', { user: req.session.user, turmas });
+  res.render(pathPC + '/lancarNota', { user: req.session.user, turmas, reclamacaoIndex });
 };
 
 exports.getNota = async (req, res) => {
+  let reclamacaoIndex = await Reclamacao.indexCount(req.session.user.idCurso);
   const id = req.params.id;
   const alunos = await Aluno.allTurmaAluno(id);
   const [, turma] = await Geral.datesSingle(id);
@@ -78,17 +82,20 @@ exports.getNota = async (req, res) => {
     turma,
     alunos,
     disciplinas,
+    reclamacaoIndex
   });
 };
 
-exports.getPerfil = (req, res) => {
-  res.render(pathPC + '/perfil', { user: req.session.user });
+exports.getPerfil = async (req, res) => {
+  let reclamacaoIndex = await Reclamacao.indexCount(req.session.user.idCurso);
+  res.render(pathPC + '/perfil', { user: req.session.user, reclamacaoIndex });
 };
 
 exports.getEditarAluno = async (req, res) => {
+  let reclamacaoIndex = await Reclamacao.indexCount(req.session.user.idCurso);
   const id = req.params.id;
   var result = await Aluno.show(id);
-  res.render(pathPC + '/detalhes', { result, user: req.session.user });
+  res.render(pathPC + '/detalhes', { result, user: req.session.user, reclamacaoIndex });
 };
 
 exports.updateData = async (req, res, next) => {
@@ -139,6 +146,7 @@ exports.delete = async (req, res, next) => {
   res.redirect('/cordenacao/cadastrar');
 };
 exports.getDetalhes = async (req, res, next) => {
+  let reclamacaoIndex = await Reclamacao.indexCount(req.session.user.idCurso);
   const id = req.params.id;
   const [cursos] = await Geral.Dates();
   const colaborador = await Colaborador.show(id);
@@ -146,16 +154,6 @@ exports.getDetalhes = async (req, res, next) => {
     dado: colaborador[0],
     cursos,
     user: req.session.user,
+    reclamacaoIndex
   });
 };
-
-exports.postRead = async (req, res, next) => {
-  await Reclamacao.updateReadNotification(req.body.idCordenador);
-  res.redirect('/cordenacao/cadastrar/' + req.session.user.idCurso);
-}
-
-exports.more = async (req, res, next) => {
-  const dados = await Reclamacao.indexContent(req.params.id);
-  console.log(dados);
-  res.render('pages/more');
-}

@@ -1,27 +1,26 @@
 <script>
   var socket = io.connect('http://localhost:3000');
   let valorInicial = parseInt('<%- reclamacaoIndex.length %>');
- 
-  countNotification(valorInicial);
-  async function countNotification(dado) {
+  countNotification(valorInicial, false);
+
+  async function countNotification(dado, bolean) {
     const showNotification = document.querySelector('#notificationNumber');
     showNotification.innerHTML = dado;
+    if(bolean){
+      const audioObj = await new Audio('./../music/facebook_sound.mp3');
+      audioObj.play();
+    }  
   }
-
- 
 
   socket.on('turma-<%- user.idCurso %>', async (msg) => {
     valorInicial += 1;
-    const audioObj = await new Audio('../../music/facebook_sound.mp3');
-    await audioObj.play();
-      console.log('msg');
-      countNotification(valorInicial);
+    countNotification(valorInicial, true);
   });
 </script>
-<script>
+<!-- <script>
   const formSubmit = document.querySelector('#formSubmit');
   const submitNotifivation = document.querySelector('#submitNotification');
   submitNotifivation.addEventListener('click', () => {
     formSubmit.submit();
   });
-</script>
+</script> -->

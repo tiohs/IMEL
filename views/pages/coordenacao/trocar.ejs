@@ -20,7 +20,7 @@
 
   <div id="wrapper">
 
-    <%- include('./includes/sidebar', {user}) %>
+    <%- include('./includes/sidebar', {user, reclamacaoIndex}) %>
 
         <!-- inicio da Pag. de Conteúdo -->
         <div class="container-fluid">
@@ -81,6 +81,7 @@
 
   <script src="../../js/jquery.min.js"></script>
   <script src="../../js/bootstrap.bundle.min.js"></script>
+  <%- include('./includes/notification', {reclamacaoIndex}) %>
 </body>
 
 </html>

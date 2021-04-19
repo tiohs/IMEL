@@ -92,7 +92,9 @@
                             curso de <strong><em><%- solicitar.nomeCurso %></em></strong> 
                             no turno da <strong><em>tarde</em></strong>. </p>
                             <form action="/interessado" method="post">
-                            <input type="submit" value="Solicitar" class="btn btn-primary">
+                              <input type="hidden" name="id" value="<%- user.id %>">
+                              <input type="hidden" name="post" value="<%- solicitar.id %>">
+                              <input type="submit" value="Solicitar" class="btn btn-primary">
                             </form>
                         </div>
                       </div>

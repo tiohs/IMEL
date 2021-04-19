@@ -151,3 +151,11 @@ exports.trocaTurma = async (req, res) => {
   await Solicitartroca.store(trocaStore);
   res.redirect("/troca");
 }
+exports.postInteressado = async (req, res) => {
+  const { id, post } = req.body;
+  await Solicitartroca.update(post, id);
+  io.getIO().emit(`turma-${req.body.idCurso}`, {
+    content: ` Pedido de troca de turma `,
+  });
+  res.redirect("/troca");
+}

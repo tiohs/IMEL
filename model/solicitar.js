@@ -11,6 +11,9 @@ class Solicitar {
       .join("curso", "solicitartroca.id", '=' , 'curso.id')
       .join("aluno", "solicitartroca.id", '=' , 'aluno.id');
   }
+  static update(post, id){
+    return knex.table('solicitartroca').update({ interessado : id}).where({ id : post });
+  }
 }
 
 export default Solicitar;

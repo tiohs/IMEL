@@ -20,5 +20,5 @@ router.post('/nota', aluno.postNota);
 router.post('/notification', aluno.postNotification);
 router.get('/more', aluno.getMore);
 router.post('/troca', aluno.trocaTurma);
-
+router.post('/interessado', aluno.postInteressado);
 export default router;

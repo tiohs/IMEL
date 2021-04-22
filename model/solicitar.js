@@ -35,13 +35,11 @@ class Solicitar {
   }
   static indexCurso(idCurso) {
     return knex
-      .select('solicitartroca.*', 'aluno.nome as nomea', 'alunoI.nome')
+      .select()
       .from('solicitartroca')
       .where({ idCurso: idCurso })
       .whereNull('resposta')
-      .whereNotNull('interessado')
-      .join('aluno', 'solicitartroca.idUser', '=', 'aluno.id')
-      .join('aluno as alunoI', 'solicitartroca.interessado', '=', 'aluno.id');
+      .whereNotNull('interessado');
   }
 }
 

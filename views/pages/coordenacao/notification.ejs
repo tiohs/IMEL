@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>IMEL</title>
+
+  <link href="../../fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="../../css/imel.css" rel="stylesheet">
+
+  <style>
+
+    .alert-menu {
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+        min-width: 10rem;
+        padding: 0.5rem 0;
+        font-size: 0.85rem;
+        color: #858796;
+        text-align: left;
+        list-style: none;
+        background-color: #4e73df;
+        background-clip: padding-box;
+        border: 1px solid #e3e6f0;
+        border-radius: 0.35rem;
+    }
+    
+    .gh .dropdown-list .dropdown-item {
+        white-space: normal;
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+        border-left: 1px solid #e3e6f0;
+        border-right: 1px solid #e3e6f0;
+        border-bottom: 1px solid #e3e6f0;
+        background-color: white;
+        line-height: 1.3rem;
+    }
+    
+    .gh .dropdown-list .dropdown-item:hover{
+      color: #2e2f37;
+        text-decoration: none;
+        background-color: #f8f9fc;
+    }
+    
+    .gh .dropdown-list .dropdown-header {
+        background-color: #4e73df;
+        border: 1px solid #4e73df;
+        padding-top: 0.80rem;
+        padding-bottom: 0.75rem;
+        color: #fff;
+    }
+      </style>
+</head>
+
+<body id="page-top">
+
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <%- include('./includes/sidebar', {user, reclamacaoIndex}) %>
+        <!-- fim do Topbar -->
+
+        <!-- inicio da Pag. de Conteúdo -->
+        <div class="container-fluid">
+
+        
+          <header id="main-header" class="  text-black">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6">
+                  <h1><i class="fa fa-user"></i> Perfil</h1>
+                </div>
+              </div>
+            </div>
+          </header>
+        
+
+          <section id="action" class="py-4 mb-4 bg-light">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-3 mr-auto">
+                  <a href="/cordenacao/cordenador" class="btn btn-light btn-block">
+                    <i class="fa fa-arrow-left"></i> Voltar para Dashboard
+                  </a>
+                </div>
+                <!-- <div class="col-md-3">
+                  <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#passwordModal">
+                    <i class="fa fa-lock"></i> Mudar Password
+                  </a>
+                </div> -->
+              </div>
+            </div>
+          </section>
+        
+
+        
+  
+        
+          <!---->
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- fim do Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; ABDJAM 2020</span>
+          </div>
+        </div>
+      </footer>
+      <!-- fim da Footer -->
+
+    </div>
+    <!-- fim do Content Wrapper -->
+
+  </div>
+  <!-- fim da Pag Wrapper -->
+
+  <!-- Logout Modal-->
+  <%- include('./includes/modalLogout.ejs'); %>
+
+
+  <script src="../../js/jquery.min.js"></script>
+  <script src="../../js/bootstrap.bundle.min.js"></script>
+  <%- include('./includes/notification', {reclamacaoIndex}) %>
+</body>
+
+</html>

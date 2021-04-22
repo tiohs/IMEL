@@ -8,15 +8,24 @@ class Solicitar {
     return knex
       .select(
         'solicitartroca.*',
-        'aluno.idCurso as Alunocurso',
-        'cursoAluno.nomeCurso as cursoAluno',
-        'curso.nomeCurso as cursoPedido',
-        'aluno.*'
+        'cursoPretendido.nomeCurso as cursoP',
+        'alunoPost.nome as alunoP',
+        'alunoPost.turno as alunoPTurno',
+        'myCurso.nomeCurso as mycurso'
       )
       .from('solicitartroca')
-      .join('curso', 'solicitartroca.idCurso', '=', 'curso.id')
-      .join('aluno', 'solicitartroca.idUser', '=', 'aluno.id')
-      .join('curso as cursoAluno', 'aluno.idCurso', '=', 'curso.id');
+      .join(
+        'curso as cursoPretendido',
+        'solicitartroca.idCurso',
+        '=',
+        'cursoPretendido.id'
+      )
+      .join(
+        'aluno as alunoPost',
+        'solicitartroca.idCurso',
+        '=',
+        'alunoPost.id'
+      ).join('curso as myCurso', 'alunoPost.idCurso', '=', 'myCurso.id');
   }
   static update(post, id) {
     return knex
@@ -26,9 +35,13 @@ class Solicitar {
   }
   static indexCurso(idCurso) {
     return knex
-      .select().from('solicitartroca')
+      .select('solicitartroca.*', 'aluno.nome as nomea', 'alunoI.nome')
+      .from('solicitartroca')
       .where({ idCurso: idCurso })
-      .whereNull("resposta");
+      .whereNull('resposta')
+      .whereNotNull('interessado')
+      .join('aluno', 'solicitartroca.idUser', '=', 'aluno.id')
+      .join('aluno as alunoI', 'solicitartroca.interessado', '=', 'aluno.id');
   }
 }
 

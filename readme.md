@@ -7,6 +7,7 @@
 - [ ] Troca de Turma
 - [ ] Criptografia 
 - [ ] turmas add campo ``curso nome de curso ``  
+- [ ] Erro ao preencher o campo solicitar 
 ### O QUE ESTAMOS A FAZER~
 
 - [x] Autenticação do Cordenador, Admin (Back-and)

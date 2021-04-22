@@ -164,11 +164,12 @@ exports.getNotification = async (req, res) => {
   const id = req.params.id;
   const [cursos] = await Geral.Dates();
   const colaborador = await Colaborador.show(id);
-  console.log(await Solicitartroca.indexCurso(req.session.user.idCurso));
+  const trocaCurso = await Solicitartroca.indexCurso(req.session.user.idCurso);
   res.render(pathPC + '/notification', {
     dado: colaborador[0],
     cursos,
     user: req.session.user,
-    reclamacaoIndex
+    reclamacaoIndex,
+    trocaCurso
   });
 }

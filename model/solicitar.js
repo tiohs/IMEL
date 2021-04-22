@@ -24,6 +24,12 @@ class Solicitar {
       .update({ interessado: id })
       .where({ id: post });
   }
+  static indexCurso(idCurso) {
+    return knex
+      .select().from('solicitartroca')
+      .where({ idCurso: idCurso })
+      .whereNull("resposta");
+  }
 }
 
 export default Solicitar;

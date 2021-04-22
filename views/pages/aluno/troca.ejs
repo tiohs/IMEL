@@ -62,7 +62,7 @@
             <div class="card-body">
               <div class="table-responsive">
                 <div
-                  id="dataTable_wrapper"
+                  id="#dataTable_wrapper"
                   class="dataTables_wrapper dt-bootstrap4"
                 >
                   <div class="row">
@@ -86,16 +86,20 @@
                           <h5 class="card-title"><%- solicitar.nomeCurso %></h5>
                           <p class="card-text">Eu <strong><em><%- solicitar.nome %></em></strong>, 
                             pertecente ao 
-                            curso de <strong><em>Informática</em></strong> 
+                            curso de <strong><em><%- solicitar.cursoAluno %></em></strong> 
                             no turno da <strong><em><%- solicitar.turno %></em></strong>, 
                             solicito fazer a troca para o 
-                            curso de <strong><em><%- solicitar.nomeCurso %></em></strong> 
-                            no turno da <strong><em>tarde</em></strong>. </p>
+                            curso de <strong><em><%- solicitar.cursoPedido %></em></strong> 
+                            no turno da <strong><em><%- solicitar.periodo %></em></strong>. </p>
+                           <% if(!solicitar.interessado){ %>
                             <form action="/interessado" method="post">
                               <input type="hidden" name="id" value="<%- user.id %>">
                               <input type="hidden" name="post" value="<%- solicitar.id %>">
                               <input type="submit" value="Solicitar" class="btn btn-primary">
                             </form>
+                            <% } else { %>
+                              <button class="btn btn-success">Em processo ...</button>
+                            <% } %>
                         </div>
                       </div>
                     <% } %>

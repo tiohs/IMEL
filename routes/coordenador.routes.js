@@ -40,5 +40,6 @@ router.post(
 
 router.get('/delete/:id', controllersCoordenador.delete);
 router.get('/detalhes-colaborador/:id', controllersCoordenador.getDetalhes);
-router.get('/notification/all', controllersCoordenador.getNotification)
+router.get('/notification/all', controllersCoordenador.getNotification);
+router.get('/troca/:id', controllersCoordenador.getTroca)
 export default router;

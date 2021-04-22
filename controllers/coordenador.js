@@ -173,3 +173,17 @@ exports.getNotification = async (req, res) => {
     trocaCurso
   });
 }
+
+exports.getTroca = async (req, res) => {
+  const { id } = req.params;
+
+  const data = await Solicitartroca.indexByTwo(id);
+
+  let reclamacaoIndex = await Reclamacao.indexCount(req.session.user.idCurso);
+  console.log(data);
+  res.render(pathPC + '/trocar', {
+    user: req.session.user,
+    reclamacaoIndex,
+    data
+  });
+}

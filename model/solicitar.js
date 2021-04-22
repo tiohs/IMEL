@@ -38,6 +38,16 @@ class Solicitar {
       .whereNotNull('interessado')
       ;
   }
+  static indexByTwo(idPost) {
+    return knex
+    .select('solicitartroca.*', 
+    'aluno1.id as idAluno',
+    'aluno1.photoAvatar as Avatar'
+    )
+    .from('solicitartroca')
+    .whereRaw(` solicitartroca.id   = ${ idPost }`)
+    .join('aluno as aluno1', 'solicitartroca.idUser', '=',  'aluno1.id');
+  }
 }
 
 export default Solicitar;

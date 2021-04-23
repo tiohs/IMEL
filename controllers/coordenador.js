@@ -3,6 +3,7 @@ import Geral from '../model/geral';
 import Colaborador from '../model/colaborador';
 import Cordenador from '../model/cordenacao';
 import Reclamacao from '../model/reclamacao';
+import Solicitartroca from '../model/solicitar';
 
 const pathPC = 'pages/coordenacao';
 
@@ -157,3 +158,4 @@ exports.getDetalhes = async (req, res, next) => {
     reclamacaoIndex
   });
 };
+

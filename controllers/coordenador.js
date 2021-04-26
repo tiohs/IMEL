@@ -187,3 +187,10 @@ exports.getTroca = async (req, res) => {
     data
   });
 }
+exports.postTroca = async (req, res) => {
+  const { idUSer, interessado } = req.body;
+  console.log(idUSer);
+  const [aluno1] = await Aluno.show(idUSer);
+  const [aluno2] = await Aluno.show(interessado);
+  console.log(aluno1, aluno2);
+}

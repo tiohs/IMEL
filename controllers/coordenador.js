@@ -188,9 +188,24 @@ exports.getTroca = async (req, res) => {
   });
 }
 exports.postTroca = async (req, res) => {
-  const { idUSer, interessado } = req.body;
-  console.log(idUSer);
+  const { idUSer, interessado, id } = req.body;
   const [aluno1] = await Aluno.show(idUSer);
   const [aluno2] = await Aluno.show(interessado);
-  console.log(aluno1, aluno2);
+  await Aluno.update(aluno1.id , {
+    numero : aluno2.numero, 
+    classe : aluno2.classe,
+    sala : aluno2.sala,
+    turno : aluno2.turno, 
+    idCurso : aluno2.idCurso,
+    idTurma : aluno2.idTurma, 
+  });
+  await Aluno.update(aluno2.id , {
+    numero : aluno1.numero, 
+    classe : aluno1.classe,
+    sala : aluno1.sala,
+    turno : aluno1.turno, 
+    idCurso : aluno1.idCurso,
+    idTurma : aluno1.idTurma, 
+  });
+  return res.redirect(`/cordenacao/troca/${id}`);
 }

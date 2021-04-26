@@ -51,13 +51,18 @@
               </div>
             </div>
             <div style="margin: 0 auto;">
+              <% if(!data[0].resposta) { %>
               <form action="/cordenacao/trocar/" method="post">
                 <input type="hidden" name="idUSer" value="<%- data[0].idUser %>">
                 <input type="hidden" name="interessado" value="<%- data[0].interessado %>">
                 <input type="hidden" name="id" value="<%- data[0].id %>">
                 <input type="submit" value="Fazer Trocar" class="btn btn-success mt-5 text-center">
               </form>
-              
+              <% } else { %>
+                <button class="btn btn-success">
+                  Troca Feita 
+                </button>
+              <% } %>
             </div>
           </div>
 

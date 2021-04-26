@@ -18,7 +18,7 @@ exports.getCadastrar = async (req, res) => {
     cursos,
     turmas,
     user: req.session.user,
-    reclamacaoIndex
+    reclamacaoIndex,
   });
 };
 
@@ -69,7 +69,11 @@ exports.getCordenador = async (req, res) => {
 exports.getLancarNota = async (req, res) => {
   let reclamacaoIndex = await Reclamacao.indexCount(req.session.user.idCurso);
   const [, turmas] = await Geral.Dates();
-  res.render(pathPC + '/lancarNota', { user: req.session.user, turmas, reclamacaoIndex });
+  res.render(pathPC + '/lancarNota', {
+    user: req.session.user,
+    turmas,
+    reclamacaoIndex,
+  });
 };
 
 exports.getNota = async (req, res) => {
@@ -83,7 +87,7 @@ exports.getNota = async (req, res) => {
     turma,
     alunos,
     disciplinas,
-    reclamacaoIndex
+    reclamacaoIndex,
   });
 };
 
@@ -96,7 +100,11 @@ exports.getEditarAluno = async (req, res) => {
   let reclamacaoIndex = await Reclamacao.indexCount(req.session.user.idCurso);
   const id = req.params.id;
   var result = await Aluno.show(id);
-  res.render(pathPC + '/detalhes', { result, user: req.session.user, reclamacaoIndex });
+  res.render(pathPC + '/detalhes', {
+    result,
+    user: req.session.user,
+    reclamacaoIndex,
+  });
 };
 
 exports.updateData = async (req, res, next) => {
@@ -155,7 +163,7 @@ exports.getDetalhes = async (req, res, next) => {
     dado: colaborador[0],
     cursos,
     user: req.session.user,
-    reclamacaoIndex
+    reclamacaoIndex,
   });
 };
 
@@ -170,9 +178,9 @@ exports.getNotification = async (req, res) => {
     cursos,
     user: req.session.user,
     reclamacaoIndex,
-    trocaCurso
+    trocaCurso,
   });
-}
+};
 
 exports.getTroca = async (req, res) => {
   const { id } = req.params;
@@ -180,32 +188,32 @@ exports.getTroca = async (req, res) => {
   const data = await Solicitartroca.indexByTwo(id);
 
   let reclamacaoIndex = await Reclamacao.indexCount(req.session.user.idCurso);
-  console.log(data);
   res.render(pathPC + '/trocar', {
     user: req.session.user,
     reclamacaoIndex,
-    data
+    data,
   });
-}
+};
 exports.postTroca = async (req, res) => {
   const { idUSer, interessado, id } = req.body;
   const [aluno1] = await Aluno.show(idUSer);
   const [aluno2] = await Aluno.show(interessado);
-  await Aluno.update(aluno1.id , {
-    numero : aluno2.numero, 
-    classe : aluno2.classe,
-    sala : aluno2.sala,
-    turno : aluno2.turno, 
-    idCurso : aluno2.idCurso,
-    idTurma : aluno2.idTurma, 
+  await Aluno.update(aluno1.id, {
+    numero: aluno2.numero,
+    classe: aluno2.classe,
+    sala: aluno2.sala,
+    turno: aluno2.turno,
+    idCurso: aluno2.idCurso,
+    idTurma: aluno2.idTurma,
   });
-  await Aluno.update(aluno2.id , {
-    numero : aluno1.numero, 
-    classe : aluno1.classe,
-    sala : aluno1.sala,
-    turno : aluno1.turno, 
-    idCurso : aluno1.idCurso,
-    idTurma : aluno1.idTurma, 
+  await Aluno.update(aluno2.id, {
+    numero: aluno1.numero,
+    classe: aluno1.classe,
+    sala: aluno1.sala,
+    turno: aluno1.turno,
+    idCurso: aluno1.idCurso,
+    idTurma: aluno1.idTurma,
   });
+  await Solicitartroca.update(id, { resposta : `Troca feita no dia ${ new Date }`});
   return res.redirect(`/cordenacao/troca/${id}`);
-}
+};

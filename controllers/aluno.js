@@ -52,7 +52,6 @@ exports.getTroca = async (req, res, nex) => {
   let notificationIndex = await Notification.indexCount(req.session.user.id);
   const [cursos] = await geral.Dates();
   const solicitars = await Solicitartroca.index();
-  console.log(solicitars);
   res.render(pathViews + 'troca', {
     user: req.session.user,
     notificationIndex,
@@ -148,13 +147,11 @@ exports.postReclamacao = async (req, res) => {
 exports.trocaTurma = async (req, res) => {
   const trocaStore = req.body;
   // Caso ele timer um pedido não pode fazer outro
-  console.log(await Solicitartroca.store(trocaStore));
   res.redirect('/troca');
 };
 exports.postInteressado = async (req, res) => {
   const { id, post } = req.body;
-  console.log(id , post)
-  await Solicitartroca.update(post, id);
+  await Solicitartroca.update(post, { interessado : id});
   io.getIO().emit(`turma-${req.session.user.idCurso}`, {
     content: ` Pedido de troca de turma `,
   });

@@ -23,10 +23,10 @@ class Solicitar {
       .join('aluno as alunoPost', 'solicitartroca.idCurso', '=', 'alunoPost.id')
       .join('curso as myCurso', 'alunoPost.idCurso', '=', 'myCurso.id');
   }
-  static update(post, id) {
+  static update(post,data) {
     return knex
       .table('solicitartroca')
-      .update({ interessado: id })
+      .update(data)
       .where({ id: post });
   }
   static indexCurso(idCurso) {

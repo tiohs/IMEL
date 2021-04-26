@@ -29,11 +29,11 @@
             <div class="row">
               <div class="col col-6">
                 <div class="card" style="width: 18rem;">
-                  <img src="http://localhost:3000/<%- data[0].Avatar %>" class="card-img-top" style="height: 215px;" alt="...">
+                  <img src="http://localhost:3000/<%- data[0].Avatar1 %>" class="card-img-top" style="height: 215px;" alt="...">
                   
                   <div class="card-body">
-                    <p class="card-text">Nome: Ariana Grande</p>
-                    <p class="card-text">Sala: Bloco C</p>
+                    <p class="card-text">Nome: <%- data[0].nome1 %></p>
+                    <p class="card-text">Sala: <%- data[0].sala1%></p>
                     <p class="card-text">Turma: Eim11</p>
                     <p class="card-text">Curso: Informática</p>
                   </div>
@@ -51,7 +51,14 @@
                 </div>
               </div>
             </div>
-            <a href="#" class="btn btn-success mt-5 text-center" type="submit">Fazer Trocar</a>
+            <div style="margin: 0 auto;">
+              <form action="/cordenacao/trocar/" method="post">
+                <input type="hidden" name="idUSer" value="<%- data[0].idUser %>">
+                <input type="hidden" name="interessado" value="<%- data[0].interessado %>">
+                <input type="submit" value="Fazer Trocar" class="btn btn-success mt-5 text-center">
+              </form>
+              
+            </div>
           </div>
 
         </div>

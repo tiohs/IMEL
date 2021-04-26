@@ -42,7 +42,9 @@ class Solicitar {
     return knex
     .select('solicitartroca.*', 
     'aluno1.id as idAluno',
-    'aluno1.photoAvatar as Avatar'
+    'aluno1.photoAvatar as Avatar1',
+    'aluno1.nome as nome1',
+    'aluno1.sala as sala1'
     )
     .from('solicitartroca')
     .whereRaw(` solicitartroca.id   = ${ idPost }`)

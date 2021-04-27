@@ -2,18 +2,11 @@
 
 ### TRABALHO EM FALTA
 
-- [x] Validação de Formulário
-- [x] Notificação
-- [x] Troca de Turma
+
 - [] Criptografia 
-- [x] turmas add campo ``curso nome de curso ``  
-- [x] Erro ao preencher o campo solicitar 
-### O QUE ESTAMOS A FAZER~
+### O QUE ESTAMOS A FAZER
 
-- [x] Autenticação do Cordenador, Admin (Back-and)
-- [x] Pagina de Perfil de aluno , cordenador, colaborador ( Front-And )
-- [x] Paginas completa do admin ( Front-And )
-
+- [] Criptografia 
 ### TABALHO FEITAS
 
 ### TRABALHO CONCLUIDO FEITAS
@@ -22,6 +15,14 @@
 - [x] Autenticação para ambos
 - [x] Update de dados
 - [x] Upload de imagem
+- [x] Validação de Formulário
+- [x] Notificação
+- [x] Troca de Turma
+- [x] Autenticação do Cordenador, Admin (Back-and)
+- [x] Pagina de Perfil de aluno , cordenador, colaborador ( Front-And )
+- [x] Paginas completa do admin ( Front-And )
+- [x] turmas add campo ``curso nome de curso ``  
+- [x] Erro ao preencher o campo solicitar 
 
 ### Banco de dados
 

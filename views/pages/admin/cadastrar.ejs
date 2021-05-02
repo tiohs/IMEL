@@ -59,7 +59,7 @@
                               <tr role="row">
                                 <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
                                   aria-sort="ascending" 
-                                  >#</th>
+                                  >Nº</th>
                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
                                   >Nome
                                 </th>
@@ -74,7 +74,7 @@
                             <tbody>
                                 <% for(dado of dados){ %>
                                 <tr role="row" class="odd">
-                                  <td class="sorting_1"><%- dado.numero_id %></td>
+                                  <td class="sorting_1"><%- dado.id %></td>
                                   <td><%- dado.nome %></td>
                                   <td>Cordenador</td>
   
@@ -123,7 +123,7 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header bg-m text-white">
-          <h5 class="modal-title">Cadastrar Colaborador</h5>
+          <h5 class="modal-title">Cadastrar Cordenador</h5>
           <button class="close" data-dismiss="modal"><span>&times;</span></button>
         </div>
         <div class="modal-body">
@@ -138,11 +138,10 @@
             </div>
             <div class="form-group">
               <label for="title">Curso</label>
-              <select name="curso" class="form-control">
-                <% for(curso of cursos){ %>
-                <option value="<%- curso.id %>"><%- curso.nomeCurso %></option>
-                <% } %>
-              </select>
+              <input type="text" class="form-control" name="curso" required>
+              <label for="title">Descrição</label>
+              <input type="text" class="form-control" name="descricao" required>
+            
             </div>
             <div class="form-group">
               <div class="row">

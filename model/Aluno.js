@@ -47,8 +47,11 @@ class Aluno {
     return dados;
   }
   static allTurmaAluno(id) {
-    const dados = knex.table('aluno').whereRaw(`idTurma = "${id}"`);
-    return dados;
+
+    return knex.table('aluno').whereRaw(`idTurma = "${id}"`);
+  }
+  static alunoCurso(id) {
+    return knex.table('aluno').whereRaw(`idCurso = "${id}"`).count();
   }
 }
 

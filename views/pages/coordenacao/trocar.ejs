@@ -32,10 +32,10 @@
                   <img src="http://localhost:3000/<%- data[0].Avatar1 %>" class="card-img-top" style="height: 215px;" alt="...">
                   
                   <div class="card-body">
-                    <p class="card-text">Nome: <%- data[0].nome1 %></p>
-                    <p class="card-text">Sala: <%- data[0].sala1 %></p>
-                    <p class="card-text">Turma: <%- data[0].nomeTurma1 %></p>
-                    <p class="card-text">Curso: <%- data[0].nomeCurso1 %></p>
+                    <p class="card-text"> <strong>Nome:</strong>  <%- data[0].nome1 %></p>
+                    <p class="card-text"> <strong>Sala:</strong> <%- data[0].sala1 %></p>
+                    <p class="card-text"> <strong>Turma:</strong>  <%- data[0].nomeTurma1 %></p>
+                    <p class="card-text"> <strong>Curso:</strong>  <%- data[0].nomeCurso1 %></p>
                   </div>
                 </div>
               </div>
@@ -43,10 +43,10 @@
                 <img src="http://localhost:3000/<%- data[0].Avatar2 %>" class="card-img-top" style="height: 215px;" alt="...">
                 
                 <div class="card-body">
-                  <p class="card-text">Nome: <%- data[0].nome2 %></p>
-                  <p class="card-text">Sala: <%- data[0].sala2 %></p>
-                  <p class="card-text">Turma: <%- data[0].nomeTurma2 %></p>
-                  <p class="card-text">Curso: <%- data[0].nomeCurso2 %></p>
+                  <p class="card-text"> <strong>Nome:</strong>  <%- data[0].nome2 %></p>
+                  <p class="card-text"> <strong>Sala:</strong>  <%- data[0].sala2 %></p>
+                  <p class="card-text"> <strong>Turma:</strong>  <%- data[0].nomeTurma2 %></p>
+                  <p class="card-text"> <strong>Curso:</strong>  <%- data[0].nomeCurso2 %></p>
                 </div>
               </div>
             </div>
@@ -59,9 +59,10 @@
                 <input type="submit" value="Fazer Trocar" class="btn btn-success mt-5 text-center">
               </form>
               <% } else { %>
-                <button class="btn btn-success">
-                  Troca Feita 
-                </button>
+                <br>
+                <div class="alert alert-primary" role="alert">
+                 <p class="text-center display-4"> Troca feita com sucesso 😉 </p> 
+                </div>
               <% } %>
             </div>
           </div>

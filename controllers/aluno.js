@@ -147,8 +147,11 @@ exports.postReclamacao = async (req, res) => {
 exports.trocaTurma = async (req, res) => {
   const trocaStore = req.body;
   // Caso ele timer um pedido não pode fazer outro
+  console.log(trocaStore);
+  await Solicitartroca.store(trocaStore);
   res.redirect('/troca');
 };
+
 exports.postInteressado = async (req, res) => {
   const { id, post } = req.body;
   await Solicitartroca.update(post, { interessado : id});

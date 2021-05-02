@@ -5,10 +5,11 @@
 - [x] Validação de Formulário
 - [x] Notificação
 - [x] Troca de Turma
-- [] Criptografia 
-- [x] turmas add campo ``curso nome de curso ``  
-- [x] Erro ao preencher o campo solicitar 
-### O QUE ESTAMOS A FAZER~
+- [] Notifaction cordenador 
+- [] Reclamação
+- [] Dar uma olhada nas turmas 
+
+### O QUE ESTAMOS A FAZER
 
 - [x] Autenticação do Cordenador, Admin (Back-and)
 - [x] Pagina de Perfil de aluno , cordenador, colaborador ( Front-And )

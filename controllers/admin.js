@@ -2,6 +2,7 @@ import Geral from '../model/geral';
 import Cordenador from '../model/cordenacao';
 import Aluno from '../model/Aluno';
 import Colaborador from '../model/colaborador';
+import Curso from '../model/curso';
 
 exports.getIndex = async (req, res, next) => {
   const cordenador = await Cordenador.showDate();
@@ -37,14 +38,15 @@ exports.gerir = async (req, res, next) => {
 };
 
 exports.postCadastrarCordenador = async (req, res) => {
-  const { nome, bi, curso } = req.body;
+  const { nome, bi, curso, descricao } = req.body;
   const [filePhonto, fileBI] = req.files;
+  const cursos = await Curso.store({ nomeCurso : curso, descricao });
   const cordenador = new Cordenador(
     nome,
     bi,
     fileBI.filename,
     filePhonto.filename,
-    curso
+    cursos
   );
   await cordenador.save();
   res.redirect('/admin/cadastrar');

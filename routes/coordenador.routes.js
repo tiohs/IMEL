@@ -43,4 +43,5 @@ router.get('/detalhes-colaborador/:id', controllersCoordenador.getDetalhes);
 router.get('/notification/all', controllersCoordenador.getNotification);
 router.get('/troca/:id', controllersCoordenador.getTroca);
 router.post('/trocar/', controllersCoordenador.postTroca);
+router.get('/troca', controllersCoordenador.getTrocar);
 export default router;

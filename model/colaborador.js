@@ -25,6 +25,9 @@ class Colaborador {
   static update(id, dado) {
     return knex.whereRaw(`id = "${id}"`).update(dado).table('colaborador');
   }
+  static colaboradorCurso(id) {
+    return knex.table('colaborador').whereRaw(`idCurso = "${id}"`).count();
+  }
 }
 
 export default Colaborador;

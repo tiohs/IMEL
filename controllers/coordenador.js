@@ -59,10 +59,14 @@ exports.postCadastrarColaborador = async (req, res) => {
 
 exports.getCordenador = async (req, res) => {
   let reclamacaoIndex = await Reclamacao.indexCount(req.session.user.idCurso);
+  const contAluno = await Aluno.alunoCurso(req.session.user.idCurso);
+  const contCor = await Colaborador.colaboradorCurso(req.session.user.idCurso);
   res.render(pathPC + '/cordenador', {
     user: req.session.user,
     wel: req.flash('welcome'),
     reclamacaoIndex,
+    contAluno: contAluno[0]['count(*)'],
+    contCor: contCor[0]['count(*)']
   });
 };
 
@@ -217,3 +221,14 @@ exports.postTroca = async (req, res) => {
   await Solicitartroca.update(id, { resposta : `Troca feita no dia ${ new Date }`});
   return res.redirect(`/cordenacao/troca/${id}`);
 };
+
+exports.getTrocar = async (req, res) => {
+  let reclamacaoIndex = await Reclamacao.indexCount(req.session.user.idCurso);
+  const trocaCurso = await Solicitartroca.indexCurso(req.session.user.idCurso);
+  console.log(trocaCurso);
+  res.render(pathPC + '/troca', {
+    user: req.session.user,
+    reclamacaoIndex,
+    trocaCurso
+  });
+}

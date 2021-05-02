@@ -103,7 +103,7 @@
         <h6 class="dropdown-header">
           notificações
         </h6>
-        
+        <% for(reclamacaoInde of reclamacaoIndex) { %>
         <a class="dropdown-item d-flex align-items-center" href="detalhes.html">
           <div class="mr-3">
             <div class="icon-circle bg-success">
@@ -111,11 +111,12 @@
             </div>
           </div>
           <div>
-            <div class="small text-gray-500">Agosto 09, 2020</div>
-            Fazer troca de curso de <strong> </strong> e <strong> </strong>
+            <h5><%- reclamacaoInde.title %></h5>
+            <div class="small text-gray-500"><%- new Date (reclamacaoInde.datatimes).toLocaleDateString() %></div>
+            <%- reclamacaoInde.content %> <strong> </strong> e <strong> </strong>
           </div>
         </a>
-    
+        <% } %>
       </div>
     </div>
     

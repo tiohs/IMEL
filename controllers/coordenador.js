@@ -173,16 +173,11 @@ exports.getDetalhes = async (req, res, next) => {
 
 exports.getNotification = async (req, res) => {
   let reclamacaoIndex = await Reclamacao.indexCount(req.session.user.idCurso);
-  const id = req.params.id;
-  const [cursos] = await Geral.Dates();
-  const colaborador = await Colaborador.show(id);
-  const trocaCurso = await Solicitartroca.indexCurso(req.session.user.idCurso);
+
+
   res.render(pathPC + '/notification', {
-    dado: colaborador[0],
-    cursos,
     user: req.session.user,
     reclamacaoIndex,
-    trocaCurso,
   });
 };
 

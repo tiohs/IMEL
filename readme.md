@@ -6,7 +6,7 @@
 - [x] Notificação
 - [x] Troca de Turma
 - [x] Notifaction cordenador 
-- [] Listar notication e meter como lida 
+- [x] Listar notication e meter como lida 
 - [x] Reclamação
 - [] Dar uma olhada nas turmas 
 

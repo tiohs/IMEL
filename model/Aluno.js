@@ -1,5 +1,5 @@
 import knex from '../config/db';
-
+import { hash, compare } from 'bcryptjs';
 class Aluno {
   constructor({
     nome,
@@ -28,8 +28,14 @@ class Aluno {
     this.nivelSession = 1;
   }
   async save() {
+    this.palavraPasse = await this.criptPassword();
     let dados = await knex.insert(this).into('aluno');
     return dados;
+  }
+  criptPassword () {
+    if(this.palavraPasse){
+      return hash(this.palavraPasse, 8);   
+    }
   }
   static async shows() {
     let dados = await knex.select().into('aluno');

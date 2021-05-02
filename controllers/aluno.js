@@ -1,7 +1,7 @@
 import Aluno from '../model/Aluno';
 import geral from '../model/geral';
 import Reclamacao from '../model/reclamacao';
-
+import { hash } from 'bcryptjs';
 import io from '../config/socketIO';
 import Notification from '../model/notifiquetion';
 import Solicitartroca from '../model/solicitar';
@@ -61,14 +61,14 @@ exports.getTroca = async (req, res, nex) => {
 };
 
 exports.updatePassword = async (req, res, nex) => {
-  const { password, id, admin } = req.body;
-
+  const { pass, id, admin } = req.body;
+  const password = await hash(pass, 8);
   await Aluno.update(id, { palavraPasse: password });
   if (admin) {
-    res.redirect('/admin/gerir');
+    return res.redirect('/admin/gerir');
   }
   req.session.destroy(() => {
-    res.redirect('/');
+    return res.redirect('/');
   });
 };
 

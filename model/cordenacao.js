@@ -1,4 +1,5 @@
 import knex from '../config/db';
+import { hash } from 'bcryptjs';
 class Colaborador {
   constructor(nome, bi, photoBi, photoAvatar, idCurso) {
     this.nome = nome;
@@ -10,8 +11,15 @@ class Colaborador {
     this.palavraPasse = bi;
   }
   async save() {
+    this.palavraPasse = await this.criptPassword();
     let dados = await knex.insert(this).into('coordenador');
     return dados;
+  }
+  criptPassword () {
+    if(this.palavraPasse){
+      console.log(this.palavraPasse);
+      return hash(this.palavraPasse, 8);   
+    }
   }
   static async showDate() {
     let dados = await knex.select().into('coordenador');

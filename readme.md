@@ -5,8 +5,9 @@
 - [x] Validação de Formulário
 - [x] Notificação
 - [x] Troca de Turma
-- [] Notifaction cordenador 
-- [] Reclamação
+- [x] Notifaction cordenador 
+- [] Listar notication e meter como lida 
+- [x] Reclamação
 - [] Dar uma olhada nas turmas 
 
 ### O QUE ESTAMOS A FAZER

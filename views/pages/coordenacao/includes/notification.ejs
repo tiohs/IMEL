@@ -12,7 +12,7 @@
     }  
   }
 
-  socket.on('turma-<%- user.idCurso %>', async (msg) => {
+  socket.on('idCurso-<%- user.idCurso %>', async (msg) => {
     valorInicial += 1;
     countNotification(valorInicial, true);
   });

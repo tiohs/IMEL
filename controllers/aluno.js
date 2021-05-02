@@ -135,7 +135,7 @@ exports.postNotification = async (req, res) => {
 };
 
 exports.postReclamacao = async (req, res) => {
-  io.getIO().emit(`turma-${req.body.idCurso}`, {
+  io.getIO().emit(`idCurso-${req.body.idCurso}`, {
     content: `Nova reclamação `,
   });
   await Reclamacao.store(req.body);
@@ -146,8 +146,6 @@ exports.postReclamacao = async (req, res) => {
 
 exports.trocaTurma = async (req, res) => {
   const trocaStore = req.body;
-  // Caso ele timer um pedido não pode fazer outro
-  console.log(trocaStore);
   await Solicitartroca.store(trocaStore);
   res.redirect('/troca');
 };

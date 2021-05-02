@@ -121,15 +121,12 @@ exports.updateDataCordenacao = async (req, res, next) => {
   const dados = req.body;
   let id = dados.idCoordenador;
   delete dados.idCoordenador;
-
   if (req.file) {
     req.body.photoBi = req.file.filename;
   }
-
   if (dados) {
     await Cordenador.update(id, dados);
   }
-
   return res.redirect(`/admin/detalhes/${id}`);
 };
 

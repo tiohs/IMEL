@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>IMEL</title>
+
+  <link href="../../fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="../../css/imel.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <div id="wrapper">
+
+    <%- include('./includes/sidebar', {user, reclamacaoIndex}) %>
+
+        
+    <!--start list-->
+    <section id="posts">
+      <div class="container">
+        <div class="card shadow mb-4">
+          <div class="card-header py-3 direct">
+            <h6 class="m-0 font-weight-bold text-primary">Lista das trocas</h6>
+            
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                <div class="row">
+                  <div class="col-sm-12 col-md-6 d-flex">
+
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0"
+                      role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                      <thead>
+                        
+                        <tr>
+                          <th>Nº</th>
+                          <th>ID Aluno 1 </th>
+                          <th>ID Aluno 2</th>
+                          <th></th>
+                        </tr>
+                        </tr>
+                      </thead>
+                      <!--Aluno-->
+                      <tbody id="alu"  style="display: table-row-group">
+                        <% for(trocaCurs of trocaCurso) {%>
+                        <tr role="row" class="odd">
+                          <td class="sorting_1"><%- trocaCurs.id %></td>
+                          <td><%- trocaCurs.idUser %></td>
+                          <td><%- trocaCurs.interessado %></td>
+                          <td><a href="/cordenacao/troca/<%- trocaCurs.id %>" class="btn btn-primary">
+                              <i class="fa fa-angle-double-right"></i> Ver
+                            </a></td>
+                        </tr>
+                        <% } %>
+                      </tbody>
+                    </table>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--end list-->
+      
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- fim do Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; ABDJAM 2020</span>
+          </div>
+        </div>
+      </footer>
+      <!-- fim da Footer -->
+
+    </div>
+    <!-- fim do Content Wrapper -->
+
+  </div>
+  <!-- fim da Pag Wrapper -->
+
+  <!-- Logout Modal-->
+  <%- include('./includes/modalLogout.ejs'); %>
+
+
+  <script src="../../js/jquery.min.js"></script>
+  <script src="../../js/bootstrap.bundle.min.js"></script>
+  <%- include('./includes/notification', {reclamacaoIndex}) %>
+</body>
+
+<script src="../../js/jquery.min.js"></script>
+  <script src="../../js/bootstrap.bundle.min.js"></script>
+  <script src="../../js/jquery.dataTables.min.js"></script>
+  <script src="../../js/dataTables.bootstrap4.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('#dataTable').DataTable({
+      "language": {
+        "decimal": "",
+        "emptyTable": "Sem dado disponivel na tabela",
+        "info": "Mostrando _START_ de _END_",
+        "infoEmpty": "Mostrando 0 de 0",
+        "infoFiltered": "(filtrado de _MAX_)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ ",
+        "loadingRecords": "Processando...",
+        "processing": "Processando...",
+        "search": "Pesquisar:",
+        "zeroRecords": "Nenhum resultado encontrado",
+        "paginate": {
+          "first": "Primeiro",
+          "last": "Anterior",
+          "next": "Proximo",
+          "previous": "Voltar"
+        }
+      }
+    });
+  });
+</script>
+</html>

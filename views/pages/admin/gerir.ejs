@@ -95,7 +95,7 @@
                                   <a href="#" class="btn btn-success aluno" data-toggle="modal" data-target="#passwordModalAluno"> 
                                     <input type="hidden" value="<%- dado.id %>">
                                     <i class="fa fa-lock"></i> Mudar Password </a> 
-                                    <a href="#" class="btn btn-danger"> <i class="fa fa-trash"></i> </a>
+                                  
                                  </td>
                               </tr>
                               <% } %>
@@ -114,7 +114,7 @@
                                 <td class="text-center"> <!-- <a href="detalhes.html" class="btn btn-secondary"> <i class="fa fa-angle-double-right"></i> Detalhes </a> --> 
                                   <a href="#" class="btn btn-success cola" data-toggle="modal" data-target="#passwordModal"> 
                                     <input type="hidden" value="<%- dado.id %>">
-                                    <i class="fa fa-lock"></i> Mudar Password </a> <a href="#" class="btn btn-danger"> <i class="fa fa-trash"></i> </a> </td>
+                                    <i class="fa fa-lock"></i> Mudar Password </a> </td>
                               <% } %>
                             </tbody>
                           </table>
@@ -162,7 +162,7 @@
           <form action="/update-password" method="POST">
             <div class="form-group">
               <label for="name">Password</label>
-              <input type="password" name="password" class="form-control">
+              <input type="password" name="pass" class="form-control">
             </div>
             <div class="form-group">
               <label for="name">Confirma Password</label>

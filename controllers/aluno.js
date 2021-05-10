@@ -52,6 +52,7 @@ exports.getTroca = async (req, res, nex) => {
   let notificationIndex = await Notification.indexCount(req.session.user.id);
   const [cursos] = await geral.Dates();
   const solicitars = await Solicitartroca.index();
+  console.log(solicitars);
   res.render(pathViews + 'troca', {
     user: req.session.user,
     notificationIndex,
@@ -62,6 +63,7 @@ exports.getTroca = async (req, res, nex) => {
 
 exports.updatePassword = async (req, res, nex) => {
   const { pass, id, admin } = req.body;
+  console.log(pass, id, admin)
   const password = await hash(pass, 8);
   await Aluno.update(id, { palavraPasse: password });
   if (admin) {
@@ -135,9 +137,11 @@ exports.postNotification = async (req, res) => {
 };
 
 exports.postReclamacao = async (req, res) => {
+  
   io.getIO().emit(`idCurso-${req.body.idCurso}`, {
     content: `Nova reclamação `,
   });
+  req.body.content = req.body.content + ' . Meu ' + req.session.user.nome + ' meu id ' + req.session.user.id;
   await Reclamacao.store(req.body);
   res.redirect('/reclamacao');
 };
@@ -146,6 +150,10 @@ exports.postReclamacao = async (req, res) => {
 
 exports.trocaTurma = async (req, res) => {
   const trocaStore = req.body;
+  const checkId = !!(await Solicitartroca.checkId(req.body.idUser))[0];
+  if(checkId){
+    return res.redirect('/troca');
+  }
   await Solicitartroca.store(trocaStore);
   res.redirect('/troca');
 };

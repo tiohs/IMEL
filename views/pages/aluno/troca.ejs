@@ -92,12 +92,15 @@
                             curso de <strong><em><%- solicitar.cursoP %></em></strong> 
                             no turno da <strong><em><%- solicitar.periodo %></em></strong>. </p>
                            <% if(!solicitar.interessado){ %>
+                            <% if (solicitar.idUser == user.id ) { %>
+                            <h5>Meu post !</h5>
+                              <% } else { %>
                             <form action="/interessado" method="post">
                               <input type="hidden" name="id" value="<%- user.id %>">
                               <input type="hidden" name="post" value="<%- solicitar.id %>">
                               <input type="submit" value="Solicitar" class="btn btn-primary">
                             </form>
-                            <% } else { %>
+                            <% }} else { %>
                               <button class="btn btn-success">Em processo ...</button>
                             <% } %>
                         </div>

@@ -35,15 +35,15 @@
                   </a>
                 </div>
                 <div class="col-md-3">
-                  <a href="/cordenacao/delete/<%- dado.id %>" class="btn btn-danger btn-block">
-                    <i class="fa fa-trash"></i> Eliminar conta
-                  </a>
-                </div>
-                <div class="col-md-3">
                   <a href="#" class="btn btn-success btn-block">
                     <i class="fa fa-check"></i> <span id="cadastrar">Salvar mudanças</span> 
                   </a>
                 </div>
+                <div class="col-md-4">
+                    <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#passwordModal">
+                      Mudar Password
+                    </a>
+                  </div>
               </div>
             </div>
           </section>
@@ -144,6 +144,37 @@
   </div>
   <!-- fim da Pag Wrapper -->
 
+  <div class="modal fade" id="passwordModal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header bg-m text-white">
+            <h5 class="modal-title">Mudar a Password Cordenador</h5>
+            <button class="close" data-dismiss="modal"><span>&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <form action="/cordenacao/update/coodenador" method="POST">
+              <div class="form-group">
+                <label for="name">Password</label>
+                <input type="password" name="password" class="form-control">
+              </div>
+              
+              <div class="form-group">
+                <label for="name">Confirma Password</label>
+                <input type="password" class="form-control">
+              </div>
+
+              <input type="hidden" id="idAluno" name="id" value="<%- dado.id %>">
+              <input type="hidden" name="admin" value="true">
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button class="btn btn-primary" type="submit">Atualizar Password</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
   <!-- Logout Modal-->
   <%- include('./includes/modalLogout.ejs'); %>
   <script src="../../js/jquery.min.js"></script>

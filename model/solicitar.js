@@ -6,22 +6,18 @@ class Solicitar {
   }
   static index() {
     return knex
-      .select(
-        'solicitartroca.*',
-        'cursoPretendido.nomeCurso as cursoP',
-        'alunoPost.nome as alunoP',
-        'alunoPost.turno as alunoPTurno',
-        'myCurso.nomeCurso as mycurso'
-      )
+      .select('solicitartroca.*', 
+      'alunoP.nome as alunoP',
+      'cursomy.nomeCurso as mycurso',
+      'alunoP.turno as alunoPTurno',
+      'curso.nomeCurso as cursoP')
       .from('solicitartroca')
-      .join(
-        'curso as cursoPretendido',
-        'solicitartroca.idCurso',
-        '=',
-        'cursoPretendido.id'
-      )
-      .join('aluno as alunoPost', 'solicitartroca.idCurso', '=', 'alunoPost.id')
-      .join('curso as myCurso', 'alunoPost.idCurso', '=', 'myCurso.id');
+      .join('aluno as alunoP', 'solicitartroca.idUSer', '=', 'alunoP.id')
+      .join('curso as cursomy', 'alunoP.idCurso', '=', 'cursomy.id')
+      .join('curso', 'solicitartroca.idCurso', '=', 'curso.id');
+  }
+  static checkId(id) {
+      return  knex.select().from('solicitartroca').where({ idUser :  id});
   }
   static update(post,data) {
     return knex

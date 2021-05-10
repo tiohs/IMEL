@@ -4,7 +4,7 @@ import Colaborador from '../model/colaborador';
 import Cordenador from '../model/cordenacao';
 import Reclamacao from '../model/reclamacao';
 import Solicitartroca from '../model/solicitar';
-
+import { hash } from 'bcryptjs';
 const pathPC = 'pages/coordenacao';
 
 exports.getCadastrar = async (req, res) => {
@@ -118,8 +118,15 @@ exports.updateData = async (req, res, next) => {
 
 exports.updateDataCordenacao = async (req, res, next) => {
   const dados = req.body;
-  let id = dados.idCoordenador;
+  const id = dados.id;
   delete dados.idCoordenador;
+ 
+  if(!!dados.password){
+    const palavraPasse = await hash(dados.password, 8);
+     await Cordenador.update(id, { palavraPasse  });
+    console.log(id);
+    return res.redirect(`/admin/detalhes/${id}`);
+  }
   if (req.file) {
     req.body.photoBi = req.file.filename;
   }
@@ -216,7 +223,6 @@ exports.postTroca = async (req, res) => {
 exports.getTrocar = async (req, res) => {
   let reclamacaoIndex = await Reclamacao.indexCount(req.session.user.idCurso);
   const trocaCurso = await Solicitartroca.indexCurso(req.session.user.idCurso);
-  console.log(trocaCurso);
   res.render(pathPC + '/troca', {
     user: req.session.user,
     reclamacaoIndex,

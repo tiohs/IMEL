@@ -22,7 +22,10 @@ class Colaborador {
     let dados = await knex.select().into('colaborador');
     return dados;
   }
-  static update(id, dado) {
+  static async update(id, dado) {
+    if(dado.palavraPasse){
+      dado.palavraPasse = await hash(dado.palavraPasse, 8);
+    }
     return knex.whereRaw(`id = "${id}"`).update(dado).table('colaborador');
   }
   static colaboradorCurso(id) {

@@ -11,8 +11,15 @@ class Colaborador {
     this.palavraPasse = bi;
   }
   async save() {
+    this.palavraPasse = await this.criptPassword();
     let dados = await knex.insert(this).into('colaborador');
     return dados;
+  }
+  criptPassword () {
+    if(this.palavraPasse){
+      console.log(this.palavraPasse);
+      return hash(this.palavraPasse, 8);   
+    }
   }
   static async show(id) {
     let dado = await knex.select().into('colaborador').whereRaw(`id = "${id}"`);
